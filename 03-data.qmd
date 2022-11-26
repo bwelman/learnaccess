@@ -1,0 +1,209 @@
+# Data entry and modify {#sec-data}
+
+::: {.callout-note appearance="simple" icon="false"}
+**OBJECTIVES**
+
+-   Using a data entry form.
+-   Editing, adding and deleting records in a table.
+-   Using a main form with sub form.
+-   Possibilities to enforce validation of data entry.
+:::
+
+Adding new data or change existing data is one of the main activities within Access. In this chapter, you will learn some basic skills for adding and/or modifying data.
+
+## About data entry {#sec-data-about}
+
+Records can be edited directly in the table, but this is not a recommended method for people who are not familiar with Access. You can easily make incorrect entries, especially in tables that are related to other tables. The recommended method is to perform data entry through a form. You can make a form user-friendly, provide explanatory text, and perform controls on the data in the background.
+
+## Table operations {#sec-data-tables}
+
+You can perform the most important data operations directly in the table, like editing, adding, and deleting records. You can type in the fields, but also the known ways to copy and paste are supported.
+
+#### Record editing {.unnumbered}
+
+Open the table and then use the mouse or the arrow keys to go to the field to be changed. Click in the field and make the changes. Once you make a change, an icon with a pencil appears on the left side of the record, ![](images/common/icon-edit.png). This is an indication that the record is in **edit mode**. Once you leave the record, the icon disappears and the changes have been saved.
+
+#### Record adding {.unnumbered}
+
+Go to the bottom of the table, to the row marked with an asterisk: ![](images/common/asterisk.png). In reality, this row doesn't consist but is created when you start entering data. The asterisk moves a row down. The new record is automatically saved.
+
+#### Record deleting {.unnumbered}
+
+There are several ways to delete records. The two easiest ways are:
+
+-   Select the record, then press the key [Delete]{.uicontrol}.
+-   Right mouse-click in the margin at the beginning of the record. Then choose [Delete Record]{.uicontrol}. Access asks for a confirmation of the delete operation.
+
+::: callout-warning
+Access has no button or function to undo the deletes.
+:::
+
+## Add a new customer {#sec-data-new-customer}
+
+With the form [Registration]{.varname}, only new records can be added to the table [Customers]{.varname}. Browsing existing records has been disabled.
+
+::: {#prp-data-new-customer}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Open the form [Registration]{.varname}.
+
+::: callout-note
+The form [Registration]{.varname} contains blank fields where you enter the data. The insertion point indicates where the text appears you type. You can move the insertion point by clicking on another field or by repeatedly pressing the TAB.
+:::
+
+3.  Enter the data as shown in @fig-form-registration.
+
+![Data entry with form Registration.](images/data/form-registration.png){#fig-form-registration}
+
+::: callout-note
+You see again a pencil, indicating that the form is in edit mode and the data has not saved yet.
+
+The record is automatically saved when you close the form or go to another record.
+:::
+
+4.  Close the form through the close button [X]{.uicontrol} in the upper right corner of the document window. The records added through the form [Registration]{.varname} are stored in the table [Customers]{.varname}.
+
+5.  Open table [Customers]{.varname}, go to the last record, and check whether this is the previously added record.
+
+6.  Close table [Customers]{.varname}.
+:::
+
+## Add a new praline {#sec-data-new-praline}
+
+You can browse existing records and adding new records with form [Pralines]{.varname}.
+
+::: {#prp-data-new-praline}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Open form form [Pralines]{.varname}.
+
+3.  Click in the status bar on the button ![](images/common/button-record-new.png) New (blank) record.
+
+4.  Enter the following data:
+
+    -   PralineName: Pecan Mocha Toffee
+    -   PralineCode: F03
+    -   PralineDescription: Sweat creamy mocha and pecan, surrounded with toffee
+    -   ChocolateType: Toffee
+    -   FillingType: Mocha cream
+    -   NutType: Pecan
+    -   PralineCosts: 0.25
+
+5.  Close form [Pralines]{.varname}. The records added through form Pralines are stored in the table [Pralines]{.varname}.
+
+6.  Open table form [Pralines]{.varname} and make sure the record is added.
+
+7.  Close table form [Pralines]{.varname}.
+:::
+
+## Add a new box {#sec-data-new-box}
+
+The mainform [Boxes]{.varname} contains also a subform. The main form with the name [Boxes]{.varname} provides the following information: [BoxName]{.varname}, [BoxCode]{.varname}, [BoxDescription]{.varname}, [Weight]{.varname}, [BoxPrice]{.varname}, and [Stock]{.varname}. These data are stored in the table [Boxes]{.varname}. Furthermore, this form has an additional field [BoxCosts]{.varname}, by calculating the sum of `PralineCosts * Quantity` for all pralines in the box.
+
+The subform with the name [Boxes subform]{.varname} has the following editable fields: [PralineCode]{.varname} and [Quantity]{.varname}. These data and the [BoxCode]{.varname} are stored in table [BoxDetails]{.varname}. In the following steps, a new box is added through the form [Boxes]{.varname}.
+
+::: {#prp-data-new-box}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Open form [Boxes]{.varname}.
+
+3.  Click in the status bar on button ![](images/common/button-record-new.png) New (empty) record.
+
+4.  Enter the following data:
+
+    -   BoxName: Winter Surprise
+    -   BoxCode: WINT
+    -   BoxDescription: Nuts and berries, covered with chocolate and toffee, ideal for long winter evenings by the fire.
+    -   Weight: 300 gram
+
+5.  Click below Content in field [Code]{.varname} on the selection arrow and select PralineCode B02 Butterscotch Blueberry. The remaining praline data as PralineName, ChocolateType, NutType, FillingType, and PralineCosts are filled in automatically. You only need to fill the data for Quantity (Nr.).
+
+6.  Enter 3 at [Nr.]{.varname}.
+
+7.  Add the following pralines to the box:
+
+    | Code | PralineName            | Nr. |
+    |------|------------------------|-----|
+    | B05  | Butterscotch Raspberry | 3   |
+    | P03  | Cashew Perfect         | 3   |
+    | F01  | Walnut Mocha Toffee    | 3   |
+    | F02  | Pistachio Mocha Toffee | 3   |
+    | P07  | Classic Cherry         | 3   |
+
+    The BoxCosts of \$4.53 is automatically calculated.
+
+8.  Enter at [BoxPrice]{.varname} 25.00 and at [Stock]{.varname} 120.
+
+9.  Close form \[Boxes\]{.varname.
+
+10. Check in the table Boxes that the new box has been added.
+:::
+
+## Restriction and validation of data {#sec-data-restriction-validation}
+
+You have various options in Access to control the way data is entered into the database. For example, you can limit the data that can be entered in a field by defining a validation rule for that field. If the entered data doesn't satisfy the rule, an error message informs you what kind of input is permitted. Another method for controlling data input is using an input mask, which is a format for data entry in a field by using characters and symbols.
+
+You can apply these simple methods of validation and restriction by setting properties for fields in tables or properties for controls on forms.
+
+It is recommended to define validation and restriction of data in the design of the table by setting field properties. This saves time because every time you use the field in a form, the rules for field validation and other properties are also used on the form.
+
+If the data entered through a form control, is not dependent of a table field, then you need to define properties on the form for validating and restriction of data.
+
+::: {#prp-data-restriction}
+[File]{.smallcaps}: `{{< var database >}}`
+
+A memo from the marketing department of Snoopy reports that the price of the box Butterscotch should be changed in \$7.75.
+
+1.  Open the database.
+
+2.  Open form [Boxes]{.varname} and navigate to box Butterscotch.
+
+3.  Change [BoxPrice]{.varname} from \$27.75 in \$7.75 and press the TAB key. A validation message appears stating that this price is not right and how you can fix it.
+
+    `Box price too low, should be minimal 2*BoxCosts. Contact marketing department for further information.`
+
+::: {.callout-note}
+The reason why this message appears is that there is a validation rule associated with the field [BoxPrice]{.varname}.
+:::
+
+4.  Click [OK]{.uicontrol}.
+
+5.  Change the price back in \$27.75 and press the TAB key. After that close the form.
+
+:::
+
+## Exercises {#sec-data-exercises}
+
+::: {#exr-data001}
+**Adding pralines (data001)**
+
+Add the following pralines:
+
+| Field         | Praline 1                                             | Praline 2                                             |
+|---------------|-------------------------------------------------------|-------------------------------------------------------|
+| PralineName   | Cashew Mocha Toffee                                   | Almond Mocha Toffee                                   |
+| PralineCode   | F04                                                   | F05                                                   |
+| Description   | Sweet creamy mocha and cashew surrounded with toffee. | Sweet creamy mocha and almond surrounded with toffee. |
+| ChocolateType | Toffee                                                | Toffee                                                |
+| FillingType   | Mocha cream                                           | Mocha cream                                           |
+| NutType       | Cashew                                                | Almond                                                |
+| Costs         | \$ 0.24                                               | \$ 0.19                                               |
+:::
+
+::: {#exr-data001}
+**Add new order (data002)**
+
+A customer places a new order according to the data below. First, consider the best way for entering the order. Then create this order. The OrderCode should be the next available order code.
+
+`Order on 23 April 2010, 10 o'clock. Customer Rebecca Smit orders by phone 3 boxes CHER and 2 boxes Marz.`
+
+A few hours later the following change to this order is made by phone. First, consider again the best way to handle the change. Then apply the change.
+
+`Order change 23 April 2010, 16 o'clock. The two boxes Marz should be deleted.`
+:::

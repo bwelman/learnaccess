@@ -1,0 +1,65 @@
+project:
+  type: book
+  pre-render: R/generate-zip.R
+
+book:
+  title: "Learn Microsoft Access"
+  author: "Ben Welman"
+  date: today
+  date-format: long
+  google-analytics: "G-08L9QXJN06"
+  site-url: https://learnaccess.netlify.app/
+
+  description: "A task-oriented textbook."
+
+  chapters:
+    - index.qmd
+    - preface.qmd
+    - part: "Basic"
+      chapters:
+        - 01-intro.qmd
+        - 02-explore.qmd
+        - 03-data.qmd
+        - 04-tables.qmd
+        - 05-queries.qmd
+        - 06-forms.qmd
+        - 07-reports.qmd
+    - part: "Advanced"
+      chapters:
+        - 08-integration.qmd
+        - 09-tools.qmd
+        - 10-macros.qmd
+
+execute:
+  freeze: auto
+
+lang: en
+
+language:
+  en:
+    crossref-prp-title: "Task"
+  nl:
+    crossref-prp-title: "Taak"
+
+format:
+  html:
+    include-after-body: include/webex.js
+    css: include/webex.css
+    theme:
+      - cosmo
+      - include/textbook.scss
+    cover-image: images/cover-access.svg
+    fig-width: 6
+    fig-asp: 0.618
+    fig-align: center
+    code-fold: false
+    link-external-newwindow: true
+    callout-appearance: simple
+
+
+knitr:
+  opts_chunk:
+    echo: false
+    warning: false
+    message: false
+    cache: false

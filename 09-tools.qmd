@@ -1,0 +1,100 @@
+# Tools {#sec-tools}
+
+::: {.callout-note appearance="simple" icon="false"}
+**OBJECTIVES**
+
+-   Ability to analyze tables and detect inconsistencies.
+-   Being able to defragment and repair databases.
+:::
+
+## About tools {#sec-tools-about}
+
+Access has several tools to perform additional work on databases. This chapter deals with the following:
+
+-   Analysis of a table
+-   Compressing database
+
+Other tools in Access are:
+
+-   Analyze performance
+-   Documenting database
+-   Encrypt with a password
+-   Creating a switchboard
+
+## Analyze table {#sec-analyse-tables}
+
+Purpose: Investigation of inconsistency in tables.
+
+When the same information is stored more than once in different tables, this is called redundancy. That is undesirable because when the information changes, you need to change this on all those places. If you don't then the database is **inconsistent**, the information on these sites is contradictory.
+
+Access has a tool [Analyze Table]{.uicontrol} to detect redundant data and to split a table with redundant data in multiple, related tables so that the information is stored more efficiently. This process is called normalization.
+
+You can specify which tables you want to the wizard creates for you or you can let the wizard normalize your table. After this, the wizard helps to sanitize the data in the original table. In the last step, you can create a query that returns all information in the splitted tables, displayed in a single datasheet that matches the original table.
+
+In @fig-tools-table-contacts you can see an example of a table [Contacts]{.varname} with many duplicated data in it. So, this table is not normalized. Access can split this table into two tables so that as little data as possible is stored multiple times.
+
+![Table Contacts.](images/tools/table-contacts.png){#fig-tools-table-contacts}
+
+::: {#prp-tools-analyze}
+[Practice file]{.smallcaps}: `tools.accdb`
+
+1.  Open the practice file.
+
+2.  Select table [Contacts]{.varname}.
+
+3.  Choose [tab Database Tools \> Analyze Table (group Analyze)]{.uicontrol}. The wizard ***Table Analyzer*** appears with some general explanation of duplicate information.
+
+4.  Click [Next]{.uicontrol}. A new screen of the ***Table Analyzer*** wizard appears with a general explanation about how this problem can be solved.
+
+5.  Click [Next]{.uicontrol}. Now the wizard asks you which table has redundant data.
+
+6.  Select table [Contacts]{.varname} and click [Next]{.uicontrol}. Now you can specify who decides about the choice for the fields, the wizard, or you.
+
+7.  Select that you want to make the decisions. Then click [Next]{.uicontrol}.
+
+![Table Analyzer Wizard.](images/tools/table-analyzer-wizard.png){#fig-table-analyzer-wizard}
+
+::: callout-note
+In this step, you can create new tables and add fields.
+:::
+
+8.  Select field [ContactName]{.varname} and drag it out of the table. A new table is created that contains the field name [ContactName]{.varname}. The wizard asks now for the name of the new table.
+
+9.  Enter [Contactpersons]{.varname} as the name for the new table and click [OK]{.uicontrol}.
+
+![Generated table Contactpersons.](images/tools/table-generated.png){#fig-table-generated}
+
+::: callout-note
+-   There is also a relationship created between the two tables.
+
+-   The location and dimensions of the displayed tables can be modified by dragging the table itself or the edges.
+:::
+
+10. Drag now the fields [CompanyName]{.varname} and [Tel]{.varname} to the table [Contactpersons]{.varname}.
+
+![Final result table Contactpersons.](images/tools/tables-splitted.png){#fig-tables-splitted}
+
+11. Click [Next]{.uicontrol}. The wizard asks now if you want to create a query.
+
+12. Don't create a query and click [Finish]{.uicontrol}. There are now 3 tables: [Contacts]{.varname} (the original table), [Contactpersons]{.varname} (new table), [Tabel1]{.varname} (new table).
+
+::: callout-warning
+There may be a warning window stating that the command or action [TileHorizontally]{.uicontrol} isn't available. If so, click [OK]{.uicontrol}.
+:::
+
+13. Close the tables and when prompted, then save the modified designs.
+
+14. Remove the original table [Contacts]{.varname}.
+
+15. Rename [Tabel1]{.varname} in [Contacts]{.varname}.
+:::
+
+## Compact and repair databases {#sec-compact-repair}
+
+How to defragment and repair databases.
+
+Multiple problems can occur in a frequently used database where you add, modify, and delete records. Deleting records or objects in a database can cause defragmentation of the database, making the database inefficient. When you open a database, Access examines its condition and tries to fix problems. But not always the problems are discovered and in then the user had to start a compact and repair action.
+
+Compact also affects autonumbering in an Access database. If you have deleted records at the end of a table with an Autonumber field, the AutoNumber value for that field is reset. It will then start at the next higher number when you add new records.
+
+To manually compact and repair a database choose [tab Database Tools \> Compact and Repair Database (group Tools)]{.uicontrol}.

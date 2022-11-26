@@ -1,0 +1,40 @@
+# Preface {.unnumbered}
+
+This textbook is intended as a thorough introduction to Microsoft Access and has been developed especially for students in higher education and users of Microsoft Access. The focus is on creating queries, forms and reports and not on designing databases. The chapters on these components contain many exercises to practice you in gathering infotrmation from the database.
+
+This textbook is different from other Access textbooks in several ways.
+
++ It is free and online, making it accessible to a wide audience.
+
++ Topics are developed to perform a specific task and master a specific task, no more and no less. This has resulted in concrete stepwise tasks without additional information that may cause only distraction.
+
++ The content of the tasks and exercises is mainly determined by competences and skills that higher education requires. Many of the problems comes from experiences of students in the professional practice during internships and graduation.
+
+
+## Organization textbook {.unnumbered}
+
+The textbook is built around the database `{{< var database >}}` of the fictitious company SNOOPY that sells an assortment of chocolate boxes to customers. The chapters in this book have a logical structure about working with this database.
+
++ @sec-intro is an introduction to the Access program itself and the contents of databases in general.
+
++ @sec-explore is an exploration of the database `{{< var database >}}`, such as which tables has this database and what is in it. You will experiment with this database to discover different aspects of working with Access.
+
++ @sec-data deals with adding and/or modifying data, which is often one of the most important task of the user. 
+
++ @sec-tables focuses on creating tables and establishing relationships between tables.
+
++ @sec-queries deals with obtaining desired information from a database, also a common end-user action. Queries are needed to provide the desired information. You will learn how to create these queries.
+
++ @sec-forms covers forms that allow you to display an organized and formatted view of fields in tables and queries. Forms are also important for data entry.
+
++ @sec-reports deals with reports, overviews usually intended for printing. Labels are also a form of reports.
+
++ @sec-integration discusses a few ways to make Access work with Excel and Word.
+
++ @sec-tools shows which tools are available within Access to analyze, troubleshoot and correct a database.
+
++ @sec-macros shows how to automate actions that are common or quite complex using macros.
+
+## Software {.unnumbered}
+
+This textbook works with **Access 365**, but it can also be used for other Access versions such as 2016 and 2019 and even the older 2010 and 2007 versions. 

@@ -1,0 +1,209 @@
+# Macros {#sec-macros}
+
+::: {.callout-note appearance="simple" icon="false"}
+**OBJECTIVES**
+
+-   What you can do with macros.
+-   How to create macros.
+-   How to combine macros with a form.
+:::
+
+## About creating macros {#sec-macros-about}
+
+A macro is a little program that can perform certain actions. For example, you can give a macro the command to open a form or to search a record. A macro is often assigned to a control such as a command button. When clicking on the button, then the commands in the macro are run. This way you can assign additional functions to forms and reports.
+
+A macro in Access is a list of actions to be carried out consecutively. For most actions, one or more arguments are needed.
+
+![Macro window with action catalog.](images/common/macro-window.png){#fig-macro-window-1}
+
+No programming knowledge is required for creating macros. A macro is stored as an object in the database.
+
+A point of concern with macros is the aspect of safety. Access divides the possible macro actions into two types:
+
+-   harmless actions always, regardless of how they are used
+-   dangerous actions
+
+Even an action as [Printing]{.uicontrol} is considered hazardous because these unwanted can send commands to the printer.
+
+When you add actions in the macro window, by default, Access shows only the safe actions. To get a complete list of actions, including dangerous actions, you need to change a setting. Then choose in the macro window [tab Design \> Show All Actions (group Show/Hide]{.uicontrol}.
+
+## Customer search by code {#sec-macros-customercode}
+
+On a form is a choice list and through an assigned macro the corresponding record is looked up.
+
+First, a form with the data of a customer should be created. To make it easier to find a particular customer with known customer code, the form should contain a list box where you can enter the customer code and after that, the data of the corresponding customer should be displayed in the form.
+
+ANALYSIS
+
+The base of the form can be made with a default form. The drop-down list box is the control [Combo Box]{.uicontrol}. Furthermore, you have to create a macro that performs two actions. First, go to the drop-down list box to get the entered customer code and then find the corresponding record.
+
+::: {#prp-macros-customercode}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Select table [Customers]{.varname}. It's not necessary to open the table.
+
+3.  Click [tab Create \> Form (group Forms)]{.uicontrol}. The form is created and opened in Layout View.
+
+4.  Save the form with the name [Search customer by code]{.varname}. The easiest way to do that is through button ![Save](images/common/button-save.png) in the [Quick Access toolbar]{.uicontrol}.
+
+5.  Switch to Design View.
+
+6.  Select [Design \> Combo Box (group Controls)]{.uicontrol} ![](images/common/combobox.png) and then draw in the right part of the form header a rectangular framework for the list box.
+
+![Form with combo box.](images/macros/customercode-combobox-framework.png){#fig-customercode-combobox-framework}
+
+After drawing the framework, the Combo Box Wizard is automatically started.
+
+6.  Answer the consecutive questions of the Wizard as follows:
+
+    -   The Combo Box should get the values from a table or a query.
+    -   Table: Customers should provide the values for the combo box.
+    -   Only field CustomerCode should be added.
+    -   Sort records ascending on CustomerCode.
+    -   Accept the default width of the column.
+    -   Remember the selected value for later use.
+    -   Label text: Search on customer code:
+
+    After completing the wizard you are back in the Design View.
+
+7.  When the label and the Combo Box are partly overlapping each other, you have to move one or both of them. You do this by dragging the upper-left corner of the object with a pressed left mouse button.
+
+8.  Close form [Search customer by code]{.varname} and save the changes.
+
+9.  Choose [tab Create \> Macro (group Macros & Code)]{.uicontrol}.
+
+![Macro window.](images/common/macro-window.png){#fig-macro-window-2}
+
+10. Click on the selection arrow in the box [Add New Action]{.uicontrol} and select action [GoToControl]{.uicontrol} from the list.
+
+11. Enter `CustomerCode` in the box [Control Name]{.uicontrol}.
+
+![Action GoToControl CustomerCode.](images/macros/macro-customercode-gotocontrol.png){#fig-macro-customercode-gotocontrol-1}
+
+12. Click on the selection arrow in the box [Add New Action]{.uicontrol} and select action [FindRecord]{.uicontrol}.
+
+13. Enter value `=[searchcode]` in box [Find What]{.uicontrol}. The other arguments are already filled in by Access with their default values and can remain.
+
+![Macro Search customer by code.](images/macros/macro-customer-by-code.png){#fig-macro-customer-by-code}
+
+14. Close the macro window and save the macro with name [Search customer by code]{.varname}.
+
+15. Open form [Search customer by code]{.varname} in Design View.
+
+16. Select the [Combo Box]{.uicontrol} and change in the ***Property Sheet (tab Other)*** the name in `searchcode`.
+
+![Combo Box property Name.](images/macros/customercode-combobox-name.png){#fig-customercode-combobox-name}
+
+17. With still the Combo Box selected, click in [Property Sheet (tab Event)]{.uicontrol} on the selection arrow in box [After Update]{.uicontrol} and select macro [Search customer by code]{.varname}.
+
+![Combo Box property After Update.](images/macros/customercode-combobox-afterupdate.png){#fig-customercode-combobox-afterupdate}
+
+18. Close the form and save the changes.
+
+19. Open form [Search customer by code]{.varname} and test if the Combo Box works properly.
+:::
+
+## Customer search by name {#sec-macros-customername}
+
+Searching a record with two combo boxes on a form.
+
+To perform this task you must have finish @prp-macros-customercode where you created the form [Search customer by code]{.varname} that you will need in this task.
+
+There should be a form created with the data of a customer and with two Combo Boxes. Through the first list, a customer should be searched by the customer code and through the second list by name. The second Combo Box should display a sorted list of last names followed by first names. After choosing via one of the two lists, the customer's details must be shown in the form.
+
+ANALYSIS
+
+The basis of the new form is the previously created form [Search customer by code]{.varname}. In Access, you can create a copy of an object and save it under a different name. The second Combo Box must then be made on this. And you need to create a macro that will execute the actions. First, go to the drop-down list box to get the entered customer code and then find the corresponding record.
+
+::: {#prp-macros-customername}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Right-click on form [Search customer by code]{.varname}, choose [Copy]{.uicontrol}. Then right-click again and choose [Past]{.uicontrol}.
+
+3.  Name the new form [Search customer by name]{.varname} and open this form in Design View.
+
+4.  Create more space for the form header. Position the mouse pointer over the top edge of Detail until it changes as shown in @fig-customername-formheader. Then press the left mouse button and drag the border down so that there is enough space for the second Combo Box.
+
+![Enlarging form header.](images/macros/customername-formheader.png){#fig-customername-formheader}
+
+4.  Create a second [Combo Box]{.uicontrol} below the first one.
+
+5.  Answer the consecutive questions of the Wizard as follows:
+
+    -   The Combo Box should get the values from a table or a query.
+    -   Table: [Customers]{.varname} should provide the values for the combo box.
+    -   Add in sequence the fields [LastName]{.varname}, [FirstName]{.varname}, [CustomerCode]{.varname}.
+    -   Sort records ascending on lastname and then firstname.
+    -   Accept the default width of the column and select to hide the key column (this is [CustomerCode]{.varname}).
+    -   Remember the selected value for later use.
+    -   Label text: `Search on customer name:`
+
+    After completing the wizard you are back in the Design View.
+
+6.  Take care that labels and Combo Boxes are properly aligned.
+
+![Form with 2 combo boxes.](images/macros/customername-comboboxes.png){#fig-customername-comboboxes}
+
+7.  Select the second Combo Box and change in the ***Property Sheet (tab Other)*** the name in [searchname]{.varname}. Click on the selection arrow in the box [After Update]{.uicontrol} and type [Search customer by name]{.varname}.
+
+::: callout-note
+This macro does not exist yet and will be created in the next step.
+:::
+
+8.  Close the form and save the changes.
+
+9.  Choose [tab Create \> Macro (group Macros & Code)]{.uicontrol}.
+
+![Macro window.](images/common/macro-window.png){#fig-macro-window}
+
+10. Click on the selection arrow in the box [Add New Action]{.uicontrol} and select action [GoToControl]{.uicontrol} from the list
+
+11. Enter [CustomerCode]{.varname} in the box [Control Name]{.uicontrol}.
+
+![Action GoToControl CustomerCode.](images/macros/macro-customercode-gotocontrol.png){#fig-macro-customercode-gotocontrol-2}
+
+12. Click on the selection arrow in the box [Add New Action]{.uicontrol} and select action [FindRecord]{.uicontrol}.
+
+13. Enter value `=[searchname]` in box [Find What]{.uicontrol}. The other arguments are already filled in by Access with their default values and can remain.
+
+::: callout-note
+To ensure that the value of the first list box also changes to the right value when choosing a name, you had to create an action for this. The value for searchcode must be equal to the value of CustomerCode of the found record.
+:::
+
+14. Add an action with the name [Setvalue]{.varname}. This action considers Access as a dangerous action that is not shown by default. It should be made visible in the list by using the setting [Show All Actions (group Show/Hide)]{.uicontrol}. This action has two parameters, Item and Expression, which should get the following values:
+
+-   Item: `[Form]![Search customer by name]![searchcode]`
+-   Expression: `[Form]![Search customer by name]![CustomerCode]`
+
+![Macro customer by name.](images/macros/macro-customer-by-name.png){#fig-macro-customer-by-name}
+
+15. Close the macro window and save it with the name [Search customer by name]{.varname}.
+
+16. Open form [Search customer by name]{.varname} and test the operation of both Combo Boxes.
+
+::: callout-note
+When the first list box is used, its name does not appear in the second list box. To achieve this, you also need to add an action SetValue to this macro. But that has consequences for the operation of the Combo Box on form [Search customer by code]{.varname}.
+:::
+:::
+
+## Choice list boxcode {#sec-macros-boxcode}
+
+This task is a variant on the task in which the customer is searched by customer code. Now you should create a form with the data of a box and on that form a combo box for searching the BoxCode.
+
+ANALYSIS
+
+The base of the form can be made with a default form. The choice list is a [Combo Box]{.uicontrol}. You need to create a macro for performing two tasks. First, go to the Combo Box and get the box code from there. Then find the corresponding record..
+
+::: {#prp-macros-boxcode}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Create a new form with Combo Box and name it [Search box by code]{.varname}.
+
+2.  Create the macro and name it [Search box by code]{.varname}.
+
+3.  Open form [Search box by code]{.varname} and test the working of the Combo Box.
+:::

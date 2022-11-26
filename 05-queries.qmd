@@ -1,0 +1,1054 @@
+# Queries {#sec-queries}
+
+::: {.callout-note appearance="simple" icon="false"}
+**OBJECTIVES**
+
+-   Types of queries and what you can do with them..
+-   Creating a simple select query using the wizard.
+-   Conditions in a query.
+-   Grouping and calculations in a query.
+-   Parameter query, update query, make-table query, and crosstab query.
+:::
+
+Retrieving information from a database is the most common action from end-users. To deliver the required information queries are necessary. Simple queries can be created by the end-user themselves, for more complex queries help of a professional is usually desired.
+
+## About creating queries {#sec-queries-about}
+
+The most familiar form of a query is the select query, which is a sort of question to the database to a particular set of data. However, a query can produce more than a list of records. So there may be functions in a query that perform calculations (sum, average,...) on the data. And there are various types of queries. In this course are discussed the types:
+
+Select query
+
+:   Retrieves data from one or more tables and displays the results in a datasheet view. You can use this query to execute records and calculations groups such as sum, average, count,... This is the most common type of query.
+
+Parameter query
+
+:   The user should first give a value for one or more fields. Thereafter, the value is used to carry out a select query. An example is a list of orders from a certain date.
+
+Update query
+
+:   Hereby it is possible to make one or more changes to records that meet certain conditions with one action. An example is a 10% price increase for a series of products.
+
+To create a query, it is necessary that you first specify well the information needs. After this, you can start to create the query.
+
+## Customers and orders {#sec-queries-customername-ordercodes}
+
+INFORMATION NEEDS
+
+Create a sorted list of all customers with their last name, first name, and their order codes.
+
+ANALYSIS
+
+The last name and first name of a customer are in table [Customers]{.varname}. The order codes of a customer are in table [Orders]{.varname}. Because this is a simple straightforward select query, you can use the Query Wizard.
+
+::: {#prp-queries-customername-ordercodes}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Query Wizard (group Queries)]{.uicontrol}. The dialog box New Query is displayed. Here you can select the query type.
+
+3.  Select [Simple Query Wizard]{.uicontrol} and click [OK]{.uicontrol}. In the following screen, you can select the fields you want in your query.
+
+4.  Select in [Tables/Queries]{.uicontrol} through the list box [Table: Customers]{.varname}. The fields of table [Customers]{.varname} are displayed in the box [Available Fields]{.uicontrol}.
+
+![Selection Query with table Customers.](images/queries/q-wizard-t-customers.png){#fig-q-wizard-t-customers}
+
+5.  Select field [LastName]{.varname} and click ![](images/common/button-add-field.png). Field [LastName]{.varname} has been moved to box [Selected Fields]{.uicontrol}.
+
+6.  Add in the same way field [FirstName]{.varname}.
+
+7.  Select [Table: Orders]{.varname} in box [Tables/Queries]{.uicontrol}. The fields of table [Orders]{.varname} are displayed in box [Available Fields]{.uicontrol}.
+
+8.  Add field [OrderCode]{.varname}.
+
+![Wizard selection query with selected fields.](images/queries/q-customername-ordercodes-fields.png){#fig-q-customername-ordercodes-fields}
+
+9.  click [Next]{.uicontrol}. In the displayed screen you can specify if you like a detail or summary query.
+
+10. Select [Detail (shows every field of every record)]{.uicontrol} and click [Next]{.uicontrol}.
+
+11. Name the query [Customername+Ordercodes]{.varname}, select [Modify the query design]{.uicontrol}, and click [Finish]{.uicontrol}. The design of the query is displayed.
+
+12. Click in box [Sort]{.uicontrol} of column [LastName]{.uicontrol} and choose [Ascending]{.uicontrol}.
+
+![Design query customername and ordercodes.](images/queries/q-customername-ordercodes-design.png){#fig-q-customername-ordercodes-design-1}
+
+13. Switch to [Datasheet View]{.uicontrol}.
+
+![Design query customername and ordercodes.](images/queries/q-customername-ordercodes-result.png){#fig-q-customername-ordercodes-result}
+
+14. Close the query and answer the question to save the changes with[Yes]{.uicontrol}.
+:::
+
+## Criteria in queries {#sec-queries-criteria}
+
+Explanation of conditions in a query, the Like operator, and wild cards.
+
+In a query, you can define conditions, so that only those records which meet these conditions are displayed. In the design grid, the row Criteria is available for this purpose.
+
+A criterion is similar to a formula. It is a string that may consist of field references, operators, and constants (values that are always the same). Query criteria are also called expressions. What may be formulated in a criterion depends on the data type of the field (text, numeric, date/time, yes/no).
+
+| Category    | Operators                                         |
+|-------------|---------------------------------------------------|
+| Arithmetic  | `+`, `-`, `*`, `/`, `\`, `^`, `Mod`               |
+| Comparison  | `=`, `>`, `>=`, `<`, `<=`, `<>`                   |
+| Logical     | `And`, `Or`, `Not`, `Xor`, `Eqv`                  |
+| Aggregation | `&`, `+`                                          |
+| Special     | `Is Null`, `Is Not Null`, `Like`, `Between`, `In` |
+
+: Operators in criteria {#tbl-criteria-operators}
+
+You can make simple criteria with this, but also very complicated.
+
+A special role is for the `Like` operator. This compares a value with a certain pattern. That pattern can be the literal string to compare with, such as Like "North". But the pattern may also contain wild cards, such as Like "He\*". This allows the use of the operator Like very powerful.
+
+Date values must be surrounded by the symbol `#`. Some examples of date criteria: `#12/5/2010#`, `>#9/1/2010#`, `>#9/1/2010#` and `<#9/15/2010#`
+
+Wild cards are placeholders for other characters, which you use when you don't know the entire search pattern but only a part. The three most common wild cards are:
+
+-   `*`: For any number of characters. Examples: `"A*"`, `"*dam"`
+
+-   `?`: For any single character. Example: `"b?k"`
+
+-   `#`: For any single digit. Example `"1#5"`
+
+[External article: Examples of query criteria](https://support.office.com/en-us/article/Examples-of-query-criteria-3197228c-8684-4552-ac03-aba746fb29d8)
+
+## Orders from Utrecht customers {#sec-queries-utrecht-dec2009}
+
+Add manually fields and criteria to an existing and save the query under a new name.
+
+To perform this task, it is necessary that you have performed \@ref(queries-customername-ordercodes) .
+
+INFORMATION NEEDS
+
+Make a sorted list by last name, first name, and order codes of all customers who live in the province Utrecht and with an order date in December 2009.
+
+ANALYSIS
+
+All the required information will be provided by the query you created in \@ref(queries-customername-ordercodes). However, there are two additional conditions (criteria):
+
+-   The field [Province]{.varname} (in table [Customers]{.varname}) should have the value `UT`.
+-   The field [OrderDate]{.varname} (in table [Orders]{.varname}) should have a value in the range12-1-2009 until 12-31-2009.
+
+::: {#prp-queries-utrecht-dec2009}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Open query Customername+Ordercodes in[Design View]{.uicontrol}.
+
+![Design query Customername+Ordercodes.](images/queries/q-customername-ordercodes-design.png){#fig-q-customername-ordercodes-design-2}
+
+3.  Drag field [Province]{.varname} from table [Customers]{.varname} to the column next to [OrderCode]{.varname}. Drag field [OrderDate]{.varname} from table [Orders]{.varname} to the next column.
+
+![Fields in the design grid.](images/queries/q-utrecht-dec2009-fields.png){#fig-q-utrecht-dec2009-fields}
+
+4.  Enter `"UT"` under [Province]{.varname} in box [Criteria]{.uicontrol}.
+
+5.  Enter `Like "12\*2009"` under [OrderDate]{.varname} in box [Criteria]{.uicontrol}.
+
+![OrderDate with Like operator.](images/queries/q-utrecht-dec2009-criteria.png){#fig-q-utrecht-dec2009-criteria}
+
+::: callout-note
+-   The asterisk `*` is called a **wild card** and means that in this place may be arbitrary text. So the string "12\*2009" should start with 12 (= month December) end with 2009.
+
+-   On computers where a Dutch date format (day-month-year) is set, you should change this in the American date format (month-day-year).
+:::
+
+6.  Switch to [Datasheet View]{.uicontrol} and check that all customers are from the province of Utrecht and that are all order data in December 2009.
+
+7.  Switch to [Design View]{.uicontrol} and uncheck[Show]{.uicontrol} for the columns [Province]{.varname} and [OrderDate]{.varname}.
+
+8.  Switch to [Datasheet View]{.uicontrol}.
+
+9.  Save the query under a different name through [File \> Save Object as]{.uicontrol} and specify as name [Utrecht and orderdate dec 2009]{.varname}.
+
+10. click [OK]{.uicontrol} and close the query.
+:::
+
+## Customers with box CHER {#sec-queries-customers-cher}
+
+A select query with 3 tables.
+
+INFORMATION NEEDS
+
+In the last month of the calendar year, it is established that the sell-by date of the CHER boxes is insight. Therefore the sales department wants to organize a direct mail campaign to the customers who once bought CHER boxes. Make a list of all customers with their last name, first name, and full address whoever bought at least one box CHER.
+
+Create a list of all customers with their last name, first name, and full address who bought at least one box CHER.
+
+ANALYSIS
+
+All customer information (first name, last name, address, postcode, city ) is in the [Customers]{.varname} table. The ordered boxes can be found in the field [BoxCode]{.varname} in table OrderDetails. In order to link an order to a customer you also need the table [Orders]{.varname}. The table [Orders]{.varname} is the link between the tables [Customers]{.varname} and [OrderDetails]{.varname}. And as condition, you need to specify the value `CHER` for field [BoxCode]{.varname}.
+
+When using the Wizard to create the query, it is sufficient to add only the needed fields from the [Customers]{.varname} and [OrderDetails]{.varname} tables. The Wizard then automatically ensures that the [Orders]{.varname} table is added because it is the link between the tables [Customers]{.varname} and [Order Details]{.varname}. When you create the query manually from scratch, you should be self-aware to add the [Orders]{.varname} table. That is why preference is given to the use of the Wizard in this task.
+
+::: callout-note
+It's not necessary to include a criterion that at least one box is ordered, because this condition is automatically set for linked tables.
+:::
+
+::: {#prp-queries-customers-cher}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Query Wizard (group Queries)]{.uicontrol}. The dialog box ***New Query*** is displayed. Here you can select the query type.
+
+3.  Select [Simple Query Wizard]{.uicontrol} and click [OK]{.uicontrol}. In the following screen, you can select the fields you want in your query.
+
+4.  Select in [Tables/Queries]{.uicontrol} through the list box [Table: Customers]{.varname}. The fields of table [Customers]{.varname} are displayed in the box [Available Fields]{.uicontrol}, see @fig-q-wizard-t-customers.
+
+5.  Add the fields: [FirstName]{.varname}, [LastName]{.varname}, [Address]{.varname}, [ZipCode]{.varname}, [City]{.varname}.
+
+::: callout-note
+Select the field, and click ![](images/common/button-add-field.png)\]{.uicontrol}. You can also double click on a field to add or remove it.
+:::
+
+6.  Select table [Table: OrderDetails]{.varname} in box [Tables/Queries]{.uicontrol}. The fields of table [OrderDetails{.varname} are displayed in box [Available Fields]{.uicontrol}.
+
+7.  Add field [BoxCode]{.varname}.
+
+![Simple Query Wizard with selected fields.](images/queries/q-customers-cher-fields.png){#fig-q-customers-cher-fields}
+
+8.  click [Next]{.uicontrol}. Now you can specify if you like a detail or summary query.
+
+9.  Select [Detail (shows every field of every record)]{.uicontrol} and click [Next]{.uicontrol}.
+
+10. Name the query [Customers and CHER]{.varname}, select [Modify the query design]{.uicontrol} and click [Finish]{.uicontrol}. The query is saved and then appears in the design view.
+
+![Design query Customers and CHER.](images/queries/q-customers-cher-design.png){#fig-q-customers-cher-design}
+
+11. Enter `CHER` in column [BoxCode]{.varname} and row [Criteria]{.uicontrol} and don't let this field show.
+
+![Selection criteria in query design for CHER boxes.](images/queries/q-customers-cher-criteria.png){#fig-q-customers-cher-criteria}
+
+12. Switch to [Datasheet View]{.uicontrol}.
+
+13. Close the query and answer the question to save the changes with [Yes]{.uicontrol}.
+:::
+
+## Summarizing and Calculations {#sec-queries-summarizing}
+
+The simple select queries work with individual records. When you select certain customers from the Customers table with a query, then you will see a record for each customer that meets the requirements. It is also possible to group your records and then perform calculations on the subgroups. That can be compared with the calculation of totals and subtotals.
+
+When a query is displayed in design view you see on the ribbon [tab Design \> Totals (group Show/Hide)]{.uicontrol} the button ![Button totals](images/queries/button-totals.png)
+
+With this button, you can show or hide a row [Total]{.uicontrol} in the design grid. Access adds a [Total]{.uicontrol} box for each field, just under the table box.
+
+![Query design with a visible row Total.](images/queries/q-pralines-box-design.png){#fig-q-pralines-box-design}
+
+For each added box you can choose an option from the drop-down list. This option determines whether the field is used in a calculation or used for grouping or filtering. The available options can be divided into three categories:
+
+Grouping
+
+:   The choice is then: `Group By`. The field is used to get smaller groups on which you can perform calculations. This choice is also the default option.
+
+Filtering
+
+:   The choice is then: `Where`. The checkmark in the [Show]{.uicontrol} box is also cleared and should remain so. In the box [Criteria]{.uicontrol}, you can specify the value or expression for filtering.
+
+Calculations
+
+:   The options are: `Sum`, `Avg`, `Min`, `Max`, `Count`, `StDev`, `Var`, `First`, `Last`, `Expression`. The selected calculation is then performed for the field.
+
+| Choice in Total box | Description                                                        |
+|------------------|------------------------------------------------------|
+| `Group By`          | Subgroups records based on the values in this field.               |
+| `Sum`               | Adds together the values in this field.                            |
+| `Avg`               | Averages the values in this field.                                 |
+| `Min`               | Retains the smallest value in this field.                          |
+| `Max`               | Retains the largest value in this field.                           |
+| `Count`             | Counts the number of records (no matter which field you use).      |
+| `StDev`             | Calculates the standard deviation of the values in this field.     |
+| `Var`               | Calculates the variance of the values in this field.               |
+| `First`             | Retains the first value n this field.                              |
+| `Last`              | Retains the last value in this field.                              |
+| `Expression`        | Calculates a user-defined expression for the values in this field. |
+| `Where`             | For filtering only on values in this field.                        |
+
+:  Options for summarizing. {#tbl-grouping-options}
+
+### Calculated Field {.unnumbered}
+
+A calculated field takes data from one or more fields and performs some arithmetic to produce new information. You can perform simple arithmetic, like addition and multiplication, or use Access's built-in functions, such as `Sum` and `Avg`. You can only use fields that are added to the query. To create a calculated field
+
+1.  Click in an empty column in the field row.
+2.  Enter a name for the calculation (result) followed by a colon (`:`).
+3.  Enter the expression for the calculation.
+
+::: callout-note
+-   You can use field names in the expression. Field names must be surrounded by square brackets. If the field name contains no spaces, then Access puts the square brackets in for you after entering the name. If a field name contains spaces, you have to type in the square brackets yourself.
+
+-   When using one of the calculation options for summarizing, it is recommended to also add a new name in front of the field name, otherwise Access generates a name for the result in the datasheet view. This new name must also be followed by a colon.
+:::
+
+Here are some examples. Study them well. Create and experiment with them.
+
+::: {#exm-queries-praline-costs}
+**Average praline costs per chocolate type**
+
+In this example the field [ChocolateType]{.varname} is used for grouping, creating a group for each chocolate type. The field [PralineCosts]{.varname} is used for the calculation of the average praline costs for each group. The result is a record for each chocolate type containing the average price.
+
+![Design query average praline costs per chocolate type.](images/queries/q-pralinecosts-chocolatetype-design.png){#fig-q-pralinecosts-chocolatetype-design}
+
+![Result query average praline costs per chocolate type.](images/queries/q-pralinecosts-chocolatetype-result.png){#fig-q-pralinecosts-chocolatetype-result}
+
+Because the column for the averages didn't get a new name, Access generates as name [AvgOfPralineCosts]{.varname}.
+
+:::
+
+::: {#exm-queries-price-statistics}
+**Box price statistics**
+
+In this example, field [BoxPrice]{.varname} is used 4 times with different calculations. Each column was given a new name. The result of the query is a single record containing the 4 results of the calculations.
+
+![Design query box price statistics.](images/queries/q-boxprice-statistics-design.png){#fig-q-boxprice-statistics-design}
+
+![Result query box price statistics.](images/queries/q-boxprice-statistics-result.png){#fig-q-boxprice-statistics-result}
+
+:::
+
+::: {#exm-queries-box-prices}
+**Average box price for boxes of more than 200 grams**
+
+Calculate the average price of boxes of more than 200 grams. The field Weight is used for filtering on boxes of more than 200 grams.
+
+![Design query average box price.](images/queries/q-boxprice-200g-design.png){#fig-q-boxprice-200g-design}
+
+![Result query average box price.](images/queries/q-boxprice-200g-result.png){#fig-q-boxprice-200g-result}
+
+:::
+
+## Customers per province {#sec-queries-customers-province}
+
+Purpose: Using a select query with grouping and a calculation with function `COUNT`.
+
+INFORMATION NEEDS
+
+Make a list of the number of customers per province.
+
+ANALYSIS
+
+All necessary data is in table [Customers]{.varname}. Of course, you need the field [Province]{.varname}. A customer is uniquely identified by the [CustomerCode]{.varname}, so that you need to count the number of CustomerCodes in each province. For this, there must be grouped by [Province]{.varname}.
+
+::: {#prp-queries-customers-province}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}. Access creates a new blank query window and displays the dialog box ***Show Table***.
+
+![Dialog box Show Table.](images/queries/q-show-table.png){#fig-q-show-table}
+
+3.  Select table [Customers]{.varname}, click [Add]{.uicontrol} and then [Close]{.uicontrol}. The table [Customers]{.varname} has now been added to the query window.
+
+4.  Add successively the fields [Province]{.varname} and [CustomerCode]{.varname} to the design grid by double-clicking on the field.
+
+![Design query customers per province](images/queries/q-customers-province-design.png){#fig-q-customers-province-design}
+
+5.  Click [tab Design \> Totals (group Show/Hide)]{.uicontrol}.
+
+![Design expanded with row for total.](images/queries/q-customers-province-design-total.png){#fig-q-customers-province-design-total}
+
+6.  Click in the box [Total]{.uicontrol} under column [CustomerCode]{.varname} and select `Count`.
+
+![Grouping with count.](images/queries/q-customers-province-design-count.png){#fig-q-customers-province-design-count}
+
+7.  Switch to [Datasheet View]{.uicontrol}.
+
+![Result query customers per province.](images/queries/q-customers-province-result.png){#fig-q-customers-province-result}
+
+8.  Close the query and answer the question to save the changes with [Yes]{.uicontrol}. The dialog box ***Save as*** is displayed.
+
+9.  Name the query [Number of customers per province]{.varname} and click [OK]{.uicontrol}.
+:::
+
+## Column heading modification {#sec-queries-column-heading}
+
+How to change the column heading in a query.
+
+To perform this task, it is necessary that you have performed @sec-queries-customers-province.
+
+By default, Access uses the field names as column headings in the datasheet view. And for summarized data, a name is generated. It is recommended to use clearer names.
+
+::: {#prp-queries-column-heading}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Open query [Number of customers per province]{.varname} in [Design View]{.uicontrol}.
+
+3.  Put the cursor in the field box [CustomerCode]{.varname}, at the beginning of the field name and type `Total customers:`.
+
+![Column heading modified.](images/queries/q-customers-province-columnhead-design.png){#fig-q-customers-province-columnhead-design}
+
+4.  Switch to [Datasheet View]{.uicontrol}.
+
+![Result with new column heading.](images/queries/q-customers-province-columnhead-result.png){#fig-q-customers-province-columnhead-result}
+
+5.  Close the query and answer the question to save the changes with [Yes]{.uicontrol}.
+:::
+
+## Calculate order amounts {#sec-queries-ordercalculation}
+
+INFORMATION NEEDS
+
+Create a sorted list of order rows, showing per order: order code, box code, number of boxes, box price, and the amount for each row ( = each box).
+
+ANALYSIS
+
+For each order, you can find the OrderCode, BoxCode, and the number of boxes (Quantity) in table [OrderDetails]{.varname}. The BoxPrice is in the table [Boxes]{.varname}. The row amount is not present in any table, because this amount can be calculated from other data: `Amount = Quantity * BoxPrice`.
+
+::: {#prp-queries-ordercalculation}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}. Access creates a new blank query window and displays the dialog box ***Show Table*** (see @fig-q-show-table if necessary).
+
+3.  Add successively the tables [OrderDetails]{.varname} and [Boxes]{.varname} to the query window and then click [Close]{.uicontrol}.
+
+4.  Add successively the fields [OrderCode]{.varname}, [BoxCode]{.varname}, [Quantity]{.varname} (from table [OrderDetails]{.varname}), and [BoxPrice]{.varname} (from table [Boxes]{.varname}) to the grid by double-clicking on the field.
+
+![Design with tables and fields.](images/queries/q-orderrow-amount-design1.png){#fig-q-orderrow-amount-design1}
+
+5.  Set the sorting order for fields [OrderCode]{.varname} and [BoxCode]{.varname} on [Ascending]{.uicontrol}. Click in the field row of the first empty column and enter `Amount: Quantity\*BoxPrice`. Access surrounds the fieldnamess with square brackets.
+
+![Design expanded with calculated field.](images/queries/q-orderrow-amount-design2.png){#fig-q-orderrow-amount-design2}
+
+6.  Switch to[Datasheet View]{.uicontrol}.
+
+![Result without formatting currencies.](images/queries/q-orderrow-amount-result-unformatted.png){#fig-q-orderrow-amount-result-unformatted}
+
+7.  Switch to [Design View]{.uicontrol}.
+
+::: callout-note
+All objects in Access have properties. These properties determine, among other things, the appearance of the object. The setting of the properties is possible in the [Property Sheet]{.uicontrol}. You can switch the visibility of the Property Sheet on and off with [tab Design \> Property Sheet (group Show/Hide)]{.uicontrol}. Faster is to using the keyboard shortcut [F4]{.uicontrol}.
+
+To format the amounts as currencies, you need to change the property [Format]{.uicontrol} of field [Amount]{.varname}.
+:::
+
+8.  Make sure that the [Property Sheet]{.uicontrol} is visible. Click somewhere in field [Amount]{.varname}. Click in the box [Format]{.uicontrol} and choose with the list box the setting [Currency{.uicontrol}
+
+![Properties of field Amount.](images/queries/field-format-currency.png){#fig-field-format-currency}
+
+9.  Switch to[Datasheet View]{.uicontrol}.
+
+![Result with amounts formatted as currency.](images/queries/q-orderrow-amount-result-formatted.png){#fig-q-orderrow-amount-result-formatted}
+
+10. Close the query and answer the question to save the changes with [Yes]{.uicontrol}.
+
+11. Name the query [OrderRowAmount]{.varname} and click [OK]{.uicontrol}.
+:::
+
+## First order per customer {#sec-queries-first-order-dates}
+
+INFORMATION NEEDS
+
+Create a list of the first order per customer. Show for each customer who has placed one or more orders: customer code, customer name (last and first name), and the date of the first order.
+
+ANALYSIS
+
+The required data is in the tables [Customers]{.varname} and [Orders]{.varname}. There you need to create a query showing the customer data and order data. Finding the first order can be realized by changing [Group By]{.uicontrol} with [Min]{.uicontrol} in row Total.
+
+::: {#prp-queries-first-order-dates}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}.
+
+3.  Add successively the tables [Customers]{.varname} and [Orders]{.varname} to the query window and then click [Close]{.uicontrol}.
+
+4.  Add successively the fields CustomerCode, LastName and FirstName (from Customers), and OrderDate (from Orders) to the grid by double-clicking on the field.
+
+5.  click [tab Design \> Totals (group Show/Hide)]{.uicontrol}.
+
+6.  Change column title for [OrderDate]{.varname} by entering in front of the field name `First order date:`.
+
+![Tables and fields for query First order date.](images/queries/q-first-order-dates-design1.png){#fig-q-first-order-dates-design1}
+
+7.  Click in the box [Total]{.uicontrol} under column [OrderDate]{.varname} and select `Min`.
+
+8.  Set the sort order for [LastName]{.varname} and [FirstName]{.varname} on [Ascending]{.uicontrol}.
+
+![Design query first order per customer.](images/queries/q-first-order-dates-design2.png){#fig-q-first-order-dates-design2}
+
+9.  Switch to[Datasheet View]{.uicontrol}.
+
+![Result query first order date.](images/queries/q-first-order-dates-result.png){#fig-q-first-order-dates-result}
+
+10. Close the query and answer the question to save the changes with [Yes]{.uicontrol}.
+
+11. Name the query [First order dates]{.varname} and click [OK]{.uicontrol}.
+:::
+
+## Parameter query {#sec-queries-parameters}
+
+A parameter query is a query that displays a dialog box that prompts the user to provide additional information during the execution, such as criteria for retrieving records or a value that you want to insert into a field. You can design the query so that multiple data is requested, for example, a start and end date. Then all the records can be retrieved with dates between them.
+
+Parameter queries are also easy as a basis for forms and reports. Based on a parameter query, you can for example create a monthly revenue report. When printing the report you are prompted by a dialog box which month you want to print, you enter the month, and then the correct report will be printed.
+
+INFORMATION NEEDS
+
+In company Snoopy one gets regular customer questions over the phone about a particular order. You want to quickly be able to answer such a question. The goal now is to get the data from a particular order quickly on the screen. That is possible with a parameter query, asking for the order code during the execution of the query.
+
+ANALYSIS
+
+The necessary information about a particular order is in the tables [Orders]{.varname} and [OrderDetails]{.varname}. Questions about the order code can be controlled via a criterion.
+
+::: {#prp-queries-parameter}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}.
+
+3.  Add tables [Orders]{.varname} and [OrderDetails]{.varname} to the query window and then click [Close]{.uicontrol}.
+
+4.  Add successively the fields OrderCode, CustomerCode, OrderDate (from Orders), and BoxCode en Quantity (from OrderDetails) to the grid by double-clicking on the field.
+
+![Tables and fields for query.](images/queries/q-information-order-design1.png){#fig-q-information-order-design1}
+
+5.  Click in the box [Criteria]{.uicontrol} under column [OrderCode]{.varname} and type `[Enter order code]`.
+
+![Criterion added to the query.](images/queries/q-information-order-design2.png){#fig-q-information-order-design2}
+
+6.  Switch to [Datasheet View]{.uicontrol}. The dialog box ***Enter Parameter Value*** appears and asks you to enter the order code.
+
+7.  Enter a value, e.g. `30`, and click [OK]{.uicontrol}.
+
+![Results for order with order code 30.](images/queries/q-information-order-result.png){#fig-q-information-order-result}
+
+8.  Close the query and answer the question to save the changes with [Yes]{.uicontrol}.
+
+9.  Name the query [Information specific order]{.varname} and click [OK]{.uicontrol}.
+:::
+
+## Action Queries {#sec-queries-actions}
+
+The majority of queries are select queries, which are used to search, collect, and display data, but not to change this data. But Access has also another category of queries with which you can change deleting, updating, or adding records, known as action queries. The big advantage of an action query is that it can change a large number of records without having programming knowledge. The way you make these queries and the way of working is almost the same: first, create a select query and then change the query type.
+
+Access has four types of action queries:
+
+Make Table
+
+:   Selects one or more records and then create a new table for them. This new table can be placed in the opened database, but can also as a new table to be made in a different database. You can use a Make Table query for example to copy outdated data to an archive database.
+
+Append
+
+:   Selects one or more records and then adds them to another existing table. For example, suppose that you acquire some new customers and the information has been stored in a separate table. With an append query, you can move the records to your customers table.
+
+Delete
+
+:   Deletes one or more records. You specify a set of filter conditions and then deletes the matching records. For example, you can remove products that are discontinued.
+
+Update
+
+:   Change values in one or more records. The existing values in a field are replaced by new values, a type of search and replace. You can't undo the changes and therefore it is advisable to first backup (copy) of the database or the table before you run the update query.
+
+Because these queries change data in the database, these queries could be a security risk. To provide protection, a number of checks are carried out in Access and the Trust Center. The trust center can disable the content. When opening such a database, Access displays a message with a security warning.
+
+![Message with security warning.](images/common/security-warning.png){#fig-securitywarning}
+
+If you want to enable the content, click [Enable Content \> Options]{.uicontrol} and choose the desired option in the dialog box that appears. The database is opened again with full functionality.
+
+It is also advisable to make a backup of the tables that are changed. That 's easy to do with copy and paste.
+
+::: {#exm-queries-copy-table}
+**Creating a copy of a table**
+
+1.  In the navigation pane, right-click on the name of the table and select from the shortcut menu [Copy]{.uicontrol}.
+2.  Right-click again and choose now [Paste]{.uicontrol} and give the new table a different name.
+
+To recover a table after a change, proceed as follows:
+
+1.  In the navigation pane, right-click on the name of the changed table and select from the shortcut menu [Cut]{.uicontrol}.
+2.  Right-click on the name op the copy and choose [Rename]{.uicontrol} and give the table the original name.
+
+:::
+
+## Update query {#sec-queries-action-update}
+
+An example of a simple update query that changes the values in a field for all records which satisfy a certain condition.
+
+INFORMATION NEEDS
+
+The costs of all pralines with chocolate type white should be increased by 10%.
+
+ANALYSIS
+
+All necessary data is in table [Pralines]{.varname}. You need the fields [ChocolateType]{.varname} and \[PralineCosts\]{.varname. Selecting the white chocolate types can be done by adding a criterion to the query. You can increase the PralineCosts by 10% by multiplying the current value with `1.1`.
+
+Make a backup (copy) of the table, so you can restore the original situation. Another possibility is to backup (copy) the whole database.
+
+::: {#prp-queries-action-update}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}.
+
+3.  Add table [Pralines]{.varname} to the query window and then click\*\*Close\]{.uicontrol}.
+
+4.  Add successively the fields [ChocolateType]{.varname} and [PralineCosts]{.varname} to the grid by double-clicking on the field.
+
+5.  Change the query type with [tab Design \> Update (group Query Type)]{.uicontrol}. The [Sort]{.uicontrol} and [Show]{.uicontrol} rows disappear and there is a new row [Update To]{.uicontrol}.
+
+![Tables and fields for update query.](images/queries/q-increase-costs-design1.png){#fig-q-increase-costs-design1}
+
+6.  Click in the box [Criteria]{.uicontrol} under column [ChocolateType]{.varname} and enter `White`.
+
+7.  Click in box [Update To]{.uicontrol} under column [PralineCosts]{.varname} and type `[PralineCosts]*1.1`.
+
+![Design update query.](images/queries/q-increase-costs-design2.png){#fig-q-increase-costs-design2}
+
+::: callout-note
+Access surrounds the text with double-quotes. Field names must be surrounded by square brackets.
+:::
+
+8.  Save the query with button [Save]{.uicontrol} (![](images/common/button-save.png)) on the [Quick Access Toolbar]{.uicontrol} and name the query [Increase costs white chocolates with 10%]{.varname}.
+
+9.  click ![](images/queries/button-run.png) [tab Design \> Run (group Results)]{.uicontrol}. A dialog appears asking for confirmation.
+
+10. click [Yes]{.uicontrol}.
+
+11. Close the query.
+:::
+
+## Make Table query {#sec-queries-action-maketable}
+
+Purpose: Creating a new table with the Make Table query.
+
+INFORMATION NEEDS
+
+The marketing department has a special offer for all customers in Friesland. For this, they need a table with only the customer data for customers in the province Friesland.
+
+ANALYSIS
+
+All necessary data is in table [Customers]{.varname}. Selecting for Friesland can be done with a criterion in the query. First, you need to create this select query and then change the query type to [Make Table]{.uicontrol}.
+
+::: {#prp-queries-action-maketable}
+[File]{.smallcaps}: `{{< var database >}}`
+
+**Create select query**
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}.
+
+3.  Add table [Customers]{.varname} to the query window and then click [Close]{.uicontrol}.
+
+4.  Add all fields by double-clicking on the asterisk (`*`) and then add separate again the field [Province]{.varname}.
+
+5.  Enter as criterion `"FR"` for the field [Province]{.varname} and don't show this extra field, because it is in fact already shown by [Customers]{.varname}.
+
+![Design Make Table query.](images/queries/q-customers-friesland-design.png){#fig-q-customers-friesland-design}
+
+6.  Check the output of the query with the [Datasheet View]{.uicontrol}.
+
+7.  Save the query with the name [Customers Friesland]{.varname}.
+
+**Change the query type**
+
+8.  Open the query [Customers Friesland]{.varname} in [Design View]{.uicontrol}.
+
+9.  click [Design \> Make Table (group Query Type)]{.uicontrol}. The dialog box ***Make Table*** opens.
+
+10.  Name the new table [Friesland customers]{.varname} and select that this table should come in the current database.
+
+![Specify name and location of the new table and the database.](images/queries/q-maketable-dialogbox.png){#fig-q-maketable-dialogbox}
+
+11.  click [OK]{.uicontrol}.
+
+12.  click ![](images/queries/button-run.png) [tab Design \> Run (group Results)]{.uicontrol}. A dialog appears asking for confirmation.
+
+13.  click [Yes]{.uicontrol}. The new table is created.
+
+14.  Close the query. A dialog box asking whether the changes should be saved.
+
+15.  click [Yes]{.uicontrol}.
+
+::: callout-note
+This is because the query type has been changed. This is also seen in the navigation pane under [Queries]{.uicontrol}.
+
+The query icon in front of the query name indicates that it's an action query: ![](images/queries/q-maketable-icon.png)
+:::
+:::
+
+## Crosstab query {#sec-queries-crosstab}
+
+A crosstab query calculates a sum, average, or other aggregate function, and then groups the results in rows and columns. A cross table is similar to an Excel PivotTable report. A crosstab query is often easier to read than a regular select query with the same data. The overview is more compact by the horizontal and vertical alignment.
+
+When you create a crosstab query, you specify which fields contain row headings, which field contains column headings, and which field contains values to summarize. For the row headings you can use multiple fields (maximum 3), but for the column heading values and the values to summarize you can use only one field. It's also possible to use an expression for the row heading(s), the column heading(s), and to summarize values.
+
+The easiest and fastest way to create a crosstab query is using the [Crosstab Query Wizard]{.uicontrol}. For more complex queries, you can often start with this Wizard, and then do the fine-tuning in the Design View.
+
+INFORMATION NEEDS
+
+Calculate the number of customers by province and by region and show the result in a cross table.
+
+ANALYSIS
+
+All the necessary data can be found in table [Customers]{.varname}.
+
+::: {#prp-queries-crosstab}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Query Wizard (group Queries) \> Crosstab Query Wizard \> OK]{.uicontrol}.\
+    In the screen that is displayed now, you can select the table or query that contains the fields for the crosstab.
+
+3.  Select table [Customers]{.varname} and click [Next]{.uicontrol}. Now you can select the field(s) for the row heading values.
+
+4.  Add field [Province]{.varname}.
+
+![Selection of field for row heading.](images/queries/q-crosstab-rowhead.png){#fig-q-crosstab-rowhead}
+
+5.  click [Next]{.uicontrol}. Now you have to select the field for the column heading values.
+
+6.  Select field [Region]{.varname}.
+
+![Selection of field for column heading.](images/queries/q-crosstab-columnhead.png){#fig-q-crosstab-columnhead}
+
+7.  click [Next]{.uicontrol}. Now you can select the field whose values you want to aggregate and the aggregate function.
+
+8.  Select field [CustomerCode]{.varname} and function `Count`. Also, deselect the option to include row sums.
+
+![Selection of field and function for summarizing.](images/queries/q-crosstab-values.png){#fig-q-crosstab-values}
+
+9.  click [Next]{.uicontrol}.
+
+10. Name the query [Number of customers by province by region]{.varname}. Select [View the query]{.uicontrol}, and click [Finish]{.uicontrol}.
+
+![Crosstabb result.](images/queries/q-crosstab-result.png){#fig-q-crosstab-result}
+:::
+
+## Exercises {#sec-queries-exercises}
+
+::: {#exr-quer001}
+**Customers from Friesland and Groningen (quer001)**
+
+Create a query to select customers in the provinces of Friesland and
+Groningen. Show LastName, FirstName, and City. Name the query
+[quer001]{.varname}.
+
+`r hide("Tip")` The field [Province]{.varname} may have two values here
+`FR` or `GR`. You can get done this by entering one value in the row
+[Criteria]{.uicontrol} and the other value in the row [or]{.uicontrol}.
+
+Another possibility is using an expression with the Or operator in row
+[Criteria]{.uicontrol}. `r unhide()`
+
+`r hide("Answer")` Result query: 40 customers `r unhide()`
+:::
+
+::: {#exr-quer002}
+**Direct mail campaign box MARZ (quer002)**
+
+Suppose it is the end of December 2010. The expiration date of the box
+MARZ is in sight and there is still plenty in stock. That's why do you
+want to start a direct mail campaign to the customers who have ordered
+at least one box MARZ in the period August-November 2010. Show the name
+and address of the customers. Name the query [quer002]{.varname}.
+
+`r hide("Answer")` Result query: 4 customers `r unhide()`
+:::
+
+::: {#exr-quer003}
+**Praline boxes with low price (quer003)**
+
+Create a list of boxes whose price is at most \$ 17.50. Show the fields
+BoxCode, BoxName, and BoxPrice. Name the query [quer003]{.varname}.
+
+`r hide("Answer")` Result query: 4 boxes `r unhide()`
+:::
+
+::: {#exr-quer004}
+**Pralines milk and dark with low price (quer004)**
+
+Create a list of pralines with chocolate type milk or pure and whose
+costs are at most 30 cents. Show the fields PralineCode, PralineName,
+ChocolateType, and PralineCosts. Name the query [quer004]{.varname}.
+
+`r hide("Answer")` Result query: 18 pralines `r unhide()`
+:::
+
+::: {#exr-quer005}
+**Customers from Enschede, Hengelo or Almelo (quer005)**
+
+Create a list of all the customers (name and address) who live in
+Enschede, Hengelo, and Almelo. Name the query [quer005]{.varname}.
+
+`r hide("Answer")` Result query: 12 customers `r unhide()`
+:::
+
+::: {#exr-quer006}
+**Customers from Amsterdam with zip code `20*` (quer006)**
+
+Create a list with customers from Amsterdam (name and address) whose zip
+code begins with 20. Name the query [quer006]{.varname}.
+
+`r hide("Answer")` Result query: 3 customers `r unhide()`
+:::
+
+::: {#exr-quer007}
+**Pralines without filling (quer007)**
+
+Create a list of all pralines without filling. Name the query
+[quer007]{.varname}.
+
+`r hide("Tip")` Try to find first what value the field Type has for
+pralines without filling. `r unhide()`
+
+`r hide("Answer")` Result query: 12 pralines `r unhide()`
+:::
+
+::: {#exr-quer008}
+**Customers outside Amsterdam (quer008)**
+
+Create a list of all customers who do not live in Amsterdam. Name the
+query [quer008]{.varname}.
+
+`r hide("Tip")` First find out what operator to use in a test for not
+equal to. `r unhide()`
+
+`r hide("Answer")` Result query: 293 customers `r unhide()`
+:::
+
+::: {#exr-quer009}
+**Number of pralines per box (quer009)**
+
+Create a list of all box names with their number of pralines per box.
+The column with numbers should have an appropriate title. The list
+should be sorted in ascending order of box name. Name the query
+[quer009]{.varname}.
+
+`r hide("Answer")` ![](images/queries/quer009-result.png) `r unhide()`
+:::
+
+::: {#exr-quer010}
+**Number of praline types per box (quer010)**
+
+Create a list of box names and their number of praline types per box.
+The column with numbers should have an appropriate title. The list
+should be sorted in ascending order of box name. Name the query
+[quer010]{.varname}.
+
+`r hide("Answer")` ![](images/queries/quer010-result.png) `r unhide()`
+:::
+
+::: {#exr-quer011}
+**Number of orders per region (quer011)**
+
+Create a list of the number of orders per region. The column with
+numbers should have an appropriate title. Name the query
+[quer011]{.varname}.
+
+`r hide("Answer")` ![](images/queries/quer011-result.png) `r unhide()`
+:::
+
+::: {#exr-quer012}
+**Total sales per customer (quer012)**
+
+Create a list with the total sales per customer. Show customer code,
+customer name, and the total sales. The column with sales should have an
+appropriate title and formatting. Sort on descending sales. Name the
+query [quer012]{.varname}.
+
+`r hide("Answer")` ![](images/queries/quer012-result.png) `r unhide()`
+:::
+
+::: {#exr-quer013}
+**Customers with orders (quer013)**
+
+Create a list of customers (code and name) who have ever bought
+something. Name the query [quer013]{.varname}.
+
+`r hide("Answer")` Result query: 264 customers `r unhide()`
+:::
+
+::: {#exr-quer014}
+**Customers with last name Jansen or Janssen in region North (quer014)**
+
+Create a list of customers with last name Jansen or Janssen in the
+region North. Name the query [quer014]{.varname}.
+
+`r hide("Answer")` ![](images/queries/quer014-result.png) `r unhide()`
+:::
+
+::: {#exr-quer015}
+**Pralines with filling and without nut (quer015)**
+
+Create a list of pralines with filling and without nuts. Name the query
+[quer015]{.varname}.
+
+`r hide("Answer")` Result query: 22 pralines
+
+![](images/queries/quer015-result.png) `r unhide()`
+:::
+
+::: {#exr-quer016}
+**Boxes heavier than 150 grams with a maximum price of \$35 (quer016)**
+
+Create a list of boxes heavier than 150 grams with a maximum price of
+\$35. Show only BoxCode, BoxName, and BoxPrice. Sort the boxes by
+ascending price. Name the query [quer016]{.varname}.
+
+`r hide("Answer")` ![](images/queries/quer016-result.png) `r unhide()`
+:::
+
+::: {#exr-quer017}
+**Boxes with a price between \$17 and \$25 and stock of at least 400 (quer017)**
+
+Create a list of boxes with a price between \$17 and \$25 and of which
+there are at least 400 in stock. Show the code, name, price, and stock
+of the boxes. Name the query [quer017]{.varname}.
+
+`r hide("Answer")` ![](images/queries/quer017-result.png) `r unhide()`
+:::
+
+::: {#exr-quer018}
+**Total sales per province (quer018)**
+
+Create a list of total sales per province. The column with sales should
+have an appropriate title and formatting. Sort descending on sales. Name
+the query [quer018]{.varname}.
+
+`r hide("Answer")` ![](images/queries/quer018-result.png) `r unhide()`
+:::
+
+::: {#exr-quer019}
+**Customers with orders the week before Christmas (quer019)**
+
+Create a list of customers who ordered the last week before Christmas
+2010 (12/20/2010 until 12/24/2010). Show code, name, and address of
+these customers. Each customer may occur only one time in the overview.
+Name the query [quer019]{.varname}.
+
+`r hide("Tip")` The same customer may exist on the list more than one
+time. To avoid this, the value of the query property Unique Values
+should be Yes. `r unhide()`
+
+`r hide("Answer")` ![](images/queries/quer019-result.png) `r unhide()`
+:::
+
+::: {#exr-quer020}
+**Boxes with low sales (quer020)**
+
+Create a list of boxes with low sales, less than \$2000. Show box code
+and sales. Sort ascending on sales. The column with sales should have an
+appropriate title and formatting. Name the query [quer020]{.varname}.
+
+`r hide("Answer")` ![](images/queries/quer020-result.png) `r unhide()`
+:::
+
+::: {#exr-quer021}
+**Customers with zip code 22 and total sales less than \$50 (quer021)**
+
+Create a list of customers whose zip code is starting with 22 and with a
+total sales of at most \$50. Name the query [quer021]{.varname}.
+
+`r hide("Answer")` ![](images/queries/quer021-result.png) `r unhide()`
+:::
+
+::: {#exr-quer023}
+**Customers for Sweet and Bitter (quer023)**
+
+Create an alphabetic list of customers who bought in 2009 at least 1 box
+"Sweet and Bitter". Avoid double records in the result. Name the query
+[quer023]{.varname}.
+
+`r hide("Tip")` The same customer may exist on the list more than one
+time. To avoid this, the value of the query property Unique Values
+should be Yes. `r unhide()`
+
+`r hide("Answer")` Result query: 96 customers
+
+![](images/queries/quer023-result.png) `r unhide()`
+:::
+
+::: {#exr-quer024}
+**quer024 - Cities with at least 2 customers (quer024)**
+
+Create an alphabetic list of cities with at least 2 customers. Name the
+query [quer024]{.varname}.
+
+`r hide("Answer")` ![](images/queries/quer024-result.png) `r unhide()`
+:::
+
+::: {#exr-quer025}
+**Parameter chocolate type pralines (quer025)**
+
+There are several types of chocolate types for the pralines:
+Butterscotch, Milk, Dark, Toffee, and White. Create a parameter query to
+show the pralines whose type is requested during the execution of the
+query. Show ChocolateType, PralineName, PralineCosts and
+PralineDescription. Name the query [quer025]{.varname}.
+:::
+
+::: {#exr-quer026}
+**Update query price reduction (quer026)**
+
+Due to a decline in the price of chocolate in the world market, the
+prices of all boxes can be reduced by 15%. Name the query
+[quer026]{.varname}.
+
+1.  Start with making a backup or copy of the whole database.
+2.  Design an update query to implement this reduction. Name the query
+    [quer026]{.varname} and run the query.
+3.  Restore the original situation from the backup.
+
+::: {.callout-warning)
+-   Making a backup is important because you cannot revert the execution
+    of the query.
+-   Be aware that every time you run the query, the prices are again
+    reduced by 15%.
+:::
+:::
+
+::: {#exr-quer027}
+**Crosstab boxes per weight (quer027)**
+
+Create a crosstab query with vertical the box names, horizontal the
+weight of the boxes, and in the table the stock. Name the
+[quer027]{.varname}.
+
+`r hide("Answer")` ![](images/queries/quer027-result.png) `r unhide()`
+:::
+
+::: {#exr-quer028}
+**Update query price increase (quer028)**
+
+Due to an increase in the chocolate price on the world market, prices of
+all boxes must be increased by 10%.
+
+1.  Start by making a backup or copy of the table or of the entire
+    database.
+2.  Design an update query to implement the price increase. Name the
+    query [quer028]{.varname} and execute it.
+3.  Restore the original situation.
+
+::: {.callout-warning)
+-   Making a backup is important because you cannot revert the execution
+    of the query.
+-   Be aware that each time you execute the query, the prices are
+    further increased by 10%.
+:::
+:::
+
+::: {#exr-quer029}
+**Crosstab sales per customer per month (quer029)**
+
+Create with a crosstab query an overview of the total sales per customer
+per month in 2010. To do that, create first a selection query Sales per
+customer per month in 2010 and use this query as source for the crosstab
+query. Display customers with the customer number and the months with
+the month numbers. Display also the total sales for the customer in
+2010. Name the crosstab query [quer029]{.varname}.
+
+`r hide("Answer")` ![](images/queries/quer029-result.png) `r unhide()`
+:::
+
+

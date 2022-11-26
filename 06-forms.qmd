@@ -1,0 +1,661 @@
+# Forms {#sec-forms}
+
+::: {.callout-note appearance="simple" icon="false"}
+**OBJECTIVES**
+
+-   Types of forms: main form, sub form and linked form.
+-   Creating forms: generated and manual.
+-   Working with controls.
+-   Calculations in a form.
+-   Forms with a chart.
+:::
+
+Forms are for showing organized and formatted views of fields in tables and queries. They are very important for data entry.
+
+## About creating forms {#sec-forms-about}
+
+Data can be entered directly in the tables. In practice, this happens only in very simple tables. Usually, forms are used for data entry. Simple forms are often based on data from one table or query. You also have advanced forms such as main-subforms or linking forms, whose data come from related tables or queries.
+
+Except that you can give your forms an attractive appearance, it is more important that you have the opportunity to apply all kinds of checks (validations ) on data entry. And then you can place controls on forms. Examples of controls are: list boxes, checkboxes, buttons, ...
+
+You can build a form from scratch, but you can also let Access generate a form or use the [Form Wizard]{.uicontrol} and then adjusting the resulting form manually.
+
+### Main and subforms {#sec-forms-explanation-mainsub}
+
+A **subform** is a form that is included in another form, called the **main form**. Subforms are often used when you need to display data from tables and queries with a one-to-many relationship. The data from the one-side are in the main form and the data from the many-side in the subform.
+
+::: {#exm-forms-mainsubform}
+**Orders customer**
+
+Main form: Contains data from a customer, taken from table [Customer]{.varname}.
+
+Sub form: Contains the customer's orders, taken from table [Orders]{.varname}.
+
+The main form and sub form are linked so that the sub form only displays records that are related to the record in the main form.
+
+![Main form Customers with subform Orders.](images/forms/f-customers-orders.png){#fig-f-customers-orders-1}
+:::
+
+### Linked forms {#sec-forms-explanation-linked}
+
+Linked forms are separate forms that are related to each other. One of the forms, also called the main form, has a command button that opens another form when clicking on it. The records between the two forms are synchronized. Behind the button is program code (**VBA**) which causes that the subform is opened. This VBA code is automatically created by the Wizard. You do not need to be able to program to work with this.
+
+Whether you with linked forms or with subforms depends usually on the method of work of the user. If you only need the primary data of a customer, you don't have to see simultaneously all order information from the customer. It is often convenient to have a button on the form with which you can pick out the corresponding order information.
+
+![Two linked forms with synchronized data.](images/forms/f-customerorders-linked.png){#fig-f-customerorders-linked-1}
+
+## Controls and Layouts {#sec-forms-controls-layout}
+
+#### Controls
+
+Controls are parts of a form or a report that you use to enter, edit, or display data. So is the Text Box is the most used control for displaying data. Other commonly used controls are command buttons, checkboxes, and combo boxes.
+
+Controls can be bound, unbound, or calculated:
+
+Bound control
+
+:   A control whose source of data is a field in a table or query. You use bound controls to display values that com from fields.
+
+Unbound control
+
+:   A control without a data source. You use unbound controls to display information, pictures, lines, ...
+
+Calculated control
+
+:   A control whose data source is an expression, rather than a field.
+
+#### Layouts
+
+Layouts are guides that align your controls horizontally and vertically. Layouts are optional and are mostly used to give your form a uniform appearance. Layouts come in two varieties:
+
+Tabular layout
+
+:   In tabular layouts, controls are arranged in rows and columns like a spreadsheet, with labels across the top.
+
+![Tabular layout example.](images/forms/layout-controls-tabular.png){#fig-layout-controls-tabular}
+
+Stacked layout
+
+:   In stacked layouts, controls are arranged vertically, with a label to the left of each control.
+
+![Stacked layout example.](images/forms/layout-controls-stacked.png){#fig-layout-controls-stacked}
+
+#### Edit Controls
+
+Because you often need to reorganize controls on forms, it is important to know how you can change the location and layout of these controls. Many operations you can perform on multiple controls. To edit controls, you must always select them first. Also, make sure that the [Property Sheet]{.uicontrol} is visible.
+
+-   **selecting**: Click on the control.
+-   **multiple selections**: Click with pressed Shift key on the controls you want to select. Another possibility is to drag a rectangular frame with the mouse around the controls.
+-   **deselecting**: Click on an empty spot in the form.
+-   [moving]{.ter}: Drag the control with the top left square. An exact location can be set in the [Property Sheet]{.uicontrol}.
+-   **dimensions**: Drag one of the handles (in the middle or the corner points of the selection rectangle). Exact dimensions can be set in the [Property Sheet]{.uicontrol}.
+-   **aligning**: With the options at [tab Arrange \> Align (group Sizing & Ordering)]{.uicontrol}.
+-   **deleting**: With the [Delete]{.uicontrol} key.
+
+## Generated form {#sec-forms-autoform}
+
+When new records must be added to a table, it is usually intended that all of the fields get a value. Such a form must contain all the fields from the table. The quickest way to create such a form is by first selecting the table and then through the command [Form]{.uicontrol} automatically generate a form containing all fields. After that, you can manually adjust the form.
+
+In this task, you create a form for a warehouse employee to modify the warehouse stock of a box and eventual to indicate if a box is out of production. It shouldn't be possible for the employee to change the other box data with this form. The form should look something like this:
+
+![Form stock-in-trade.](images/forms/f-stock-in-trade-result.png){#fig-f-stock-in-trade-result}
+
+::: {#prp-forms-autoform}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Select table [Boxes]{.uicontrol}. It's not necessary to open the table.
+
+3.  Click [tab Create \> Form (group Forms)]{.uicontrol}. The form is created and displayed in [Layout View]{.uicontrol}.
+
+::: callout-note
+If Access finds a table that has a one-to-many relationship with the table or query that you used to create the form, Access adds a sub-datasheet to the form that is based on the related table or query. If there is more than one table with a one-to-many relationship to the table that you used to create the form, Access does not add any datasheets to the form.
+
+In this case, the form is based on the table Boxes, and there is a one-to-many relationship defined between the table [Boxes]{.varname} and the table [OrderDetails]{.varname}. The sub-datasheet displays all the records in the [OrderDetails]{.varname} table that pertain to the current [Boxes]{.varname} record.
+
+If you decide that you do not want the sub-datasheet on the form, you can delete the subdatasheet in the [Layout view]{.uicontrol} by selecting the datasheet, and then pressing [Delete]{.uicontrol}.
+:::
+
+4.  Select the sub-datasheet and press [Delete]{.uicontrol}.
+
+5.  Switch to [Design View]{.uicontrol}.
+
+![Form in design view.](images/forms/f-stock-in-trade-design.png){#fig-f-stock-in-trade-design}
+
+::: callout-note
+In a form that has been created through this method, two controls are created for each field: a [Text Box]{.uicontrol} and a linked [Label]{.uicontrol}.
+
+![Text Box with linked Label.](images/forms/textbox-label.png){#fig-textbox-label}
+
+All controls are arranged vertically with a label to the left of the control. This is called a Stacked layout. That's why you can't move a control anywhere on the form. If this is the intention, then you must remove the layout for that control through [tab Arrange \> Remove Layout (group Table)]{.uicontrol}.
+:::
+
+6.  Select the text in frame Boxes in the [Form Header]{.uicontrol} and change it in `Stock-in-trade`. Change the properties [Font Weight]{.uicontrol} in `Bold` and [Font Size]{.uicontrol} in `20 pt`.
+
+::: callout-note
+The [Property Sheet]{.uicontrol} is on the right side of the screen and can be made visible and invisible by clicking on button [Property Sheet]{.uicontrol} or by using hotkey [F4]{.uicontrol}. And to faster find a specific property, you can alphabetically sort the list with the button ![](images/common/button-sort-ascending.png) in the top right corner of the sheet.
+:::
+
+7.  Select the text boxes of all fields and change the property [Width]{.uicontrol} in `3"`. After that, deselect by clicking elsewhere in the form.
+
+![Setting property Width.](images/forms/property-textboxes-width.png){#fig-property-textboxes-width}
+
+::: callout-note
+The property [Locked]{.uicontrol} of a control can be used to protect data in a field by making it read-only.
+:::
+
+8.  Select all text boxes except [Stock]{.uicontrol} and [OutOfProduction]{.uicontrol}. Then change property [Locked (tab Data)]{.uicontrol} in `Yes`.
+
+![Setting property Locked.](images/forms/property-textboxes-locked.png){#fig-property-textboxes-locked}
+
+9.  With the text boxes still selected, change the background color from white in light grey. You can do this in one of the following ways:
+
+    -   Change property [Back Color]{.uicontrol}.
+    -   Right-click on one of the selected fields and choose from the shortcut menu \[Fill/Back Color\]{.uicontrol.
+
+10. Switch to [Form View]{.uicontrol} to check the result.
+
+11. Close the form, answer the question to save the changes with [Yes]{.uicontrol}.
+
+12. Name the form [Stock-in-trade]{.varname} and click [OK]{.uicontrol}.
+:::
+
+## Main and subform {#sec-forms-customers-orders}
+
+The easiest way to make a main form with a subform is with the aid of the [Form Wizard]{.uicontrol}. This wizard makes the two forms and provides the linking.
+
+The goal is to create a form that displays customer code, name, and address, and further shows the corresponding orders with order code, order date, and order subtotal.
+
+The customer data is going to the main form and all necessary fields are available in table [Customers]{.varname}. The subform will display the order data: OrderCode, OrderDate, and a calculated subtotal. The subtotal can be calculated from the fields [Quantity]{.varname} and [BoxPrice]{.varname} (table [Boxes]{.varname}).
+
+To display the subtotal on a form, you need a query that can offer all these data as a source to the subform. Such a query is already available and is named [Orders with subtotals]{.varname}. This query contains also the field [CustomerCode]{.varname}, so that a link between the main and subform can be established.
+
+::: {#prp-forms-mainsub}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Form Wizard (group Forms)]{.uicontrol}.
+
+3.  Select Tables/Queries [Table: Customers]{.uicontrol}.
+
+![Form Wizard: selecting fields.](images/forms/f-wizard-t-customers.png){#fig-f-wizard-t-customers-1}
+
+4.  Add successively the following fields: [CustomerCode]{.varname},[FirstName]{.varname}, [LastName]{.varname}, [Address]{.varname}, [ZipCode]{.varname}, [City]{.varname}, [Telephone]{.varname}.
+
+5.  Select [Query: Orders with subtotals]{.uicontrol} under [Tables/Queries]{.uicontrol}. The fields of the query are displayed in the box [Available Fields]{.uicontrol}.
+
+6.  Add successively the following fields: [OrderCode]{.varname}, [OrderDate]{.varname}, and [Subtotal]{.varname}. Click [Next]{.uicontrol}.
+
+![Form Wizard view choice.](images/forms/f-wizard-customers-orders-dataview.png){#fig-f-wizard-customers-orders-dataview}
+
+7.  Check the settings and then click [Next]{.uicontrol}. The wizard now asks for the layout of the subform: Tabular or Datasheet.
+
+8.  Select layout [Datasheet]{.varname} and click [Next]{.uicontrol}. You can now enter titles for the form and subform. There are already default titles available, but you can change these titles.
+
+9.  Change the default titles as follows.
+
+    -   Form title: `Customers and Orders`
+    -   Subform title: `Customers and Orders Subform`
+
+10. Click [Finish]{.uicontrol}.
+
+![Form Customers and Orders.](images/forms/f-customers-orders.png){#fig-f-customers-orders-2}
+
+::: callout-note
+If desired, both the design of the main form and the subform can be modified.
+:::
+:::
+
+## Data entry form Customers {#sec-forms-customers-data-entry}
+
+In this task, you create a form for entering data of new customers and editing data of existing customers. And you will practice some skills in moving and aligning controls to get the following desired format.
+
+![Data entry form customers.](images/forms/f-customer-entry.png){#fig-f-customer-entry}
+
+::: {#prp-forms-customers}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Select table [Customers]{.uicontrol}. It's not necessary to open the table.
+
+3.  Click [tab Create \> Form (group Forms)]{.uicontrol}. The form is created and displayed in [Layout View]{.uicontrol}.
+
+::: callout-note
+Because the form is based on table [Customers]{.varname}, and this table has a one-to-many relationship with table [Orders]{.varname}, a sub-datasheet based on [Orders]{.varname} is added automatically to the form. The sub-datasheet displays all the records in the [Orders]{.varname} table that pertain to the current Customers record.
+:::
+
+4.  Select the sub-datasheet and press [Delete]{.uicontrol}.
+
+5.  Switch to [Design View]{.uicontrol}.
+
+6.  Remove the form logo in the form header.
+
+7.  Save the form with the name [Customer entry and modification]{.varname}.
+
+8.  Make the vertical dimension (the height) of the [Form Header]{.uicontrol} somewhat larger by dragging the top of the [Detail]{.uicontrol} section downwards.
+
+9.  Select the text `Customers` in the form header label and change it in `Chocolate Connoisseur`. Change the layout of the header in `MS Sans Serif`, `14 pt`, `italic` and `bold`.
+
+10. Select the control [Label]{.uicontrol} on the ribbon through [tab Design \> Label (group Controls)]{.uicontrol} ![](images/common/control-label.png) and draw in the header under the first label a frame for the second label. Type the text `Customer entry and modification` and format it as `MS Sans Serif`, `14 pt`, `bold`, `color black`.
+
+11. Select all controls in the section [Detail]{.uicontrol} by drawing a rectangle from the top left corner while holding down the left mouse button to the lower right corner. Then release the mouse button.
+
+12. Choose [tab Arrange \> Remove Layout (group Table)]{.uicontrol}. The selected controls have now been removed from the stacked layout and can therefore be moved freely on the form.
+
+13. Deselect the controls.
+
+14. Drag the controls on the form to create a design that looks as good as possible in the desired format. Use the tips listed below.
+
+::: callout-tip
+-   You can align selected controls with [tab Arrange \> Align (group Sizing & Ordering]{.uicontrol}.
+-   You need a new [Label]{.uicontrol} with the text `Name:` in front of the text boxes first and last name.
+-   You can set the dimensions of controls with the properties [Width]{.uicontrol} and [Height]{.uicontrol}.
+-   You can set the upper left location of a control with the properties [Top]{.uicontrol} and [Left]{.uicontrol}.
+-   You can set the background color with the property [Back Color]{.uicontrol}.
+:::
+
+15. Switch to [Form View]{.uicontrol} and test the form.
+
+16. Close the form and save the changes.
+:::
+
+## Data entry form Pralines {#sec-forms-pralines-data-entry}
+
+In this task, you are going to create a form for entering data of new pralines and editing data of existing pralines. Furthermore, three text boxes should be replaced by a combo box control. The desired layout for the form is displayed in @fig-f-praline-entry.
+
+![Data entry form pralines.](images/forms/f-praline-entry.png){#fig-f-praline-entry}
+
+::: {#prp-forms-pralines}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Select table [Pralines]{.uicontrol}. It's not necessary to open the table.
+
+3.  Click [tab Create \> Form (group Forms)]{.uicontrol}. The form is created and displayed in [Layout View]{.uicontrol}.
+
+4.  Switch to [Design View]{.uicontrol}.
+
+5.  Delete table [BoxDetails]{.uicontrol} in the lower part of the form.
+
+6.  Remove the form logo in the form header.
+
+7.  Save the form with the name [Praline information]{.varname}.
+
+8.  Change the format of the header text in `Calibri`, `22 pt`, `bold`, `white color` on a `green background`.
+
+9.  Select all controls in the section [Detail]{.uicontrol} and remove the (stacked) layout through [tab Arrange \> Remove Layout (group Table)]{.uicontrol}. You can now work with each control separately.
+
+10. Deselect the controls.
+
+11. Remove the fields [ChocolateType]{.varname}, [FillingType]{.varname} and [NutType]{.varname}. Move the remaining fields on the form to create a design that looks as good as possible as the desired format
+
+12. Select [tab Design \> Line (group Controls)]{.uicontrol} and draw a horizontal line beneath the fields [PralineCode]{.varname} and [PralineName]{.varname}. Specify the line thickness of `2 pt` and the same color as the background of the header.
+
+13. Select [tab Design \> Combo Box (group Controls)]{.uicontrol} and draw a rectangle for field [ChocolateType]{.varname}. After drawing the rectangle, the [Combo Box Wizard]{.uicontrol} is started.
+
+14. Answer the Wizard questions as follows:
+
+-   The values will be typed.
+-   Number of columns 1. The values are: `Butterscotch`, `Milk`, `Dark` and `Toffee`.
+-   The value should be stored in the field [ChocolateType]{.varname}.
+-   Label text: `Chocolate type:`
+
+After finishing the Wizard you are returning to the [Design View]{.uicontrol}.
+
+15. Create analogously a [Combo Box]{.uicontrol} for [FillingType]{.varname} with the values: `Amaretto`, `Blueberry`, `Cherry cream`, `Coconut`, `Marzipan`, `Mocha cream`, `None`.
+
+16. Create analogously a [Combo Box]{.uicontrol} for [NutType]{.varname} with the values: `Almond`, `Cashew`, `Hazelnut`, `Macadamia`, `Paranut`, `Pecan`, `Pistachio`, `Walnut`, `None`.
+
+17. Switch to [Form View]{.uicontrol} and test the form.
+
+18. Close the form and save the changes.
+:::
+
+## Data entry form Boxes {#sec-forms-boxes-data-entry}
+
+In this task, a [text box]{.uicontrol} on an existing subform will be replaced by a [Combo Box]{.uicontrol} with a query as data source.
+
+With the existing form [Boxes]{.varname}, you can only select pralines through their [PralineCode]{.varname}. The goal is to make it possible that you can also choose by the name of the praline.
+
+The form [Boxes]{.varname} consist of the main form [Boxes]{.varname} and the subform [Boxes subform]{.varname}. The praline choice occurs in the subform. So only the subform should be changed, the text box [PralineName]{.uicontrol} must be replaced by a [Combo Box]{.uicontrol}.
+
+But [Boxes subform]{.varname} is based on table [BoxDetails]{.varname} and that table doesn't have a field [PralineName]{.varname}. Therefore a query should be created, based on table [Pralines]{.varname}, producing the columns [PralineName]{.varname} and [PralineCode]{.varname}, and sorted on [PralineName]{.varname}. This new query is the data source for the combo box.
+
+::: {#prp-forms-boxes}
+[File]{.smallcaps}: `{{< var database >}}`
+
+**Query [Choose praline]{.varname}**
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}. Add table [Pralines]{.varname} and from this table the fields [PralineName]{.varname} and [PralineCode]{.varname}. Sort ascending on [PralineName]{.varname}.
+
+![Design query for praline choice.](images/forms/q-choose-praline-design.png){#fig-q-choose-praline-design}
+
+3.  Close the query and save it with the name [Choose praline]{.varname}.
+
+**Adjustments subform**
+
+4.  Open form [Boxes subform]{.varname} in [Design View]{.uicontrol}.
+
+5.  Remove field [PralineName]{.uicontrol} in section [Detail]{.uicontrol}.
+
+6.  Select [tab Design \> Combo Box (group Controls)]{.uicontrol} and draw a rectangle on the same location as the removed field [PralineName]{.varname}. After drawing the rectangle, the [Combo Box Wizard]{.uicontrol} is started.
+
+7.  Answer the Wizard questions as follows:
+
+    -   The values for the combo box comes from a table or query.
+    -   The values are provided by query [Choose praline]{.uicontrol}.
+    -   The selected fields are [PralineName]{.varname} and [PralineCode]{.varname}.
+    -   Sort order is Ascending on [PralineName]{.varname}.
+    -   Adjust column widths by a double-click on the right edge of the column header.
+    -   The value in column [PralineCode]{.varname} should be stored in the field [Code]{.varname}.
+    -   Accept the default text for the label. This label will be removed in the next step because the label text already exists in the form header.
+
+8.  Remove the combo box label created in the previous step.
+
+![Combo Box on subform Boxes.](images/forms/f-boxes-subform.png){#fig-f-boxes-subform}
+
+9.  Select the [Combo Box]{.uicontrol} and check in Property Sheet (tab Data) if property [Limit To List]{.uicontrol} has the value `Yes`. If not, change it.
+
+::: callout-note
+With this setting, you can only choose praline names from the list and you can't add new bonbon names.
+:::
+
+10. Close form Boxes subform and save the changes.
+
+11. Test the Combo Box with form [Boxes]{.varname}.
+:::
+
+## Data entry Orders {#sec-forms-orders-data-entry}
+
+To view an existing order and enter a new order, an order form must be created, see @fig-f-orderdata-entry.
+
+![Data entry form orders.](images/forms/f-orderdata-entry.png){#fig-f-orderdata-entry}
+
+The data on the main form are from the tables [Customers]{.varname} and [Orders]{.varname}. So you need to create a query ([Orders-Customers]{.varname}) based on these two tables, which provide the required data.
+
+The data on the subform are from the tables [OrderDetails]{.varname} and [Boxes]{.varname}. So you need to create a query ([OrderDetails-Boxes]{.varname}) based on these two tables, which provide the required data. The column [Total]{.varname} is a calculated field.
+
+Then, create a main form with subform based on successively the queries [Orders-Customers]{.varname} and [OrderDetails-Boxes]{.varname}. Add the desired fields for both the main form and the subform.
+
+::: {#prp-forms-orders}
+[File]{.smallcaps}: `{{< var database >}}`
+
+**Query Orders-Customers**
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}. Add tables [Orders]{.uicontrol} en [Customers]{.uicontrol}
+
+3.  Add all fields from these two tables.
+
+::: callout-note
+With the choice `*` you can add all fields of a table.
+:::
+
+![Design query orders customers.](images/forms/q-orders-customers-design.png){#fig-q-orders-customers-design}
+
+4.  Close the query and save it with the name [Orders-Customers]{.varname}.
+
+**Query OrderDetails-Boxes**
+
+5.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}. Add tables [OrderDetails]{.uicontrol} and [Boxes]{.uicontrol}.
+
+6.  Add all fields from these two tables.
+
+7.  Make a column with the name [Total]{.varname} which performs the calculation `Quantity*BoxPrice`.
+
+![Design query OrderDetails-Boxes.](images/forms/q-orderdetails-boxes-design.png){#fig-q-orderdetails-boxes-design}
+
+8.  Close the query and save it with the name [OrderDetails-Boxes]{.varname}.
+
+**Form creation**
+
+9.  Choose [tab Create \> Form Wizard]{.uicontrol}.
+
+10. Select query [Orders-Customers]{.uicontrol} and add all fields except [Orders.CustomerCode]{.varname}.
+
+11. Select query [OrderDetails-Boxes]{.uicontrol} and add the following fields: [Boxes.BoxCode]{.varname}, [BoxName]{.varname}, [Quantity]{.varname}, [BoxPrice]{.varname}, and [Total]{.varname}.
+
+12. Click [Next]{.uicontrol} and let the data view by Orders-Customers. With this choice, the main form will be based on query [Orders-Customers]{.varname} and the subform on query [OrderDetails-Boxes]{.varname}.
+
+13. Click [Next]{.uicontrol} and choose [Tabular]{.uicontrol} for the subform.
+
+14. Coose a style and click [Next]{.uicontrol}.
+
+15. Provide the titles [Orderdata main]{.varname} and [Orderdata sub]{.varname} and click [Finish]{.uicontrol}. The form is opened.
+
+16. Modify the layout of the two forms to make it look to the desired form for order data.
+:::
+
+## Total order amount {#sec-forms-orders-total}
+
+The form that is created in @sec-forms-orders-data-entry will be modified so that the total order amount is calculated and displayed.
+
+![Orders with total amount.](images/forms/f-orderdata-entry-totals.png){#fig-f-orderdata-entry-totals}
+
+::: {#prp-forms-orderamount}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Open form [Orderdata sub]{.uicontrol} in [Design View]{.uicontrol}.
+
+3.  Select in the [Property Sheet]{.uicontrol} the type [Form]{.uicontrol} and then set the [Default View]{.uicontrol} on [Continuous Forms]{.uicontrol}.\
+    This setting is necessary because otherwise the total cannot be calculated.
+
+![Default view of subform.](images/forms/f-orderdatasub-properties.png){#fig-f-orderdatasub-properties}
+
+4.  Make the vertical space for the form footer larger by dragging the bottom down.
+
+5.  Select [tab Design \> Text Box (group Controls)]{.uicontrol} and draw a rectangle in the form footer on the place where the total amount should come.
+
+6.  Modify property [Control Source]{.uicontrol} of the text box in `=Sum([Total])` and the value of property [Format]{.uicontrol} on `Currency`.
+
+7.  Close the subform and save the changes.
+
+8.  Open form Orderdata main and check if everything is ok.
+:::
+
+## Form with Chart {#sec-forms-sales-boxes}
+
+INFORMATION NEEDS
+
+Create a form with a column chart showing the sales per box per month for 2010 .
+
+![Form with column chart.](images/forms/f-sales-boxes-chart.png){#fig-f-sales-boxes-chart}
+
+ANALYSIS
+
+The various components in the graph can be extracted or calculated from certain tables.
+
+-   The [BoxName]{.varname} is in table [Boxes]{.varname}.
+
+-   The [Sales]{.varname} must be calculated from the expression `[Quantity]*[BoxPrice]`.
+
+-   The field [BoxPrice]{.varname} is also in table [Boxes]{.varname}.
+
+-   The field [Quantity]{.varname} is in table [OrderDetails]{.varname}.
+
+-   [Month]{.varname} and [Year]{.varname} can be calculated with the functions `Month([OrderDate])` and `Year([OrderDate])`.
+
+-   The field [OrderDate]{.varname} is in table [Orders]{.varname}.
+
+-   Grouping on [BoxName]{.varname} first and then on [Month]{.varname}
+
+-   Filtering on the year `2010`.
+
+You need to create a query which provides the necessary data ([BoxName]{.varname}, [Sales]{.varname}, [Month]{.varname}, and [Year]{.varname}). Grouping and filtering via the [Total]{.uicontrol} row in the design grid. For grouping, you choose the option [Group By]{.uicontrol} and for filtering the option [Where]{.uicontrol}, with `2010` as value for [Criteria]{.uicontrol}.
+
+The work consists of two parts. First creating the query and then the form with the chart.
+
+::: {#prp-forms-sales-boxes}
+[File]{.smallcaps}: `{{< var database >}}`
+
+**Query creation**
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}. Add the tables [Boxes]{.varname}, [OrderDetails]{.varname}, and [Orders]{.varname}.
+
+3.  Add field [BoxName]{.varname} (table [Boxes]{.varname}) and create the following calculated fields `Month:Month([OrderDate])`, `Sales:[Quantity]*[BoxPrice]` en `Year:Year([OrderDate])`.
+
+4.  Choose [tab Design \> Total (group Show/Hide)]{.uicontrol}.
+
+5.  Change in the column [Sales]{.varname} the [Group By]{.uicontrol} operator in `Sum` and in the column [Year]{.varname} in `Where`. Add `2010` as criteria for [Year]{.varname}.
+
+![Design query sales per box per month in 2010.](images/forms/q-sales-box-month-design.png){#fig-q-sales-box-month-design}
+
+6.  Close the query and save it with the name [Sales per box per month in 2010]{.varname}.
+
+::: callout-note
+When you open the query again in [Design View]{.uicontrol} after closing it, Access has made some changes for the column [Sales]{.varname}:
+
+-   Value in row [Field]{.uicontrol} is now `Sales: Sum([Quantity]*[BoxPrice])`.
+-   Value in row [Total]{.uicontrol} is now `Expression`.
+:::
+
+**Create Form**
+
+7.  Choose [tab Create \> Form Wizard]{.uicontrol}. Add [table Boxes]{.uicontrol} and from this table field [BoxName]{.uicontrol}. Click [Next]{.uicontrol}.
+
+8.  Answer the Wizard questions as follows:
+
+    -   Form layout Datasheet.
+    -   Title Sales per box per month in 2010.
+    -   Save the form with the same name as the title.
+
+9.  Open the form in Design View. Create some space for the chart in section Detail by dragging down the underside.
+
+10. Choose [tab Design \> Chart (group Controls)]{.uicontrol} ![](images/common/control-chart.png)\] and draw on the form a rectangular frame for the chart. The [Chart Wizard]{.uicontrol} is started.
+
+11. Answer the first three Wizard questions as follows:
+
+    -   Use query `Sales per box per month in 2010`.
+    -   Fields for the chart: [Month]{.varname} and [Sales]{.varname}.
+    -   Choose Column Chart as type.
+
+The Wizard displays a layout of the chart. You need to modify it.
+
+![Generated layout chart.](images/forms/chartwizard-layout-default.png){#fig-chartwizard-layout-default}
+
+12. Drag the field [SumOfMonth]{.uicontrol} out of the box to the vertical axis to the box at the horizontal axis. It is now displayed at the horizontal axis as `Month`.
+
+13. Drag the field [Sales]{.uicontrol} to the vertical axis box. The display along the horizontal axis then changes in `SumOfSales`.
+
+![Final layout chart.](images/forms/chartwizard-layout-data.png){#fig-chartwizard-layout-data}
+
+14. Click [Next]{.uicontrol}. Here you select the field in the form that should be linked to the field in the chart. In both cases it is [BoxName]{.varname}.
+
+![Linking fields form and chart.](images/forms/chartwizard-linking-fields.png){#fig-chartwizard-linking-fields}
+
+15. Click [Next]{.uicontrol}. Enter for the title of the chart [Sales per box per month in 2010]{.varname} and choose not to display a legend. Then click [Finish]{.uicontrol}.
+
+::: callout-warning
+The Design View shows an example graph and not the chart of real data.
+:::
+
+16. Close the form and save the changes
+
+17. Open the form and switch to [Form View]{.uicontrol} and browse through some records and after that close the form.
+
+:::
+
+## Linking forms {#sec-forms-customer-orders}
+
+The easiest way to create linked forms is with the \[Form Wizard\]{.uicontrol. This wizard creates the necessary forms, ensures the linking, and provides in a command button on the main form to open the linked form.
+
+The goal is to create a form in which the data of a customer are displayed and with a command button to display the order information from the customer in a new form. See @fig-f-customerorders-linked-2.
+
+![Two linked forms with synchronized data.](images/forms/f-customerorders-linked.png){#fig-f-customerorders-linked-2}
+
+On the main form is the customer data, all necessary fields are available in table [Customers]{.varname}. The linked form contains the order code and date and these fields are in table [Orders]{.varname}. This form also has a subform containing the details of the order and this data comes from table [OrderDetails]{.varname}.
+
+::: {#prp-forms-linking}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1.  Open the database.
+
+2.  Choose [tab Create \> Form Wizard (group Forms)]{.uicontrol}.
+
+3.  Select [Table: Customers]{.uicontrol}.
+
+![Form Wizard: selecting fields.](images/forms/f-wizard-t-customers.png){#fig-f-wizard-t-customers-2}
+
+4.  Add the following fields:
+
+    -   From table [Customers]{.varname}: [CustomerCode]{.varname}, [LastName]{.varname}, [FirstName]{.varname}, [Address]{.varname}, [ZipCode]{.varname}, [City]{.varname}.
+
+    -   From table [Orders]{.varname}: [OrderCode]{.varname}, [OrderDate]{.varname}.
+
+    -   From table OrderDetails: [BoxCode]{.varname}, [Quantity]{.varname}.
+
+5.  Click op [Next]{.uicontrol}. Choose to view the data by [Customers]{.varname} and choose [Linked forms]{.uicontrol}.
+
+![Wizard linked forms.](images/forms/f-wizard-customerorders-dataview.png){#fig-f-wizard-customerorders-dataview}
+
+6.  Click [Next]{.uicontrol}. Now you can name the forms.
+
+7.  Name the forms as follows:
+
+    -   First form: [CustomerOrders]{.varname}
+    -   Second form: [CustomerOrdersSub1]{.varname}
+    -   Subform: [CustomerOrdersSub2]{.varname}
+
+8.  Click [Finish]{.uicontrol}.
+
+The main form CustomerOrders is displayed. The design still needs to be tweaked because the command button [CustomerOrdersSub1]{.uicontrol} is located under the label [CustomerOrders]{.uicontrol} and therefore can't be used.
+
+![Main form title with the unreachable command button below to open the sub form.](images/forms/f-customerorders-titles.png){#fig-f-customerorders-titles}
+
+9.  Open form [CustomerOrders]{.uicontrol} in [Design View]{.uicontrol}.
+
+    -   Delete label [CustomerOrders]{.uicontrol}.
+    -   Select the command button and use the [Property Sheet]{.uicontrol} to change the caption in `Order data`.
+
+10. If desired, adjust the layout of the three forms.
+
+11. Switch to [Form View]{.uicontrol} and test the operation of the command button.
+
+12. Close the form and save changes.
+:::
+
+::: callout-note
+In a default installation of Access each document (table, query, form, report ) opens in a separate tab. With linked forms, this is not always convenient. When you click the command button, the linked subform then opens in a new tab and you don't see the information in both forms together.
+
+If you want to do so you have to change the database settings that documents appear in overlapping windows instead of tabs. Method:
+
+1.  Choose [File \> Options \> Current Database]{.uicontrol}.
+2.  Select [Overlapping Windows]{.uicontrol} at [Document Window Options]{.uicontrol}.
+:::
+
+## Exercises {#sec-forms-exercises}
+
+::: {#exr-form001}
+**Customers (form001)**
+
+Create a form Customers that looks like the following figure. Name the form [form001]{.varname}.
+
+![](images/forms/form001.png)
+:::
+
+::: {#exr-form002}
+**Pralines in boxes (form002)**
+
+Create a main form with subform that shows you in which boxes a particular bonbon is present and in what quantity. Name the forms [form002 main]{.varname} and [form002 sub]{.varname}.
+
+![](images/forms/form002.png)
+:::
+
+::: {#exr-form003}
+**Boxes per customer (form003)**
+
+Create a main form with subform in which the main form displays the box data and the subform displays the total sales per customer for this box. For this, create first a query that calculates the total number of ordered boxes per customer. Name the query [Boxes per customer]{.varname} and the forms [form003 main]{.varname} and [form003 sub]{.varname}.
+
+![](images/forms/form003.png)
+:::

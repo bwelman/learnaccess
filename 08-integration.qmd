@@ -1,0 +1,137 @@
+# Integration with Office {#sec-integration}
+
+::: {.callout-note appearance="simple" icon="false"}
+**OBJECTIVES**
+
++ Exchange data from Access with Excel and Word.
++ Create a form letter in Word with an address file in Access.
++ Export a table to a new RTF document.
++ Export a table to Excel. 
+:::
+
+Access, Excel, PowerPoint, and Word are standalone programs for many users. For many business applications, a collaboration between the programs is important. And there are plenty of options for that.
+
+## About integration of Office applications {#sec-integration-about}
+
+The individual programs within the Microsoft Office package can work well together so that integration within processes is possible. However, for many users, Access, Excel, and Word are separate programs, each with their strong and weak sides. Access for databases, Excel for the calculations, and Word for word processing.
+
+Access can export data from tables, queries, and forms to Excel, so you can do there the calculations that are not possible in Access. Besides, Acess can import data from Excel worksheets.
+
+Access can also export from tables, queries, and forms to a Word RTF file. Additionally, an Access database can serve as a data source when creating default letters and labels in Word through the wizard. This wizard can be started from both Access and Word.
+
+## Mailmerge {#sec-mailmerge}
+
+In this task, you will send customers a standard letter containing the announcement of a new voucher box with the name [Snow White]{.varname}. The source for the addresses will be table [Customers]{.varname}.
+
+::: {#prp-mailmerge}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1. Open the database.
+
+2. Select table [Customers]{.varname}.
+
+3. Right-click on the table name and choose [Export > Word Merge]{.uicontrol}.
+
+![Microsoft Word Mail Merge Wizard.](images/integration/word-mailmerge-wizard.png){#fig-word-mailmerge-wizard}
+
+4. Select [Link your data to an existing Microsoft Word document]{.uicontrol} and click [OK]{.uicontrol}.
+
+5. Select practice file `snow-white.docx` in the dialog box and click [Open]{.uicontrol}. Microsoft Word is started with the practice file in it. On the ribbon, [tab Mailings]{.uicontrol} is activated and at the right side, the panel ***Mail Merge*** is displayed. On the bottom of this panel, you can see that the wizard is in step 3 of 6.
+
+![Progress wizard mail merge: step 3 of 6.](images/integration/mailmerge-wizard-step3.png){#fig-mailmerge-wizard-step3}
+
+6. Click on the link [Next: Write your letter]{.uicontrol}.
+
+7. Put the cursor in the first line and choose [tab Mailings > Insert Merge Field (group Write & Insert Fields) > FirstName]{.uicontrol}.
+
+8. After that, add the fields [LastName]{.varname}, [Address]{.varname}, [ZipCode]{.varname} and [City]{.varname} according to the following model.
+
+   ```
+   <<FirstName>> <<LastName>>
+   <<Address>>
+   <<ZipCode>>  <<City>>
+   ```
+
+9. Click in panel ***Mail Merge*** below Step 4 of 6 on the link [Next: Preview your letters]{.uicontrol}. An example letter for the first customer is shown.
+
+10. Click in panel Mail ***Mail Merge*** below Step 5 of 6 on the link [Next: Complete the merge]{.uicontrol}. You can now complete the merge in panel Mail Merge:
+
+![Finishing mail merge.](images/integration/mailmerge-wizard-finishing.png){#fig-mailmerge-wizard-finishing}
+
+::: {.callout-note}
+You now have two choices:
+
++ With [Print]{.uicontrol}, you can send the letters to the printer.
++ With [Edit individual letters]{.uicontrol}, one document is created with the letters.
+:::
+
+11. Click on the link [Edit individual letters]{.uicontrol}.
+
+![Selection of records.](images/integration/mailmerge-wizard-records.png){#fig-mailmerge-wizard-records}
+
+12. Specify that you want to create letters for the first 10 customers. Then click [OK]{.uicontrol}. A new Word document will be created containing 10 letters.
+
+13. Save the document with name [Invitation new box]{.varname} and close Word.
+:::
+
+## Export to Word {#sec-export-word}
+
+Purpose: Export an Access table to a new RTF document.
+
+When you want to place the contents of a table or the result of a query into an existing Word document, then copy and paste is the simplest method. But you can also export the data to a new Word document. Then a document will be created in RTF format (Rich Text Format) that ca be opened in Word.
+
+::: {#prp-export-word}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1. Open the database.
+
+2.  Select table [Boxes]{.varname}.
+
+3.  Right-click on the table name and choose [Export > Word RTF File]{.uicontrol}. The dialog box ***Export - RTF file*** is displayed.
+
+4.  Specify file name and path, then click [OK]{.uicontrol}. The dialog box ***Save Export Steps*** is displayed.
+
+5.  It's not necessary to save the export steps. Click [Close]{.uicontrol}.
+
+6.  Check the export by opening the file in Word.
+:::
+
+## Export to Excel {#sec-export-excel}
+
+Purpose: Export an Access table to a new Excel document.
+
+Je kunt eenvoudig een tabel vanuit Access naar Excel exporteren.
+
+::: {#prp-export-excel}
+[File]{.smallcaps}: `{{< var database >}}`
+
+1. Open the database.
+
+2.  Select table [Boxes]{.varname}.
+
+3.  Right-click on the table name and choose [Export > Excel]{.uicontrol}. The dialog box ***Export - Excel Spreadsheet*** is displayed.
+
+4.  Specify file name and path, select option [Export data with formatting and layout]{.uicontrol}, and click [OK]{.uicontrol}. The dialog box ***Save Export Steps*** is displayed.
+
+5.  It's not necessary to save the export steps. Click [Close]{.uicontrol}.
+
+6.  Check the export by opening the file in Excel.
+:::
+
+## Exercises {#sec-integration-exercises}
+
+::: {#exr-intg001}
+**Standard letter (intg001)**
+
+The marketing department wants to promote the new box among the customers who have ever bought a box of pralines with white chocolate. Create the required query and then a standard letter with this query.
+
+If a box contains at least 1 praline with white chocolate and this box has been purchased by a particular customer, we would like to send this customer a letter. Make sure that a customer receives no more than one letter.
+
+:::
+
+::: {#exr-intg002}
+**Export customer data (intg002)**
+
+Export all customer data to an Excel file.
+
+:::
