@@ -9,7 +9,8 @@ book:
   date-format: long
   google-analytics: "G-08L9QXJN06"
   site-url: https://learnaccess.netlify.app/
-
+  repo-url: https://github.com/bwelman/learnaccess
+  repo-actions: [issue]
   description: "A task-oriented textbook."
 
   chapters:
