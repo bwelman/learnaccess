@@ -1,6 +1,6 @@
 # Macros {#sec-macros}
 
-::: {.callout-note appearance="simple" icon="false"}
+::: callout
 **OBJECTIVES**
 
 -   What you can do with macros.

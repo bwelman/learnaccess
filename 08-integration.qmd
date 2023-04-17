@@ -1,6 +1,6 @@
 # Integration with Office {#sec-integration}
 
-::: {.callout-note appearance="simple" icon="false"}
+::: callout
 **OBJECTIVES**
 
 + Exchange data from Access with Excel and Word.

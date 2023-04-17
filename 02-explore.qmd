@@ -1,6 +1,9 @@
 # Exploring Candy database {#sec-explore}
 
-::: {.callout-note appearance="simple" icon="false"}
+```{r, file = "R/webex.R", include = FALSE}
+```
+
+::: callout
 **OBJECTIVES**
 
 -   Understanding sample database `{{< var database >}}`.
@@ -136,7 +139,7 @@ It is not recommended to enable all macros, then you will lose the security cont
 For this exploration you must have opened database `{{< var database >}}`.
 
 ::: callout-note
-When a security warning is displayed, you should you take action, see @sec-explore-security).
+When a security warning is displayed, you should you take action, see @sec-explore-security.
 :::
 
 ![Access with the Snoopy database with opened group Tables.](images/common/access-window.png){#fig-explore-access-window}
@@ -158,7 +161,7 @@ Double-clicking on an object in the Navigation Pane will open the object and dis
 ![Document window with the Customers and Orders tables in tabs.](images/explore/document-tabs.png){#fig-document-tabs}
 
 ::: callout-note
-You can change this setting through [File \> Options \> Current Database]{.uicontrol}. In figure \@ref(fig:document-window-options) you see the possibilities for the document windows.
+You can change this setting through [File \> Options \> Current Database]{.uicontrol}. In @fig-document-window-options you see the possibilities for the document windows.
 
 ![Document Window Options.](images/common/document-window-options.png){#fig-document-window-options}
 
@@ -331,7 +334,7 @@ Design View
 2.  Open the query [Pralines per box]{.varname}.
 
 ::: callout-note
-Access executes the query and produces a data sheet containing the results of the query, see figure \@ref(fig:query-pralines-box-datasheet).
+Access executes the query and produces a data sheet containing the results of the query, see @fig-query-pralines-box-datasheet.
 
 The results of this query are derived from multiple tables. To know which tables are used, you had to go to the design view of the query.
 :::
@@ -441,7 +444,7 @@ Access reorganizes the records in alphabetical order by city and shows a small u
 8.  Choose [tab Home \> Ascending ![](../common/images/button-sort-ascending.png) (group Sort & Filter)]{.uicontrol}
 
 ::: callout-note
-Access reorganizes the records in ascending alphabetical order, first by city, then by the last name and then by the first name. At the right side of each of the headers of these three columns, you can see the small upward pointing arrow, see figure \@ref(fig:table-customers-sorted).
+Access reorganizes the records in ascending alphabetical order, first by city, then by the last name and then by the first name. At the right side of each of the headers of these three columns, you can see the small upward pointing arrow, see @fig-table-customers-sorted.
 :::
 
 9.  Close the table [Customers]{.varname} and choose [No]{.uicontrol} on the question to save the changes.
@@ -490,7 +493,7 @@ For this, the previous filter will be changed.
 2.  Select in the dialog box Milk and deselect White. Click [OK]{.uicontrol}. There are now 18 records shown, all with chocolate type Milk.
 
 ::: callout-note
-The showed options in figure \@ref(fig:filter-chocolatetype) depend on the field type. With a text field, there is a submenu [Text Filters]{.uicontrol} and with a numeric field, there is a submenu [Number Filters]{.uicontrol}.
+The showed options in @fig-filter-chocolatetype depend on the field type. With a text field, there is a submenu [Text Filters]{.uicontrol} and with a numeric field, there is a submenu [Number Filters]{.uicontrol}.
 :::
 :::
 
@@ -558,13 +561,18 @@ With the choice [Print Preview]{.uicontrol}, you can customize the print, such a
 Create a filter to select Pralines with chocolate type Milk or Dark
 whose price is at most \$0.30.
 
-`r hide("Tip")` With numeric fields, you have several options for number
-ranges:
+::: {.content-visible when-format="html:js"}
+`r hide("Tip")`
+With numeric fields, you have several options for number ranges:
 
 ![Number filter](images/explore/expl001-filter-numbers.png)
 `r unhide()`
 
-`r hide("Answer")` The result is 18 records. `r unhide()`
+`r hide("Answer")`
+The result is 18 records.
+`r unhide()`
+:::
+
 :::
 
 ::: {#exr-expl002}
@@ -573,7 +581,12 @@ ranges:
 Make a selection of the customers who live in Enschede, Hengelo, and
 Almelo
 
-`r hide("Answer")` The result is 12 records. `r unhide()`
+::: {.content-visible when-format="html:js"}
+`r hide("Answer")`
+The result is 12 records.
+`r unhide()`
+:::
+
 :::
 
 ::: {#exr-expl003}
@@ -582,9 +595,16 @@ Almelo
 Make a selection of customers whose zip code begins with 20 and is
 living in Amsterdam.
 
-`r hide("Tip")` ZipCode is a text field, so you can use text filters:
+::: {.content-visible when-format="html:js"}
+`r hide("Tip")`
+ZipCode is a text field, so you can use text filters:
 
-![Text filter](images/explore/expl003-filter-text.png) `r unhide()`
+![Text filter](images/explore/expl003-filter-text.png)
+`r unhide()`
 
-`r hide("Answer")` The result is 3 records. `r unhide()`
+`r hide("Answer")`
+The result is 3 records.
+`r unhide()`
+:::
+
 :::

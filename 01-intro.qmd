@@ -1,6 +1,6 @@
 # Starting with Access {#sec-intro}
 
-::: {.callout-note appearance="simple" icon="false"}
+::: callout
 **OBJECTIVES**
 
 -   What are databases and how they are structured.

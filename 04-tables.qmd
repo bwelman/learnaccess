@@ -1,6 +1,6 @@
 # Tables {#sec-tables}
 
-::: {.callout-note appearance="simple" icon="false"}
+::: callout
 **OBJECTIVES**
 
 -   Organization of tables and relationships between tables.
@@ -158,7 +158,7 @@ Explanation:
 -   `(999)` user can enter three digits as area code
 -   `000-000` user must enter six digits
 -   `;0` specifies that the mask characters will be stored along with the data.
--   `;-` specifies that a hyphen (**-**) instead of the underscore (\*\*\_\*\*) is to be used as the placeholder character.
+-   `;-` specifies that a hyphen (-) instead of the underscore (_) is to be used as the placeholder character.
 
 :::
 
@@ -188,7 +188,7 @@ Validation text
 
 When creating expressions you should consider the following:
 
--   Field names must be enclosed in square brackets, like \[OrderDate\].
+-   Field names must be enclosed in square brackets, like `[OrderDate]`.
 -   Dates must be surrounded by #, like `#12-31-2010#`.
 -   Text must be surrounded by double quotes, like "Amsterdam".
 -   Wild cards are permitted. Most known are
@@ -413,7 +413,7 @@ When referential integrity is set then the following rules apply:
 
 -   A value of the primary key in the primary table can not be changed if this record has related records in the related table. So you can not change the CustomerCode in the [Customers]{.varname} table if there are records for this customer in the [Orders]{.varname} table.
 
-When the referential integrity is enforced and any of the foregoing rules is violated by an action, then an appropriate error message is displayed. In figure \@ref(fig:warning-referential-integrity) you see an example of this.
+When the referential integrity is enforced and any of the foregoing rules is violated by an action, then an appropriate error message is displayed. In @fig-warning-referential-integrity you see an example of this.
 
 ![Error message when entering an order for a non existing client.](images/tables/warning-referential-integrity.png){#fig-warning-referential-integrity}
 

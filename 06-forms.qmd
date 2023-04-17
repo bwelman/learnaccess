@@ -1,6 +1,6 @@
 # Forms {#sec-forms}
 
-::: {.callout-note appearance="simple" icon="false"}
+::: callout
 **OBJECTIVES**
 
 -   Types of forms: main form, sub form and linked form.
@@ -152,7 +152,7 @@ The property [Locked]{.uicontrol} of a control can be used to protect data in a 
 9.  With the text boxes still selected, change the background color from white in light grey. You can do this in one of the following ways:
 
     -   Change property [Back Color]{.uicontrol}.
-    -   Right-click on one of the selected fields and choose from the shortcut menu \[Fill/Back Color\]{.uicontrol.
+    -   Right-click on one of the selected fields and choose from the shortcut menu [Fill/Back Color]{.uicontrol}.
 
 10. Switch to [Form View]{.uicontrol} to check the result.
 

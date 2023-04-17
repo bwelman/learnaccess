@@ -1,6 +1,6 @@
 # Tools {#sec-tools}
 
-::: {.callout-note appearance="simple" icon="false"}
+::: callout
 **OBJECTIVES**
 
 -   Ability to analyze tables and detect inconsistencies.

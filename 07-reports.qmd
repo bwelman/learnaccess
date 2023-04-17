@@ -1,6 +1,9 @@
 # Reports {#sec-reports}
 
-::: {.callout-note appearance="simple" icon="false"}
+```{r, file = "R/webex.R", include = FALSE}
+```
+
+::: callout
 **OBJECTIVES**
 
 -   For which you can use reports.
@@ -202,7 +205,7 @@ In this task, you create a report with pictures of the pralines and the code and
 
 ![Frame dimensions.](images/reports/label-praline-dimensions.png){#fig-label-praline-dimensions}
 
--   In tab \[Data\]{.uicontrol: specify for property [Control Source]{.uicontrol} field `Picture`.
+-   In tab [Data]{.uicontrol}: specify for property [Control Source]{.uicontrol} field `Picture`.
 
 ![Control Source.](images/reports/label-praline-controlsource.png){#fig-label-praline-controlsource}
 
@@ -266,7 +269,12 @@ Furthermore, make some small changes to the layout. The text box Sum should be m
 
 ![](images/reports/rapp004-report.png)
 
-`r hide("Tip")` Every box is a group, so the group header in this report is named Box Header. `r unhide()`
+::: {.content-visible when-format="html:js"}
+`r hide("Tip")`
+Every box is a group, so the group header in this report is named Box Header.
+`r unhide()`
+:::
+
 :::
 
 ::: {#exr-rapp005}
@@ -282,7 +290,12 @@ Create a copy of the report [Sales per box per order per period]{.varname} and n
 
 Create a copy of report the [rapp005]{.varname} and name the copy [rapp006]{.varname}. Change the design of report rapp006 so that each box starts on a new page.
 
-`r hide("Tip")` Set property [Force New Page]{.uicontrol} of the group header (BoxName Header) on `Before Section`. `r unhide()`
+::: {.content-visible when-format="html:js"}
+`r hide("Tip")`
+Set property [Force New Page]{.uicontrol} of the group header (BoxName Header) on `Before Section`.
+`r unhide()`
+:::
+
 :::
 
 ::: {#exr-rapp007}
@@ -309,6 +322,11 @@ In the following picture, you see the beginning of the output for the year 2009.
 
 ![](images/reports/rapp008-report.png)
 
-`r hide("Tip")` First create a parameter query [Yearly sales per region]{.varname} which provides the necessary data for the report and asks for the sales year. `r unhide()`
+::: {.content-visible when-format="html:js"}
+`r hide("Tip")`
+First create a parameter query [Yearly sales per region]{.varname} which provides the necessary data for the report and asks for the sales year.
+`r unhide()`
+:::
+
 :::
 

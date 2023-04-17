@@ -1,6 +1,6 @@
 # Data entry and modify {#sec-data}
 
-::: {.callout-note appearance="simple" icon="false"}
+::: callout
 **OBJECTIVES**
 
 -   Using a data entry form.
@@ -140,7 +140,7 @@ The subform with the name [Boxes subform]{.varname} has the following editable f
 
 8.  Enter at [BoxPrice]{.varname} 25.00 and at [Stock]{.varname} 120.
 
-9.  Close form \[Boxes\]{.varname.
+9.  Close form [Boxes]{.varname}.
 
 10. Check in the table Boxes that the new box has been added.
 :::
