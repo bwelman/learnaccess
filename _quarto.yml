@@ -58,7 +58,7 @@ format:
     callout-appearance: simple
     author-meta: "Ben Welman"
     description-meta: "With this task oriented textbook you learn to work with Microsoft Access."
-    keywords: ["Access", "databases", "tables", "queries", "forms", "reports", "macros"]
+    # keywords: ["Access", "databases", "tables", "queries", "forms", "reports", "macros"]
 
 knitr:
   opts_chunk:

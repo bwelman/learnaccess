@@ -405,13 +405,15 @@ Referential integrity is a system of rules by which it is ensured that the inter
 
 Referential integrity is handled through the dialog box ***Edit Relationships*** by selecting the box [Enforce Referential Integrity]{.uicontrol}.
 
-When referential integrity is set then the following rules apply:
+::: callout-important
+**Consequences Referential Integrity**
 
--   You can not specify a value for the foreign key in the related table if that value is not in the primary key of the primary table. For example, you can not enter orders for a nonexistent client. When you want to enter an order for a new customer then you must first create the client and then the order.
+- You cannot enter a value for the foreign key in the related table if that value does not exist in the primary key of the primary table. For example, you cannot enter an order for a non-existent customer. With an order for a new customer, you must therefore first create the customer and only then the order.
 
--   A record from a primary table can not be deleted if matching records exist in a related table. So you can not delete a record from the Customers table if there are still records for this customer in the Orders table.
+- You cannot delete a record from the primary table if there is a record that relates in another related table. For example, you cannot delete a record from the [Customers]{.varname} table if records for this customer still exist in the [Orders]{.varname} table.
 
--   A value of the primary key in the primary table can not be changed if this record has related records in the related table. So you can not change the CustomerCode in the [Customers]{.varname} table if there are records for this customer in the [Orders]{.varname} table.
+- You cannot change the value of the primary key in the primary table if there is a record that relates in another related table. For example, you cannot change the customer code in the [Customers]{.varname} table if records in the [Orders]{.varname} table are assigned to this customer.
+:::
 
 When the referential integrity is enforced and any of the foregoing rules is violated by an action, then an appropriate error message is displayed. In @fig-warning-referential-integrity you see an example of this.
 
