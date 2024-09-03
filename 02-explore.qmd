@@ -44,7 +44,7 @@ The six tables are shortly discussed below.
 
 Various details of a customer are stored in the table [Customers]{.varname}. Every customer has a unique customer code. The field [CustomerCode]{.varname} is the primary key of the table. Each row of a table is called a record. Customers are sorted by the values of the primary key.
 
-Check that there are 325 customers in table [Customers]{.varname}.
+> Check that there are 325 customers in table [Customers]{.varname}.
 
 ### Table Orders {#sec-explore-table-orders}
 
@@ -52,7 +52,7 @@ Check that there are 325 customers in table [Customers]{.varname}.
 
 In the table [Orders]{.varname} is [OrderCode]{.varname} the primary key, the value of [OrderCode]{.varname} is unique. A certain value of [CustomerCode]{.varname} can appear more than once in this table because a customer can have multiple orders. An order is always associated with one customer.
 
-Check that there are 784 orders in table [Orders]{.varname}.
+> Check that there are 784 orders in table [Orders]{.varname}.
 
 ### Table OrderDetails {#sec-explore-table-orderdetails}
 
@@ -60,7 +60,7 @@ Check that there are 784 orders in table [Orders]{.varname}.
 
 An order can contain multiple boxes, but each [BoxCode]{.varname} can only occur once in an order. However, a certain box can be ordered in multiple orders, so that a [BoxCode]{.varname} can belong to multiple values of [OrderCode]{.varname}. table [OrderDetails]{.varname} has 1537 records (order rows).
 
-Check that two different boxes were ordered on the order with order code 3, because the table contains two lines with order code 3. A total of three boxes were ordered on this order, two boxes with the box code CHER and 1 box with the box code NOWI.
+> Check that two different boxes were ordered on the order with order code 3, because the table contains two lines with order code 3. A total of three boxes were ordered on this order, two boxes with the box code CHER and 1 box with the box code NOWI.
 
 The combination of [OrderCode]{.varname} and [BoxCode]{.varname} is always unique. Therefore, the key in the table is a combination of these two fields.
 
@@ -441,7 +441,7 @@ Access reorganizes the records in alphabetical order by city and shows a small u
 
 7.  To sort on multiple fields, select the columns [City]{.varname}, [LastName]{.varname}, and [FirstName]{.varname}.
 
-8.  Choose [tab Home \> Ascending ![](../common/images/button-sort-ascending.png) (group Sort & Filter)]{.uicontrol}
+8.  Choose [tab Home \> Ascending ![](images/common/button-sort-ascending.png) (group Sort & Filter)]{.uicontrol}
 
 ::: callout-note
 Access reorganizes the records in ascending alphabetical order, first by city, then by the last name and then by the first name. At the right side of each of the headers of these three columns, you can see the small upward pointing arrow, see @fig-table-customers-sorted.

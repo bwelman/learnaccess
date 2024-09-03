@@ -12,6 +12,7 @@ book:
   repo-url: https://github.com/bwelman/learnaccess
   repo-actions: [issue]
   description: "A task-oriented textbook."
+  downloads: [pdf]
 
   chapters:
     - index.qmd
@@ -59,6 +60,19 @@ format:
     author-meta: "Ben Welman"
     description-meta: "With this task oriented textbook you learn to work with Microsoft Access."
     # keywords: ["Access", "databases", "tables", "queries", "forms", "reports", "macros"]
+
+  pdf:
+    documentclass: scrbook
+    classoption: oneside
+    papersize: a4
+    geometry:
+     - top=25mm
+     - bottom=25mm
+     - left=25mm
+     - right=25mm
+    cite-method: biblatex
+    links-as-notes: true
+    author: [Ben Welman]
 
 knitr:
   opts_chunk:
