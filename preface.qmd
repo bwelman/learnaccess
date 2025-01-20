@@ -1,6 +1,6 @@
 # Preface {.unnumbered}
 
-This textbook is intended as a thorough introduction to Microsoft Access and has been developed especially for students in higher education and users of Microsoft Access. The focus is on creating queries, forms and reports and not on designing databases. The chapters on these components contain many exercises to practice you in gathering infotrmation from the database.
+This textbook is intended as a thorough introduction to Microsoft Access and has been developed especially for students in higher education and users of Microsoft Access. The focus is on creating queries, forms and reports and not on designing databases. The chapters on these components contain many exercises to practice you in gathering information from the database.
 
 This textbook is different from other Access textbooks in several ways.
 

@@ -71,7 +71,7 @@ You can set additional field properties at a data type. The data type of the fie
 
 Field Size
 
-:   Important at Text, Number, and sometimesAutoNumber. For a text field, you can specify the maximum length of the text. For a number field, you can specify what kind of numbers can be entered, like `Byte`, `Integer`, `Long Integer`, `Decimal`, `Single`, and `Double`.
+:   Important at Text, Number, and sometimes AutoNumber. For a text field, you can specify the maximum length of the text. For a number field, you can specify what kind of numbers can be entered, like `Byte`, `Integer`, `Long Integer`, `Decimal`, `Single`, and `Double`.
 
 Format
 
@@ -235,7 +235,7 @@ When creating expressions you should consider the following:
 **Simple email address validation**
 
 -   Validation rule: `Like "*@*.???"`
--   Validation text: `Not a valid email address.` :::
+-   Validation text: `Not a valid email address.`
 
 :::
 
