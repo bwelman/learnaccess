@@ -1,6 +1,7 @@
 project:
   type: book
   pre-render: R/generate-zip.R
+  resources: "files-learnaccess.zip"
 
 book:
   title: "Learn Microsoft Access"
@@ -73,6 +74,7 @@ format:
     cite-method: biblatex
     links-as-notes: true
     author: [Ben Welman]
+    date: \today
 
 knitr:
   opts_chunk:

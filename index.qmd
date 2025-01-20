@@ -9,7 +9,7 @@ There are interactive sections in the textbook to help you better understand the
 ::: callout-important
 ## Data files
 
-Data files are included with this textbook. You need these to perform the exercises. You can download them in one zip file: [Download data files](files-learnaccess.zip).
+Data files are included with this textbook. You need these to perform the exercises. You can download them in one zip file: [Download data files](https://learnaccess.netlify.app/files-learnaccess.zip).
 :::
 
 ### Help
