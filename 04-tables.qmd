@@ -387,7 +387,7 @@ If there are no relations made earlier then the window Relationships is empty. T
 
 A relation between two tables can be created by dragging the primary key from one table to the foreign key in another table. Then the dialog box ***Edit Relationships*** is displayed.
 
-\[Dialog box Edit Relationships.\]images/tables/relationship-edit-boxes-boxdetails.png(){#fig-relationship-edit-boxes-boxdetails-1}
+![Dialog box Edit Relationships](images/tables/relationship-edit-boxes-boxdetails.png){#fig-relationship-edit-boxes-boxdetails-1}
 
 If you want to enforce referential integrity for this relation then check the box [Enforce Referential Integrity]{.uicontrol}.
 
