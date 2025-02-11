@@ -44,20 +44,20 @@ When you have to make calculations with the content of the field, then use data 
 
 The data types in Access are:
 
-| Data Types     | Values                                  | Explanation                                                                                                                                                                                                            |
-|----------------|----------------|----------------------------------------|
-| `Short Text`   | Alphanumeric                            | Short, alphanumeric values with a maximum of 255 characters                                                                                                                                                            |
-| `Long Text`    | Alphanumeric                            | Long amounts of text, up to 1GB. In earlier versions named memo.                                                                                                                                                       |
-| `Number`       | Numeric                                 | Range of -2^31^ tot 2^31^ - 1.                                                                                                                                                                                         |
-| `Large Number` | Numeric                                 | Range of -2^63^ tot 2^63^ - 1.                                                                                                                                                                                         |
-| `Date/Time`    | Dates and Times                         |                                                                                                                                                                                                                        |
-| `Currency`     | Monetary values                         | Stored with 4 decimal places of precision.                                                                                                                                                                             |
-| `AutoNumber`   | Numbers (unique)                        | Numbers that are automatically generated for each record. Default is the field length Long Integer. AutoNumber is often used as a key field.                                                                           |
-| `Yes/No`       | Yes or No                               | Boolean values, only two values possible Yes or No. In the background, Access uses the value -1 for all Yes-values and the value 0 for all No-values. You also use this field for values as TRUE / FALSE, or ON / OFF. |
-| `OLE Object`   | Objects from other Windows applications | Photos, graphs, Excel worksheet, Word document, ...                                                                                                                                                                    |
-| `Hyperlink`    | Hyperlink                               | Hyperlinks (also e-mail addresses)                                                                                                                                                                                     |
-| `Attachment`   | Path and name of a file                 | Files, such as digital photos. Multiple files can be attached per record.                                                                                                                                              |
-| `Calculated`   | different                               | An expression that uses data from one or more fields.                                                                                                                                                                  |
+| Data Types | Values | Explanation |
+|----|----|----|
+| `Short Text` | Alphanumeric | Short, alphanumeric values with a maximum of 255 characters |
+| `Long Text` | Alphanumeric | Long amounts of text, up to 1GB. In earlier versions named memo. |
+| `Number` | Numeric | Range of -2^31^ tot 2^31^ - 1. |
+| `Large Number` | Numeric | Range of -2^63^ tot 2^63^ - 1. |
+| `Date/Time` | Dates and Times |   |
+| `Currency` | Monetary values | Stored with 4 decimal places of precision. |
+| `AutoNumber` | Numbers (unique) | Numbers that are automatically generated for each record. Default is the field length Long Integer. AutoNumber is often used as a key field. |
+| `Yes/No` | Yes or No | Boolean values, only two values possible Yes or No. In the background, Access uses the value -1 for all Yes-values and the value 0 for all No-values. You also use this field for values as TRUE / FALSE, or ON / OFF. |
+| `OLE Object` | Objects from other Windows applications | Photos, graphs, Excel worksheet, Word document, ... |
+| `Hyperlink` | Hyperlink | Hyperlinks (also e-mail addresses) |
+| `Attachment` | Path and name of a file | Files, such as digital photos. Multiple files can be attached per record. |
+| `Calculated` | different | An expression that uses data from one or more fields. |
 
 : Data types in Access {#tbl-datatypes}
 
@@ -126,25 +126,25 @@ Setting the second part to 1 can save database storage space.
 
 @tbl-inputmask-symbols lists the placeholder and literal characters for an input mask and explains how it controls data entry.
 
-| Character   | Explanation                                                                                                                                 |
-|----------------|--------------------------------------------------------|
-| 0           | User must enter a digit (0 to 9).                                                                                                           |
-| 9           | User can enter a digit (0 to 9).                                                                                                            |
-| \#          | User can enter a digit, space, plus, or minus sign. If skipped, Access enters a blank space.                                                |
-| L           | User must enter a letter.                                                                                                                   |
-| ?           | User can enter a letter.                                                                                                                    |
-| A           | User must enter a letter or a digit.                                                                                                        |
-| a           | User can enter a letter or a digit.                                                                                                         |
-| &           | User must enter either a character or space.                                                                                                |
-| C           | User can enter characters or spaces.                                                                                                        |
+| Character | Explanation |
+|----|----|
+| 0 | User must enter a digit (0 to 9). |
+| 9 | User can enter a digit (0 to 9). |
+| \# | User can enter a digit, space, plus, or minus sign. If skipped, Access enters a blank space. |
+| L | User must enter a letter. |
+| ? | User can enter a letter. |
+| A | User must enter a letter or a digit. |
+| a | User can enter a letter or a digit. |
+| & | User must enter either a character or space. |
+| C | User can enter characters or spaces. |
 | . , : ; - / | Decimal and thousands placeholders, date and time separators. The character you select depends on your Microsoft Windows regional settings. |
-| \>          | Converts all characters that follow to uppercase.                                                                                           |
-| \<          | Converts all characters that follow to lowercase.                                                                                           |
-| !           | Causes the input mask to fill from left to right instead of from right to left.                                                             |
-| \\          | Characters immediately following will be displayed literally.                                                                               |
-| ""          | Characters enclosed in double quotation marks will be displayed literally.                                                                  |
+| \> | Converts all characters that follow to uppercase. |
+| \< | Converts all characters that follow to lowercase. |
+| ! | Causes the input mask to fill from left to right instead of from right to left. |
+| \\ | Characters immediately following will be displayed literally. |
+| "" | Characters enclosed in double quotation marks will be displayed literally. |
 
-:  Placeholder and literal characters for an input mask {#tbl-inputmask-symbols}
+: Placeholder and literal characters for an input mask {#tbl-inputmask-symbols}
 
 You can either quickly add input masks by using the [Input Mask Wizard]{.uicontrol} or specify masks manually by typing custom masks to the Input Mask field property setting.
 
@@ -158,8 +158,7 @@ Explanation:
 -   `(999)` user can enter three digits as area code
 -   `000-000` user must enter six digits
 -   `;0` specifies that the mask characters will be stored along with the data.
--   `;-` specifies that a hyphen (-) instead of the underscore (_) is to be used as the placeholder character.
-
+-   `;-` specifies that a hyphen (-) instead of the underscore (\_) is to be used as the placeholder character.
 :::
 
 ::: {#exm-tables-zipcode}
@@ -213,14 +212,13 @@ When creating expressions you should consider the following:
 | BETWEEN  | Should be between two values | BETWEEN 1 AND 9                |
 | LIKE     | Matches pattern string       | LIKE "Ams\*"                   |
 
-:  Operators in expressions {#tbl-operators}
+: Operators in expressions {#tbl-operators}
 
 ::: {#exm-tables-validation-date}
 **Date validation**
 
 -   Validation rule: `>=#1-1-2010#`
 -   Validation text: `Enter a date from January 1, 2010.`
-
 :::
 
 ::: {#exm-tables-validation-invoicenumber}
@@ -228,7 +226,6 @@ When creating expressions you should consider the following:
 
 -   Validation rule: `Like "[0-9][0-9][0-9][0-9]"`
 -   Validation text: `Invoice number must consist of 4 digits.`
-
 :::
 
 ::: {#exm-tables-validation-email}
@@ -236,7 +233,6 @@ When creating expressions you should consider the following:
 
 -   Validation rule: `Like "*@*.???"`
 -   Validation text: `Not a valid email address.`
-
 :::
 
 ## Create a new table manually {#sec-tables-manually}
@@ -408,11 +404,11 @@ Referential integrity is handled through the dialog box ***Edit Relationships***
 ::: callout-important
 **Consequences Referential Integrity**
 
-- You cannot enter a value for the foreign key in the related table if that value does not exist in the primary key of the primary table. For example, you cannot enter an order for a non-existent customer. With an order for a new customer, you must therefore first create the customer and only then the order.
+-   You cannot enter a value for the foreign key in the related table if that value does not exist in the primary key of the primary table. For example, you cannot enter an order for a non-existent customer. With an order for a new customer, you must therefore first create the customer and only then the order.
 
-- You cannot delete a record from the primary table if there is a record that relates in another related table. For example, you cannot delete a record from the [Customers]{.varname} table if records for this customer still exist in the [Orders]{.varname} table.
+-   You cannot delete a record from the primary table if there is a record that relates in another related table. For example, you cannot delete a record from the [Customers]{.varname} table if records for this customer still exist in the [Orders]{.varname} table.
 
-- You cannot change the value of the primary key in the primary table if there is a record that relates in another related table. For example, you cannot change the customer code in the [Customers]{.varname} table if records in the [Orders]{.varname} table are assigned to this customer.
+-   You cannot change the value of the primary key in the primary table if there is a record that relates in another related table. For example, you cannot change the customer code in the [Customers]{.varname} table if records in the [Orders]{.varname} table are assigned to this customer.
 :::
 
 When the referential integrity is enforced and any of the foregoing rules is violated by an action, then an appropriate error message is displayed. In @fig-warning-referential-integrity you see an example of this.
@@ -483,29 +479,28 @@ The last name of the customer with CustomerCode 15 is `Molen, van de` and the fi
 Some customers appreciate that their title is listed with a mailing. Add a field [Title]{.varname} to table [Customers]{.varname}. Use data type [Lookup Wizard]{.uicontrol} to produce a list with the values: ing. , ir., drs., mr., dr.
 :::
 
-::: {#exr-tabl004}
+:::: {#exr-tabl004}
 **Currency format (tabl004)**
 
 In this exercise, you need the table [Transport]{.varname} that had to be made earlier in the course. When this table is not present in your database, you have two possibilities:
 
-+ You still perform the task by creating this table.
-+ You use database `transport.accdb` where the table [Transport]{.varname} already was made for you.
+-   You still perform the task by creating this table.
+-   You use database `transport.accdb` where the table [Transport]{.varname} already was made for you.
 
 Open table [Transport]{.varname} and note that the transport costs do not appear in a currency format. Change the value of the property [Format]{.uicontrol} of field [TransportationCosts]{.varname} in a currency format with your local currency symbol. Then switch to datasheet view and observe the result of the change.
 
-::: {.callout-note}
+::: callout-note
 The showed currency symbol depends on the local Windows settings.
 :::
-
-:::
+::::
 
 ::: {#exr-tabl005}
 **Composite key (tabl005)**
 
-In this exercise, you need the table [Transport]{.varname} that had to be made earlier in the course, see  @sec-tables-manually. When this table is not present in your database, you have two possibilities:
+In this exercise, you need the table [Transport]{.varname} that had to be made earlier in the course, see @sec-tables-manually. When this table is not present in your database, you have two possibilities:
 
-+ You still perform the task by creating this table.
-+ You use database `transport.accdb` where the table [Transport]{.varname} already was made for you.
+-   You still perform the task by creating this table.
+-   You use database `transport.accdb` where the table [Transport]{.varname} already was made for you.
 
 In the [Transport]{.varname} table, the [ID TransportCompany]{.varname} field regularly has the same value. So you can see 13 times the value 1. Therefore, this field can not serve as a primary key. The value of [DeliveryProvince]{.varname} appears three times because each carrier has a rate per province. The field [DeliveryProvince]{.varname} therefore can not serve as a primary key. The combination of the fields [ID TransportCompany]{.varname} and [DeliveryProvince]{.varname} is unique and can therefore be used as a primary key. Set this as primary key table [Transport]{.varname}.
 :::
@@ -527,9 +522,9 @@ Create a relationship between the tables [BoxDetails]{.varname} and [Pralines]{.
 
 Late 2010 was decided to track which employee has entered an order. There is already an Excel file containing the data of all employees. Perform the following actions:
 
-+ Import the Excel file `employees.xlsx` and give the table the name [Employees]{.varname}. Provide an appropriate primary key for this table.
-+ Add a field [EmployeeCode]{.varname}.
-+ Create a relationship between the tables [Orders]{.varname} and [Employees]{.varname} and enforce referential integrity.
+-   Import the Excel file `employees.xlsx` and give the table the name [Employees]{.varname}. Provide an appropriate primary key for this table.
+-   Add a field [EmployeeCode]{.varname}.
+-   Create a relationship between the tables [Orders]{.varname} and [Employees]{.varname} and enforce referential integrity.
 :::
 
 ::: {#exr-tabl009}
@@ -538,6 +533,8 @@ Late 2010 was decided to track which employee has entered an order. There is alr
 The marketing department wants to record all contacts ( telephone, mail, email, visits) in order to calculate the costs incurred for a customer. For each contact, the contact type, date, start time and end time, subject, and any charges (e.g. to send a gift) are tracked. If for example an employee has spent half an hour with a letter, then it must be possible to calculate later that the costs are `0.5 * $60`.
 
 To do this, create a new table named [Contacts]{.varname} and link this to table [Customers]{.varname} and enforce referential integrity.
+
+If the table [Employees]{.varname} is available (created in @exr-tabl008), when registering the contact moment, also include which employee handled the registration. To do this, you must link the table [Contacts]{.varname} to the table [Employees]{.varname}.
 :::
 
 ::: {#exr-tabl010}
@@ -553,4 +550,3 @@ A complaint always refers to an order. Create new table [Complaints]{.varname} a
 
 Check if the referential integrity is enforced at the relationships of tables [Customers]{.varname}, [Orders]{.varname}, [OrderDetails]{.varname}, [Boxes]{.varname}, [BoxDetails]{.varname}, and [Pralines]{.varname}. If not, do it.
 :::
-
