@@ -134,7 +134,7 @@ All the required information will be provided by the query you created in @sec-q
 -   The field [Province]{.varname} (in table [Customers]{.varname}) should have the value `UT`.
 -   The field [OrderDate]{.varname} (in table [Orders]{.varname}) should have a value in the range12-1-2009 until 12-31-2009.
 
-::: {#prp-queries-utrecht-dec2009}
+:::: {#prp-queries-utrecht-dec2009}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
@@ -149,7 +149,7 @@ All the required information will be provided by the query you created in @sec-q
 
 4.  Enter `"UT"` under [Province]{.varname} in box [Criteria]{.uicontrol}.
 
-5.  Enter `Like "12\*2009"` under [OrderDate]{.varname} in box [Criteria]{.uicontrol}.
+5.  Enter `Like "12*2009"` under [OrderDate]{.varname} in box [Criteria]{.uicontrol}.
 
 ![OrderDate with Like operator.](images/queries/q-utrecht-dec2009-criteria.png){#fig-q-utrecht-dec2009-criteria}
 
@@ -168,7 +168,7 @@ All the required information will be provided by the query you created in @sec-q
 9.  Save the query under a different name through [File \> Save Object as]{.uicontrol} and specify as name [Utrecht and orderdate dec 2009]{.varname}.
 
 10. click [OK]{.uicontrol} and close the query.
-:::
+::::
 
 ## Customers with box CHER {#sec-queries-customers-cher}
 
@@ -190,7 +190,7 @@ When using the Wizard to create the query, it is sufficient to add only the need
 It's not necessary to include a criterion that at least one box is ordered, because this condition is automatically set for linked tables.
 :::
 
-::: {#prp-queries-customers-cher}
+:::: {#prp-queries-customers-cher}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
@@ -201,13 +201,13 @@ It's not necessary to include a criterion that at least one box is ordered, beca
 
 4.  Select in [Tables/Queries]{.uicontrol} through the list box [Table: Customers]{.varname}. The fields of table [Customers]{.varname} are displayed in the box [Available Fields]{.uicontrol}, see @fig-q-wizard-t-customers.
 
-5.  Add the fields: [FirstName]{.varname}, [LastName]{.varname}, [Address]{.varname}, [ZipCode]{.varname}, [City]{.varname}.
+5.  Add the fields: [FirstName]{.varname}, [LastName]{.varname}, [Address]{.varname}, [ZipCode]{.varname}, [City]{.varname}. Select the field, and click ![](images/common/button-add-field.png).
 
-::: callout-note
-Select the field, and click ![](images/common/button-add-field.png)\]{.uicontrol}. You can also double click on a field to add or remove it.
+::: callout-tip
+You can also double click on a field to add or remove it.
 :::
 
-6.  Select table [Table: OrderDetails]{.varname} in box [Tables/Queries]{.uicontrol}. The fields of table [OrderDetails{.varname} are displayed in box [Available Fields]{.uicontrol}.
+6.  Select table [Table: OrderDetails]{.varname} in box [Tables/Queries]{.uicontrol}. The fields of table \[OrderDetails{.varname} are displayed in box [Available Fields]{.uicontrol}.
 
 7.  Add field [BoxCode]{.varname}.
 
@@ -228,7 +228,7 @@ Select the field, and click ![](images/common/button-add-field.png)\]{.uicontrol
 12. Switch to [Datasheet View]{.uicontrol}.
 
 13. Close the query and answer the question to save the changes with [Yes]{.uicontrol}.
-:::
+::::
 
 ## Summarizing and Calculations {#sec-queries-summarizing}
 
@@ -254,22 +254,22 @@ Calculations
 
 :   The options are: `Sum`, `Avg`, `Min`, `Max`, `Count`, `StDev`, `Var`, `First`, `Last`, `Expression`. The selected calculation is then performed for the field.
 
-| Choice in Total box | Description                                                        |
-|------------------|------------------------------------------------------|
-| `Group By`          | Subgroups records based on the values in this field.               |
-| `Sum`               | Adds together the values in this field.                            |
-| `Avg`               | Averages the values in this field.                                 |
-| `Min`               | Retains the smallest value in this field.                          |
-| `Max`               | Retains the largest value in this field.                           |
-| `Count`             | Counts the number of records (no matter which field you use).      |
-| `StDev`             | Calculates the standard deviation of the values in this field.     |
-| `Var`               | Calculates the variance of the values in this field.               |
-| `First`             | Retains the first value n this field.                              |
-| `Last`              | Retains the last value in this field.                              |
-| `Expression`        | Calculates a user-defined expression for the values in this field. |
-| `Where`             | For filtering only on values in this field.                        |
+| Choice in Total box | Description |
+|----------------------|--------------------------------------------------|
+| `Group By` | Subgroups records based on the values in this field. |
+| `Sum` | Adds together the values in this field. |
+| `Avg` | Averages the values in this field. |
+| `Min` | Retains the smallest value in this field. |
+| `Max` | Retains the largest value in this field. |
+| `Count` | Counts the number of records (no matter which field you use). |
+| `StDev` | Calculates the standard deviation of the values in this field. |
+| `Var` | Calculates the variance of the values in this field. |
+| `First` | Retains the first value n this field. |
+| `Last` | Retains the last value in this field. |
+| `Expression` | Calculates a user-defined expression for the values in this field. |
+| `Where` | For filtering only on values in this field. |
 
-:  Options for summarizing. {#tbl-grouping-options}
+: Options for summarizing. {#tbl-grouping-options}
 
 ### Calculated Field {.unnumbered}
 
@@ -297,7 +297,6 @@ In this example the field [ChocolateType]{.varname} is used for grouping, creati
 ![Result query average praline costs per chocolate type.](images/queries/q-pralinecosts-chocolatetype-result.png){#fig-q-pralinecosts-chocolatetype-result}
 
 Because the column for the averages didn't get a new name, Access generates as name [AvgOfPralineCosts]{.varname}.
-
 :::
 
 ::: {#exm-queries-price-statistics}
@@ -308,7 +307,6 @@ In this example, field [BoxPrice]{.varname} is used 4 times with different calcu
 ![Design query box price statistics.](images/queries/q-boxprice-statistics-design.png){#fig-q-boxprice-statistics-design}
 
 ![Result query box price statistics.](images/queries/q-boxprice-statistics-result.png){#fig-q-boxprice-statistics-result}
-
 :::
 
 ::: {#exm-queries-box-prices}
@@ -319,7 +317,6 @@ Calculate the average price of boxes of more than 200 grams. The field Weight is
 ![Design query average box price.](images/queries/q-boxprice-200g-design.png){#fig-q-boxprice-200g-design}
 
 ![Result query average box price.](images/queries/q-boxprice-200g-result.png){#fig-q-boxprice-200g-result}
-
 :::
 
 ## Customers per province {#sec-queries-customers-province}
@@ -402,7 +399,7 @@ ANALYSIS
 
 For each order, you can find the OrderCode, BoxCode, and the number of boxes (Quantity) in table [OrderDetails]{.varname}. The BoxPrice is in the table [Boxes]{.varname}. The row amount is not present in any table, because this amount can be calculated from other data: `Amount = Quantity * BoxPrice`.
 
-::: {#prp-queries-ordercalculation}
+:::: {#prp-queries-ordercalculation}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
@@ -442,7 +439,7 @@ To format the amounts as currencies, you need to change the property [Format]{.u
 10. Close the query and answer the question to save the changes with [Yes]{.uicontrol}.
 
 11. Name the query [OrderRowAmount]{.varname} and click [OK]{.uicontrol}.
-:::
+::::
 
 ## First order per customer {#sec-queries-first-order-dates}
 
@@ -568,7 +565,6 @@ To recover a table after a change, proceed as follows:
 
 1.  In the navigation pane, right-click on the name of the changed table and select from the shortcut menu [Cut]{.uicontrol}.
 2.  Right-click on the name op the copy and choose [Rename]{.uicontrol} and give the table the original name.
-
 :::
 
 ## Update query {#sec-queries-action-update}
@@ -585,7 +581,7 @@ All necessary data is in table [Pralines]{.varname}. You need the fields [Chocol
 
 Make a backup (copy) of the table, so you can restore the original situation. Another possibility is to backup (copy) the whole database.
 
-::: {#prp-queries-action-update}
+:::: {#prp-queries-action-update}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
@@ -617,7 +613,7 @@ Access surrounds the text with double-quotes. Field names must be surrounded by 
 10. click [Yes]{.uicontrol}.
 
 11. Close the query.
-:::
+::::
 
 ## Make Table query {#sec-queries-action-maketable}
 
@@ -631,7 +627,7 @@ ANALYSIS
 
 All necessary data is in table [Customers]{.varname}. Selecting for Friesland can be done with a criterion in the query. First, you need to create this select query and then change the query type to [Make Table]{.uicontrol}.
 
-::: {#prp-queries-action-maketable}
+:::: {#prp-queries-action-maketable}
 [File]{.smallcaps}: `{{< var database >}}`
 
 **Create select query**
@@ -658,26 +654,26 @@ All necessary data is in table [Customers]{.varname}. Selecting for Friesland ca
 
 9.  click [Design \> Make Table (group Query Type)]{.uicontrol}. The dialog box ***Make Table*** opens.
 
-10.  Name the new table [Friesland customers]{.varname} and select that this table should come in the current database.
+10. Name the new table [Friesland customers]{.varname} and select that this table should come in the current database.
 
 ![Specify name and location of the new table and the database.](images/queries/q-maketable-dialogbox.png){#fig-q-maketable-dialogbox}
 
-11.  click [OK]{.uicontrol}.
+11. click [OK]{.uicontrol}.
 
-12.  click ![](images/queries/button-run.png) [tab Design \> Run (group Results)]{.uicontrol}. A dialog appears asking for confirmation.
+12. click ![](images/queries/button-run.png) [tab Design \> Run (group Results)]{.uicontrol}. A dialog appears asking for confirmation.
 
-13.  click [Yes]{.uicontrol}. The new table is created.
+13. click [Yes]{.uicontrol}. The new table is created.
 
-14.  Close the query. A dialog box asking whether the changes should be saved.
+14. Close the query. A dialog box asking whether the changes should be saved.
 
-15.  click [Yes]{.uicontrol}.
+15. click [Yes]{.uicontrol}.
 
 ::: callout-note
 This is because the query type has been changed. This is also seen in the navigation pane under [Queries]{.uicontrol}.
 
 The query icon in front of the query name indicates that it's an action query: ![](images/queries/q-maketable-icon.png)
 :::
-:::
+::::
 
 ## Crosstab query {#sec-queries-crosstab}
 
@@ -730,411 +726,304 @@ All the necessary data can be found in table [Customers]{.varname}.
 
 ## Exercises {#sec-queries-exercises}
 
-::: {#exr-quer001}
+:::: {#exr-quer001}
 **Customers from Friesland and Groningen (quer001)**
 
-Create a query to select customers in the provinces of Friesland and
-Groningen. Show LastName, FirstName, and City. Name the query
-[quer001]{.varname}.
+Create a query to select customers in the provinces of Friesland and Groningen. Show LastName, FirstName, and City. Name the query [quer001]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
-`r hide("Tip")`
-The field [Province]{.varname} may have two values here
-`FR` or `GR`. You can get done this by entering one value in the row
-[Criteria]{.uicontrol} and the other value in the row [or]{.uicontrol}.
+`r hide("Tip")` The field [Province]{.varname} may have two values here `FR` or `GR`. You can get done this by entering one value in the row [Criteria]{.uicontrol} and the other value in the row [or]{.uicontrol}.
 
-Another possibility is using an expression with the Or operator in row
-[Criteria]{.uicontrol}.
-`r unhide()`
+Another possibility is using an expression with the Or operator in row [Criteria]{.uicontrol}. `r unhide()`
 
-`r hide("Answer")`
-Result query: 40 customers
-`r unhide()`
+`r hide("Answer")` Result query: 40 customers `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer002}
+:::: {#exr-quer002}
 **Direct mail campaign box MARZ (quer002)**
 
-Suppose it is the end of December 2010. The expiration date of the box
-MARZ is in sight and there is still plenty in stock. That's why do you
-want to start a direct mail campaign to the customers who have ordered
-at least one box MARZ in the period August-November 2010. Show the name
-and address of the customers. Name the query [quer002]{.varname}.
+Suppose it is the end of December 2010. The expiration date of the box MARZ is in sight and there is still plenty in stock. That's why do you want to start a direct mail campaign to the customers who have ordered at least one box MARZ in the period August-November 2010. Show the name and address of the customers. Name the query [quer002]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` Result query: 4 customers `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer003}
+:::: {#exr-quer003}
 **Praline boxes with low price (quer003)**
 
-Create a list of boxes whose price is at most \$ 17.50. Show the fields
-BoxCode, BoxName, and BoxPrice. Name the query [quer003]{.varname}.
+Create a list of boxes whose price is at most \$ 17.50. Show the fields BoxCode, BoxName, and BoxPrice. Name the query [quer003]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` Result query: 4 boxes `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer004}
+:::: {#exr-quer004}
 **Pralines milk and dark with low price (quer004)**
 
-Create a list of pralines with chocolate type milk or pure and whose
-costs are at most 30 cents. Show the fields PralineCode, PralineName,
-ChocolateType, and PralineCosts. Name the query [quer004]{.varname}.
+Create a list of pralines with chocolate type milk or pure and whose costs are at most 30 cents. Show the fields PralineCode, PralineName, ChocolateType, and PralineCosts. Name the query [quer004]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` Result query: 18 pralines `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer005}
+:::: {#exr-quer005}
 **Customers from Enschede, Hengelo or Almelo (quer005)**
 
-Create a list of all the customers (name and address) who live in
-Enschede, Hengelo, and Almelo. Name the query [quer005]{.varname}.
+Create a list of all the customers (name and address) who live in Enschede, Hengelo, and Almelo. Name the query [quer005]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` Result query: 12 customers `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer006}
+:::: {#exr-quer006}
 **Customers from Amsterdam with zip code `20*` (quer006)**
 
-Create a list with customers from Amsterdam (name and address) whose zip
-code begins with 20. Name the query [quer006]{.varname}.
+Create a list with customers from Amsterdam (name and address) whose zip code begins with 20. Name the query [quer006]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` Result query: 3 customers `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer007}
+:::: {#exr-quer007}
 **Pralines without filling (quer007)**
 
-Create a list of all pralines without filling. Name the query
-[quer007]{.varname}.
+Create a list of all pralines without filling. Name the query [quer007]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
-`r hide("Tip")` Try to find first what value the field Type has for
-pralines without filling. `r unhide()`
+`r hide("Tip")` Try to find first what value the field Type has for pralines without filling. `r unhide()`
 
 `r hide("Answer")` Result query: 12 pralines `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer008}
+:::: {#exr-quer008}
 **Customers outside Amsterdam (quer008)**
 
-Create a list of all customers who do not live in Amsterdam. Name the
-query [quer008]{.varname}.
+Create a list of all customers who do not live in Amsterdam. Name the query [quer008]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
-`r hide("Tip")` First find out what operator to use in a test for not
-equal to. `r unhide()`
+`r hide("Tip")` First find out what operator to use in a test for not equal to. `r unhide()`
 
 `r hide("Answer")` Result query: 293 customers `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer009}
+:::: {#exr-quer009}
 **Number of pralines per box (quer009)**
 
-Create a list of all box names with their number of pralines per box.
-The column with numbers should have an appropriate title. The list
-should be sorted in ascending order of box name. Name the query
-[quer009]{.varname}.
+Create a list of all box names with their number of pralines per box. The column with numbers should have an appropriate title. The list should be sorted in ascending order of box name. Name the query [quer009]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
-`r hide("Answer")`
-![](images/queries/quer009-result.png)
-`r unhide()`
+`r hide("Answer")` ![](images/queries/quer009-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer010}
+:::: {#exr-quer010}
 **Number of praline types per box (quer010)**
 
-Create a list of box names and their number of praline types per box.
-The column with numbers should have an appropriate title. The list
-should be sorted in ascending order of box name. Name the query
-[quer010]{.varname}.
+Create a list of box names and their number of praline types per box. The column with numbers should have an appropriate title. The list should be sorted in ascending order of box name. Name the query [quer010]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` ![](images/queries/quer010-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer011}
+:::: {#exr-quer011}
 **Number of orders per region (quer011)**
 
-Create a list of the number of orders per region. The column with
-numbers should have an appropriate title. Name the query
-[quer011]{.varname}.
+Create a list of the number of orders per region. The column with numbers should have an appropriate title. Name the query [quer011]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` ![](images/queries/quer011-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer012}
+:::: {#exr-quer012}
 **Total sales per customer (quer012)**
 
-Create a list with the total sales per customer. Show customer code,
-customer name, and the total sales. The column with sales should have an
-appropriate title and formatting. Sort on descending sales. Name the
-query [quer012]{.varname}.
+Create a list with the total sales per customer. Show customer code, customer name, and the total sales. The column with sales should have an appropriate title and formatting. Sort on descending sales. Name the query [quer012]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` ![](images/queries/quer012-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer013}
+:::: {#exr-quer013}
 **Customers with orders (quer013)**
 
-Create a list of customers (code and name) who have ever bought
-something. Name the query [quer013]{.varname}.
+Create a list of customers (code and name) who have ever bought something. Name the query [quer013]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` Result query: 264 customers `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer014}
+:::: {#exr-quer014}
 **Customers with last name Jansen or Janssen in region North (quer014)**
 
-Create a list of customers with last name Jansen or Janssen in the
-region North. Name the query [quer014]{.varname}.
+Create a list of customers with last name Jansen or Janssen in the region North. Name the query [quer014]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` ![](images/queries/quer014-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer015}
+:::: {#exr-quer015}
 **Pralines with filling and without nut (quer015)**
 
-Create a list of pralines with filling and without nuts. Name the query
-[quer015]{.varname}.
+Create a list of pralines with filling and without nuts. Name the query [quer015]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
-`r hide("Answer")`
-Result query: 22 pralines
+`r hide("Answer")` Result query: 22 pralines
 
-![](images/queries/quer015-result.png)
-`r unhide()`
+![](images/queries/quer015-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer016}
+:::: {#exr-quer016}
 **Boxes heavier than 150 grams with a maximum price of \$35 (quer016)**
 
-Create a list of boxes heavier than 150 grams with a maximum price of
-\$35. Show only BoxCode, BoxName, and BoxPrice. Sort the boxes by
-ascending price. Name the query [quer016]{.varname}.
+Create a list of boxes heavier than 150 grams with a maximum price of \$35. Show only BoxCode, BoxName, and BoxPrice. Sort the boxes by ascending price. Name the query [quer016]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` ![](images/queries/quer016-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer017}
+:::: {#exr-quer017}
 **Boxes with a price between \$17 and \$25 and stock of at least 400 (quer017)**
 
-Create a list of boxes with a price between \$17 and \$25 and of which
-there are at least 400 in stock. Show the code, name, price, and stock
-of the boxes. Name the query [quer017]{.varname}.
+Create a list of boxes with a price between \$17 and \$25 and of which there are at least 400 in stock. Show the code, name, price, and stock of the boxes. Name the query [quer017]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` ![](images/queries/quer017-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer018}
+:::: {#exr-quer018}
 **Total sales per province (quer018)**
 
-Create a list of total sales per province. The column with sales should
-have an appropriate title and formatting. Sort descending on sales. Name
-the query [quer018]{.varname}.
+Create a list of total sales per province. The column with sales should have an appropriate title and formatting. Sort descending on sales. Name the query [quer018]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` ![](images/queries/quer018-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer019}
+:::: {#exr-quer019}
 **Customers with orders the week before Christmas (quer019)**
 
-Create a list of customers who ordered the last week before Christmas
-2010 (12/20/2010 until 12/24/2010). Show code, name, and address of
-these customers. Each customer may occur only one time in the overview.
-Name the query [quer019]{.varname}.
+Create a list of customers who ordered the last week before Christmas 2010 (12/20/2010 until 12/24/2010). Show code, name, and address of these customers. Each customer may occur only one time in the overview. Name the query [quer019]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
-`r hide("Tip")` The same customer may exist on the list more than one
-time. To avoid this, the value of the query property Unique Values
-should be Yes. `r unhide()`
+`r hide("Tip")` The same customer may exist on the list more than one time. To avoid this, the value of the query property Unique Values should be Yes. `r unhide()`
 
 `r hide("Answer")` ![](images/queries/quer019-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer020}
+:::: {#exr-quer020}
 **Boxes with low sales (quer020)**
 
-Create a list of boxes with low sales, less than \$2000. Show box code
-and sales. Sort ascending on sales. The column with sales should have an
-appropriate title and formatting. Name the query [quer020]{.varname}.
+Create a list of boxes with low sales, less than \$2000. Show box code and sales. Sort ascending on sales. The column with sales should have an appropriate title and formatting. Name the query [quer020]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` ![](images/queries/quer020-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer021}
+:::: {#exr-quer021}
 **Customers with zip code 22 and total sales less than \$50 (quer021)**
 
-Create a list of customers whose zip code is starting with 22 and with a
-total sales of at most \$50. Name the query [quer021]{.varname}.
+Create a list of customers whose zip code is starting with 22 and with a total sales of at most \$50. Name the query [quer021]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` ![](images/queries/quer021-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer023}
+:::: {#exr-quer023}
 **Customers for Sweet and Bitter (quer023)**
 
-Create an alphabetic list of customers who bought in 2009 at least 1 box
-"Sweet and Bitter". Avoid double records in the result. Name the query
-[quer023]{.varname}.
+Create an alphabetic list of customers who bought in 2009 at least 1 box "Sweet and Bitter". Avoid double records in the result. Name the query [quer023]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
-`r hide("Tip")` The same customer may exist on the list more than one
-time. To avoid this, the value of the query property Unique Values
-should be Yes. `r unhide()`
+`r hide("Tip")` The same customer may exist on the list more than one time. To avoid this, the value of the query property Unique Values should be Yes. `r unhide()`
 
 `r hide("Answer")` Result query: 96 customers
 
 ![](images/queries/quer023-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer024}
+:::: {#exr-quer024}
 **quer024 - Cities with at least 2 customers (quer024)**
 
-Create an alphabetic list of cities with at least 2 customers. Name the
-query [quer024]{.varname}.
+Create an alphabetic list of cities with at least 2 customers. Name the query [quer024]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` ![](images/queries/quer024-result.png) `r unhide()`
 :::
-
-:::
+::::
 
 ::: {#exr-quer025}
 **Parameter chocolate type pralines (quer025)**
 
-There are several types of chocolate types for the pralines:
-Butterscotch, Milk, Dark, Toffee, and White. Create a parameter query to
-show the pralines whose type is requested during the execution of the
-query. Show ChocolateType, PralineName, PralineCosts and
-PralineDescription. Name the query [quer025]{.varname}.
+There are several types of chocolate types for the pralines: Butterscotch, Milk, Dark, Toffee, and White. Create a parameter query to show the pralines whose type is requested during the execution of the query. Show ChocolateType, PralineName, PralineCosts and PralineDescription. Name the query [quer025]{.varname}.
 :::
 
-::: {#exr-quer026}
+:::: {#exr-quer026}
 **Update query price reduction (quer026)**
 
-Due to a decline in the price of chocolate in the world market, the
-prices of all boxes can be reduced by 15%. Name the query
-[quer026]{.varname}.
+Due to a decline in the price of chocolate in the world market, the prices of all boxes can be reduced by 15%. Name the query [quer026]{.varname}.
 
 1.  Start with making a backup or copy of the whole database.
-2.  Design an update query to implement this reduction. Name the query
-    [quer026]{.varname} and run the query.
+2.  Design an update query to implement this reduction. Name the query [quer026]{.varname} and run the query.
 3.  Restore the original situation from the backup.
 
 ::: {.callout-warning)
--   Making a backup is important because you cannot revert the execution
-    of the query.
--   Be aware that every time you run the query, the prices are again
-    reduced by 15%.
+-   Making a backup is important because you cannot revert the execution of the query.
+-   Be aware that every time you run the query, the prices are again reduced by 15%.
 :::
-:::
+::::
 
-::: {#exr-quer027}
+:::: {#exr-quer027}
 **Crosstab boxes per weight (quer027)**
 
-Create a crosstab query with vertical the box names, horizontal the
-weight of the boxes, and in the table the stock. Name the
-[quer027]{.varname}.
+Create a crosstab query with vertical the box names, horizontal the weight of the boxes, and in the table the stock. Name the [quer027]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` ![](images/queries/quer027-result.png) `r unhide()`
 :::
+::::
 
-:::
-
-::: {#exr-quer028}
+:::: {#exr-quer028}
 **Update query price increase (quer028)**
 
-Due to an increase in the chocolate price on the world market, prices of
-all boxes must be increased by 10%.
+Due to an increase in the chocolate price on the world market, prices of all boxes must be increased by 10%.
 
-1.  Start by making a backup or copy of the table or of the entire
-    database.
-2.  Design an update query to implement the price increase. Name the
-    query [quer028]{.varname} and execute it.
+1.  Start by making a backup or copy of the table or of the entire database.
+2.  Design an update query to implement the price increase. Name the query [quer028]{.varname} and execute it.
 3.  Restore the original situation.
 
 ::: {.callout-warning)
--   Making a backup is important because you cannot revert the execution
-    of the query.
--   Be aware that each time you execute the query, the prices are
-    further increased by 10%.
+-   Making a backup is important because you cannot revert the execution of the query.
+-   Be aware that each time you execute the query, the prices are further increased by 10%.
 :::
-:::
+::::
 
-::: {#exr-quer029}
+:::: {#exr-quer029}
 **Crosstab sales per customer per month (quer029)**
 
-Create with a crosstab query an overview of the total sales per customer
-per month in 2010. To do that, create first a selection query Sales per
-customer per month in 2010 and use this query as source for the crosstab
-query. Display customers with the customer number and the months with
-the month numbers. Display also the total sales for the customer in
-2010. Name the crosstab query [quer029]{.varname}.
+Create with a crosstab query an overview of the total sales per customer per month in 2010. To do that, create first a selection query Sales per customer per month in 2010 and use this query as source for the crosstab query. Display customers with the customer number and the months with the month numbers. Display also the total sales for the customer in 2010. Name the crosstab query [quer029]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")` ![](images/queries/quer029-result.png) `r unhide()`
 :::
-
-:::
-
-
+::::
