@@ -92,7 +92,7 @@ In a query, you can define conditions, so that only those records which meet the
 A criterion is similar to a formula. It is a string that may consist of field references, operators, and constants (values that are always the same). Query criteria are also called expressions. What may be formulated in a criterion depends on the data type of the field (text, numeric, date/time, yes/no).
 
 | Category    | Operators                                         |
-|-------------|---------------------------------------------------|
+|:------------|:--------------------------------------------------|
 | Arithmetic  | `+`, `-`, `*`, `/`, `\`, `^`, `Mod`               |
 | Comparison  | `=`, `>`, `>=`, `<`, `<=`, `<>`                   |
 | Logical     | `And`, `Or`, `Not`, `Xor`, `Eqv`                  |
@@ -139,7 +139,7 @@ All the required information will be provided by the query you created in @sec-q
 
 1.  Open the database.
 
-2.  Open query Customername+Ordercodes in[Design View]{.uicontrol}.
+2.  Open query Customername+Ordercodes in [Design View]{.uicontrol}.
 
 ![Design query Customername+Ordercodes.](images/queries/q-customername-ordercodes-design.png){#fig-q-customername-ordercodes-design-2}
 
@@ -255,7 +255,7 @@ Calculations
 :   The options are: `Sum`, `Avg`, `Min`, `Max`, `Count`, `StDev`, `Var`, `First`, `Last`, `Expression`. The selected calculation is then performed for the field.
 
 | Choice in Total box | Description |
-|----------------------|--------------------------------------------------|
+|:-----------------------|:----------------------------------------------|
 | `Group By` | Subgroups records based on the values in this field. |
 | `Sum` | Adds together the values in this field. |
 | `Avg` | Averages the values in this field. |
@@ -336,11 +336,11 @@ All necessary data is in table [Customers]{.varname}. Of course, you need the fi
 
 1.  Open the database.
 
-2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}. Access creates a new blank query window and displays the dialog box ***Show Table***.
+2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}. Access creates a new blank query window and displays at the right side the dialog box ***Add Tables***.
 
-![Dialog box Show Table.](images/queries/q-show-table.png){#fig-q-show-table}
+![Dialog box Add Tables.](images/queries/q-show-table.png){#fig-q-show-table}
 
-3.  Select table [Customers]{.varname}, click [Add]{.uicontrol} and then [Close]{.uicontrol}. The table [Customers]{.varname} has now been added to the query window.
+3.  Select table [Customers]{.varname}, click [Add Selected Tables]{.uicontrol}. The table [Customers]{.varname} has now been added to the query window.
 
 4.  Add successively the fields [Province]{.varname} and [CustomerCode]{.varname} to the design grid by double-clicking on the field.
 
@@ -404,9 +404,9 @@ For each order, you can find the OrderCode, BoxCode, and the number of boxes (Qu
 
 1.  Open the database.
 
-2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}. Access creates a new blank query window and displays the dialog box ***Show Table*** (see @fig-q-show-table if necessary).
+2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}. Access creates a new blank query window and displays the dialog box ***Add Tables*** (see @fig-q-show-table if necessary).
 
-3.  Add successively the tables [OrderDetails]{.varname} and [Boxes]{.varname} to the query window and then click [Close]{.uicontrol}.
+3.  Add successively the tables [OrderDetails]{.varname} and [Boxes]{.varname} to the query window.
 
 4.  Add successively the fields [OrderCode]{.varname}, [BoxCode]{.varname}, [Quantity]{.varname} (from table [OrderDetails]{.varname}), and [BoxPrice]{.varname} (from table [Boxes]{.varname}) to the grid by double-clicking on the field.
 
@@ -458,7 +458,7 @@ The required data is in the tables [Customers]{.varname} and [Orders]{.varname}.
 
 2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}.
 
-3.  Add successively the tables [Customers]{.varname} and [Orders]{.varname} to the query window and then click [Close]{.uicontrol}.
+3.  Add successively the tables [Customers]{.varname} and [Orders]{.varname} to the query window.
 
 4.  Add successively the fields CustomerCode, LastName and FirstName (from Customers), and OrderDate (from Orders) to the grid by double-clicking on the field.
 
@@ -504,7 +504,7 @@ The necessary information about a particular order is in the tables [Orders]{.va
 
 2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}.
 
-3.  Add tables [Orders]{.varname} and [OrderDetails]{.varname} to the query window and then click [Close]{.uicontrol}.
+3.  Add tables [Orders]{.varname} and [OrderDetails]{.varname} to the query window.
 
 4.  Add successively the fields OrderCode, CustomerCode, OrderDate (from Orders), and BoxCode en Quantity (from OrderDetails) to the grid by double-clicking on the field.
 
@@ -588,7 +588,7 @@ Make a backup (copy) of the table, so you can restore the original situation. An
 
 2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}.
 
-3.  Add table [Pralines]{.varname} to the query window and then click [Close]{.uicontrol}.
+3.  Add table [Pralines]{.varname} to the query window.
 
 4.  Add successively the fields [ChocolateType]{.varname} and [PralineCosts]{.varname} to the grid by double-clicking on the field.
 
@@ -636,7 +636,7 @@ All necessary data is in table [Customers]{.varname}. Selecting for Friesland ca
 
 2.  Choose [tab Create \> Query Design (group Queries)]{.uicontrol}.
 
-3.  Add table [Customers]{.varname} to the query window and then click [Close]{.uicontrol}.
+3.  Add table [Customers]{.varname} to the query window.
 
 4.  Add all fields by double-clicking on the asterisk (`*`) and then add separate again the field [Province]{.varname}.
 
@@ -652,7 +652,7 @@ All necessary data is in table [Customers]{.varname}. Selecting for Friesland ca
 
 8.  Open the query [Customers Friesland]{.varname} in [Design View]{.uicontrol}.
 
-9.  click [Design \> Make Table (group Query Type)]{.uicontrol}. The dialog box ***Make Table*** opens.
+9.  click [Query Design \> Make Table (group Query Type)]{.uicontrol}. The dialog box ***Make Table*** opens.
 
 10. Name the new table [Friesland customers]{.varname} and select that this table should come in the current database.
 
