@@ -295,7 +295,7 @@ In this task, you are going to create a form for entering data of new pralines a
 
 12. Select [tab Design \> Line (group Controls)]{.uicontrol} and draw a horizontal line beneath the fields [PralineCode]{.varname} and [PralineName]{.varname}. Specify the line thickness of `2 pt` and the same color as the background of the header.
 
-13. Select [tab Design \> Combo Box (group Controls)]{.uicontrol} and draw a rectangle for field [ChocolateType]{.varname}. After drawing the rectangle, the [Combo Box Wizard]{.uicontrol} is started.
+13. Select [tab Design \> List Box (group Controls)]{.uicontrol} and draw a rectangle for field [ChocolateType]{.varname}. After drawing the rectangle, the [List Box Wizard]{.uicontrol} is started.
 
 14. Answer the Wizard questions as follows:
 
