@@ -3,316 +3,314 @@
 ::: callout
 **OBJECTIVES**
 
--   Organization of tables and relationships between tables.
--   The different ways to create tables.
--   Properties of fields.
--   Validation of data input through input masks and validation rules.
--   Understanding referential integrity.
+-   Understand the organization of tables and the relationships between them.
+-   Learn the various methods for creating tables.
+-   Explore field properties.
+-   Validate data input using input masks and validation rules.
+-   Understand referential integrity.
 :::
 
-## About tables {#sec-tables-about}
+## About Tables {#sec-tables-about}
 
-In a database, data is stored in tables. The tables themselves consists of fields for different kind of data. So there could be a field for the last name of a person and another field for the first name. Data can be displayed in different ways but is always stored in tables. In practice, you start with making an information analysis to determine which tables and fields you need. For larger databases, this is done through a process called normalizing. Mostly you also need to establish relationships between the tables, so data from one table can be linked to data in another table.
+In a database, data is stored in tables. Each table consists of fields for different types of data. For example, there might be a field for a person's last name and another for their first name. While data can be displayed in various ways, it is always stored in tables. In practice, you begin by conducting an information analysis to determine which tables and fields are needed. For larger databases, this is often done using a process called normalization. Typically, relationships are also established between tables, allowing data in one table to be linked to data in another.
 
-With empty tables, you can't do anything. So data has to be entered in tables. When these data are already available in other files, such as an Excel worksheet, then import from Excel is also an option.
+Empty tables serve no purpose unless data is entered. If the data already exists in other files, such as Excel spreadsheets, it can be imported directly into Access.
 
-## Fields in tables {#sec-tables-fields}
+## Fields in Tables {#sec-tables-fields}
 
-Fields are the design elements of a table. Data is stored in fields. The properties of a field define the characteristics and behavior of the data that is stored in the field. To create a field you need:
+Fields define the structure of a table. Each piece of data is stored in a field, and each field has properties that determine its behavior. To create a field, you need:
 
--   Field name (required)
--   Data type (required
--   Description (optional)
+-   A field name (required)
+-   A data type (required)
+-   A description (optional)
 
-### Field names {#sec-tables-fields-names}
+### Field Names {#sec-tables-fields-names}
 
-The design of the database determines what kind of data has to be stored in the field. Usually, the fields in the design have already been given a name and you are using that name. Always use meaningful names. Of course, you can give the field a description, but a clear name still works best.
+The database design determines the kind of data each field will store. Often, field names are predetermined, but you should always use meaningful names. Although descriptions can be added, clear names are usually more effective.
 
-Field names must meet the following requirements:
+Field names must:
 
--   The name must be unique within the table.
--   The name may not start with a space.
--   The name may not contain the following characters: point, exclamation mark, and brackets \[ and \].
+-   Be unique within a table
+-   Not start with a space
+-   Not contain the following characters: period (`.`), exclamation point (`!`), or brackets (`[ ]`)
 
-### Data types {#sec-tables-fields-datatypes}
+### Data Types {#sec-tables-fields-datatypes}
 
-The different data types, their possible values, and use.
-
-The main characteristic of a field is the data type because it determines what type of data can be in the field. Data types can sometimes be confusing. For example, a field 's data type Text can contain both text and numbers (numeric data ), but a field of data type Number can contain only numeric data. If you don't know which of these two data types to use, think of the following rule of thumb.
-
-When you have to make calculations with the content of the field, then use data type Number. Thus, the field for the price of an article is a numeric field and the field for an article number is a text field.
-
-The data types in Access are:
+The data type defines what kind of data can be stored in a field. This is a critical property. For instance, a `Text` field can contain letters and numbers, while a `Number` field can only store numeric data. A good rule of thumb: if you need to perform calculations with the field, use the `Number` data type. For example, a field for item prices should be a `Number`, while a product ID might be a `Text` field.
 
 | Data Types | Values | Explanation |
 |:-----------------------|:-----------------------|:-----------------------|
-| `Short Text` | Alphanumeric | Short, alphanumeric values with a maximum of 255 characters |
-| `Long Text` | Alphanumeric | Long amounts of text, up to 1GB. In earlier versions named memo. |
-| `Number` | Numeric | Range of -2^31^ tot 2^31^ - 1. |
-| `Large Number` | Numeric | Range of -2^63^ tot 2^63^ - 1. |
-| `Date/Time` | Dates and Times |   |
-| `Currency` | Monetary values | Stored with 4 decimal places of precision. |
-| `AutoNumber` | Numbers (unique) | Numbers that are automatically generated for each record. Default is the field length Long Integer. AutoNumber is often used as a key field. |
-| `Yes/No` | Yes or No | Boolean values, only two values possible Yes or No. In the background, Access uses the value -1 for all Yes-values and the value 0 for all No-values. You also use this field for values as TRUE / FALSE, or ON / OFF. |
-| `OLE Object` | Objects from other Windows applications | Photos, graphs, Excel worksheet, Word document, ... |
-| `Hyperlink` | Hyperlink | Hyperlinks (also e-mail addresses) |
-| `Attachment` | Path and name of a file | Files, such as digital photos. Multiple files can be attached per record. |
-| `Calculated` | different | An expression that uses data from one or more fields. |
+| `Short Text` | Alphanumeric | Up to 255 characters. |
+| `Long Text` | Alphanumeric | Up to 1GB of text (formerly called Memo). |
+| `Number` | Numeric | Range: -2^31^ to 2^31^ - 1. |
+| `Large Number` | Numeric | Range: -2^63^ to 2^63^ - 1. |
+| `Date/Time` | Dates and Times | Used for storing calendar dates and times. |
+| `Currency` | Monetary values | Stored with four decimal points of precision. |
+| `AutoNumber` | Auto-generated | Unique numbers automatically assigned per record. |
+| `Yes/No` | Boolean | Yes/No, True/False, or On/Off. |
+| `OLE Object` | External objects | Includes images, graphs, Excel sheets, Word docs, etc. |
+| `Hyperlink` | Hyperlinks | URLs and email addresses. |
+| `Attachment` | File references | Can store multiple files (e.g., photos) per record. |
+| `Calculated` | Derived values | Results from an expression using other fields. |
 
-: Data types in Access {#tbl-datatypes}
+: Data types in Access {#tbl-datatypes tbl-colwidths="\[30,30,40\]"}
 
 ::: callout-note
-In Access, you can set a field's data type to [Lookup Wizard]{.uicontrol}. Doing this starts the Lookup Wizard, which helps you create a Lookup field. A Lookup field displays either a list of values that is retrieved from a table or query, or it displays a static set of values that you specified when you created the field.
+You can also choose `Lookup Wizard` as a data type. This launches the Lookup Wizard, which lets you define a field that displays values from another table or a custom list.
 :::
 
 ### Field Properties {#sec-tables-fields-properties}
 
-You can set additional field properties at a data type. The data type of the field determines which properties can be set. The most important and most frequently used properties are:
+Field properties provide additional control over how data behaves. The available properties depend on the selected data type. The most common properties include:
 
 Field Size
 
-:   Important at Text, Number, and sometimes AutoNumber. For a text field, you can specify the maximum length of the text. For a number field, you can specify what kind of numbers can be entered, like `Byte`, `Integer`, `Long Integer`, `Decimal`, `Single`, and `Double`.
+:   Controls the length of text or the numeric range. For text, it sets the maximum character count. For numbers, you can select `Byte`, `Integer`, `Long Integer`, `Single`, `Double`, or `Decimal`.
 
 Format
 
-:   It can be used with most of the data types. It allows you to control how the content of the field will look when it is displayed in tables, queries, forms, and reports. You can use all valid number formats, and often there is also a list of predefined formats available.
+:   Determines how data is displayed in tables, queries, forms, and reports. Formats vary by data type and can be customized or selected from a list.
 
 Decimal Places
 
-:   Important at `Number` en `Currency`. To specify the number of decimal places for displaying the numbers.
+:   Used with `Number` and `Currency` fields to set the number of decimal digits.
 
 Default Value
 
-:   It can be used with most of the data types. Automatically enters a value for the field when a new record is created. Very useful when the value is often the same. The value can be changed afterward.
+:   Automatically fills a field with a preset value when a new record is created. You can still modify the value manually.
 
 Required
 
-:   It can be used with most of the data types. The possible values are `No` (default) and `Yes`.
+:   Specifies whether a value must be entered. Options are `Yes` or `No` (default).
 
 ::: callout-note
-A special role is there for the properties `Input mask`, `Validation Rule`, and `Validation Text`. These can be used in the validation of data, that let you control the conditions for the entered data.
+Special field properties like `Input Mask`, `Validation Rule`, and `Validation Text` help enforce data consistency and accuracy.
 :::
 
-### Number field size property {#sec-tables-fields-size}
+### Number Field Sizes {#sec-tables-fields-size}
 
-Possible values for data type number.
+Possible values for the `Number` data type include:
 
--   `Byte`: For integers that range from 0 to 255.
--   `Integer`: For integers that range from -32,768 to +32,767.
--   `Long Integer`: For integers that range from -2,147,483,648 to +2,147,483,647.
--   `Single`: For numeric floating-point values that range from -3.4 x 1038 to +3.4 x 1038 and up to seven significant digits.
--   `Double`: For numeric floating-point values that range from -1.797 x 10308 to +1.797 x 10308 and up to 15 significant digits.
--   `Decimal`: For numeric values that range from -9,999... x 1027 to 9,999... x 1027.
+-   `Byte`: 0 to 255
+-   `Integer`: -32,768 to +32,767
+-   `Long Integer`: -2,147,483,648 to +2,147,483,647
+-   `Single`: Approx. -3.4 x 10^38^ to +3.4 x 10^38^ (7-digit precision)
+-   `Double`: Approx. -1.797 x 10^308^ to +1.797 x 10^308^ (15-digit precision)
+-   `Decimal`: Approx. -9.999 x 10^27^ to +9.999 x 10^27^
 
 ## Validation {#sec-tables-validation}
 
-To ensure that a user enters data in a particular way, you can make use of an input mask. Additionally, you can also use a validation rule to control if the value entered meets certain requirements and if not indicating the user on it through a validation text.
+To ensure users enter data in a specific format, you can apply input masks. You can also define validation rules to check if values meet certain conditions and, if not, display a helpful validation message.
 
-### Input masks {#sec-tables-fields-inputmasks}
+### Input Masks {#sec-tables-fields-inputmasks}
 
-An input mask ensures a solid, mandatory format for data entry in a field. An input mask consists of a series of characters and symbols. The data entered must conform to the pattern of the mask. For example, with an input mask, you can ensure that a telephone number consists of exactly 10 digits. Input masks are possible for the data type `Text`, `Numeric`, `Currency`, and `Date/Time`.
+An input mask enforces a predefined format for data entry in a field. It consists of a combination of characters and symbols that define the pattern. For instance, an input mask can ensure that a phone number has exactly 10 digits. Input masks can be used with `Text`, `Number`, `Currency`, and `Date/Time` fields.
 
-The input mask also determines the number of characters that can be entered. Input masks are made up of one mandatory part and two optional parts, and each part is separated by a semicolon. The purpose of each part is as follows:
+An input mask consists of one required and two optional parts, separated by semicolons:
 
--   The first part is mandatory. It includes the mask characters along with placeholders and literal data such as parentheses, periods, and hyphens.
+-   **First part (required):** Defines the structure, including placeholders and literal characters such as parentheses or hyphens.
 
--   The second part is optional and refers to the embedded mask characters and how they are stored within the field. If the second part is set to 0, the characters are stored with the data, and if it is set to 1, the characters are only displayed and not stored.
+-   **Second part (optional):** Indicates whether the literal characters are stored. `0` stores them; `1` displays them without storing.
 
--   The third part of the input mask is also optional and indicates a single character or space that is used as a placeholder. By default, Access uses the underscore (\_). If you want to use another character, enter it in the third part of your mask.
+-   **Third part (optional):** Sets the placeholder character (default is underscore `_`).
 
 ::: callout-note
-Setting the second part to 1 can save database storage space.
+Setting the second part to `1` can save database space.
 :::
 
-@tbl-inputmask-symbols lists the placeholder and literal characters for an input mask and explains how it controls data entry.
-
-| Character | Explanation |
+| Character | Meaning |
 |:-----------------------------------|:-----------------------------------|
-| 0 | User must enter a digit (0 to 9). |
-| 9 | User can enter a digit (0 to 9). |
-| \# | User can enter a digit, space, plus, or minus sign. If skipped, Access enters a blank space. |
-| L | User must enter a letter. |
-| ? | User can enter a letter. |
-| A | User must enter a letter or a digit. |
-| a | User can enter a letter or a digit. |
-| & | User must enter either a character or space. |
-| C | User can enter characters or spaces. |
+| 0 | Required digit (0-9) |
+| 9 | Optional digit (0-9) |
+| \# | Optional digit, plus, minus, or space |
+| L | Required letter |
+| ? | Optional letter |
+| A | Required letter or digit |
+| a | Optional letter or digit |
+| & | Required character or space |
+| C | Optional character or space |
 | . , : ; - / | Decimal and thousands placeholders, date and time separators. The character you select depends on your Microsoft Windows regional settings. |
-| \> | Converts all characters that follow to uppercase. |
-| \< | Converts all characters that follow to lowercase. |
-| ! | Causes the input mask to fill from left to right instead of from right to left. |
-| \\ | Characters immediately following will be displayed literally. |
-| "" | Characters enclosed in double quotation marks will be displayed literally. |
+| \> | Convert following characters to uppercase |
+| \< | Convert following characters to lowercase |
+| ! | Fill from left to right instead of right to left |
+| \\ | Escape next character |
+| "" | Characters in quotes are displayed literally |
 
-: Placeholder and literal characters for an input mask {#tbl-inputmask-symbols}
+: Input mask symbols and meanings {#tbl-inputmask-symbols tbl-colwidths="\[25,75\]"}
 
-You can either quickly add input masks by using the [Input Mask Wizard]{.uicontrol} or specify masks manually by typing custom masks to the Input Mask field property setting.
+You can create input masks manually or by using the [Input Mask Wizard]{.uicontrol}.
 
 ::: {#exm-tables-ustelephonenr}
-**US telephone number**
+**US Telephone Number**
 
 Input mask: `(999) 000-000;0;-`
 
 Explanation:
 
--   `(999)` user can enter three digits as area code
--   `000-000` user must enter six digits
--   `;0` specifies that the mask characters will be stored along with the data.
--   `;-` specifies that a hyphen (-) instead of the underscore (\_) is to be used as the placeholder character.
+-   `(999)`: optional three-digit area code
+-   `000-000`: required seven-digit number
+-   `;0`: stores literal characters
+-   `;-`: uses hyphen (-) as the placeholder
 :::
 
 ::: {#exm-tables-zipcode}
-**ZipCode**
+**Zip Code**
 
 Input mask: `0000\ >LL`
 
 Explanation:
 
--   `0000` user must enter four required digits (0 t / m 9).
--   `\` indicates that a blank space is displayed. You don't need to enter this space.
--   `>LL` user must enter two required letters that will be converted to uppercase.
+-   `0000`: four required digits
+-   `\`: literal space
+-   `>LL`: two required uppercase letters
 :::
 
-### Validation rule and text {#sec-tables-fields-validationrules}
+### Validation Rule and Validation Text {#sec-tables-fields-validationrules}
 
-Validation rules can restrict what a user can enter in a particular field. This way you can ensure that only values ​​can be entered that meet certain conditions. Does the input not meet the conditions then a message appears on the screen.
+Validation rules restrict the values that can be entered into a field. If the entered data violates the rule, Access displays the validation text.
 
-Validation rule
+Validation Rule
 
-:   An expression that needs to be true for the entered data in the field. When you enter or change data in a field, Access checks if the expression is true. If not, a warning message with the value of the validation text is displayed. You then need to change the value until the validation rule is true.
+:   An expression that must evaluate to true. If not, the input is rejected.
 
-Validation text
+Validation Text
 
-:   The text that will be displayed when a value is entered which does not satisfy the expression in the validation rule.
+:   A message shown when a value violates the validation rule.
 
-When creating expressions you should consider the following:
+::: callout-tip
+**Syntax Tips:**
 
--   Field names must be enclosed in square brackets, like `[OrderDate]`.
--   Dates must be surrounded by #, like `#12-31-2010#`.
--   Text must be surrounded by double quotes, like "Amsterdam".
--   Wild cards are permitted. Most known are
-    -   `?`: one character
-    -   `*`: multiple characters
-    -   `#`: one digit
+-   Field names go in square brackets: `[OrderDate]`
+
+-   Dates use `#` symbols: `#12/31/2024#`
+
+-   Text uses quotes: "New York"
+
+-   Wildcards:
+
+    -   `?` = one character
+    -   `*` = any number of characters
+    -   `#` = one digit
+:::
 
 @tbl-operators lists the most used operators.
 
-| Operator | Function                     | Example                        |
-|:---------|:-----------------------------|:-------------------------------|
-| \<       | Less than                    | \<100                          |
-| \<=      | Less than or equal to        | \<=15                          |
-| \>       | Greater than                 | \>10                           |
-| \>=      | Greater than or equal to     | \>=0                           |
-| =        | Equal to                     | =21                            |
-| \<\>     | Not equal to                 | \<\>0                          |
-| AND      | Logical AND                  | \>=1 AND \<=9                  |
-| OR       | Logical OR                   | "m" OR "v"                     |
-| NOT      | Logical NOT                  | NOT \>10                       |
-| IN       | Should exist in a list       | IN ("Berlin","London","Paris") |
-| BETWEEN  | Should be between two values | BETWEEN 1 AND 9                |
-| LIKE     | Matches pattern string       | LIKE "Ams\*"                   |
+| Operator | Purpose               | Example                        |
+|:---------|:----------------------|:-------------------------------|
+| \<       | Less than             | \<100                          |
+| \<=      | Less than or equal    | \<=15                          |
+| \>       | Greater than          | \>10                           |
+| \>=      | Greater than or equal | \>=0                           |
+| =        | Equal to              | =21                            |
+| \<\>     | Not equal to          | \<\>0                          |
+| AND      | Both conditions true  | \>=1 AND \<=9                  |
+| OR       | Either condition true | "m" OR "f"                     |
+| NOT      | Condition not true    | NOT \>10                       |
+| IN       | Value in list         | IN ("Berlin","London","Paris") |
+| BETWEEN  | Value in range        | BETWEEN 1 AND 9                |
+| LIKE     | Matches pattern       | LIKE "Ams\*"                   |
 
-: Operators in expressions {#tbl-operators}
+: Common validation operators {#tbl-operators}
 
 ::: {#exm-tables-validation-date}
-**Date validation**
+**Date Validation**
 
--   Validation rule: `>=#1-1-2010#`
--   Validation text: `Enter a date from January 1, 2010.`
+-   Rule: `>=#1-1-2010#`
+-   Text: `Enter a date from January 1, 2010 onward.`
 :::
 
 ::: {#exm-tables-validation-invoicenumber}
-**Invoice number validation**
+**Invoice Number Validation**
 
--   Validation rule: `Like "[0-9][0-9][0-9][0-9]"`
--   Validation text: `Invoice number must consist of 4 digits.`
+-   Rule: `Like "[0-9][0-9][0-9][0-9]"`
+-   Text: `Invoice number must be exactly four digits.`
 :::
 
 ::: {#exm-tables-validation-email}
-**Simple email address validation**
+**Simple Email Validation**
 
--   Validation rule: `Like "*@*.???"`
--   Validation text: `Not a valid email address.`
+-   Rule: `Like "*@*.???"`
+-   Text: `Enter valid email address.`
 :::
 
-## Create a new table manually {#sec-tables-manually}
+## Create a New table Manually {#sec-tables-manually}
 
-Purpose: Creating a new table from scratch and assign a key.
+Purpose: Create a new table from scratch and assign a primary key.
 
-You had to create a new table with the name [Transport Companies]{.varname} to store the contact details of the transport company.
+You need to create a new table named [Transport Companies]{.varname} to store contact details for transportation companies.
 
 ::: {#prp-tables-manually}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
 
-2.  Choose \[tab Create \> Table (group Tables)\]{.uicontrol. A new table has been created. There is automatically one field with the name [ID]{.varname} which can be removed if you don't need the field.
+2.  Go to [Create tab \> Table (Tables group)]{.uicontrol}. A new table will be created with one default field named [ID]{.varname}, which you can delete if not needed.
 
-3.  Switch to [Design View]{.uicontrol}. Because the table is not named yet, the dialog box ***Save As*** appears.
+3.  Switch to [Design View]{.uicontrol}. Since the table is not yet named, the [Save As]{.uicontrol} dialog box will appear.
 
-![Dialog box Save As.](images/tables/t-saveas.png){#fig-t-saveas}
+![Save As dialog box.](images/tables/t-saveas.png){#fig-t-saveas}
 
-4.  Enter the name `Transport Companies` and click [OK]{.uicontrol}. The table [Transport Companies]{.varname} appears in the design view.
+4.  Enter the name `Transport Companies` and click [OK]{.uicontrol}. The table [Transport Companies]{.varname} will now open in Design View.
 
-5.  Right-click somewhere in the field [ID]{.varname} and choose [Delete Rows]{.uicontrol} and confirm the removal.
+5.  Right-click the [ID]{.varname} field and choose [Delete Rows]{.uicontrol}. Confirm the deletion.
 
 6.  Add the following fields:
 
-![Fields table Transport Companies.](images/tables/t-transport-companies-design.png){#fig-t-transport-companies-design}
+![Field setup for Transport Companies table.](images/tables/t-transport-companies-design.png){#fig-t-transport-companies-design}
 
-The company name will be unique so you can use this field as a primary key.
+Since the company name is unique, you can use it as the primary key.
 
-7.  Select the first row and choose [tab Design \> Primary Key (group Tools)]{.uicontrol}. At the beginning of the first row, you now see now the key ![](images/tables/icon-key.png).
+7.  Select the first row and click [Design tab \> Primary Key (Tools group)]{.uicontrol}. A key icon ![](images/tables/icon-key.png) will appear at the beginning of the row.
 
-8.  Switch to [Datasheet View]{.uicontrol} Answer the question to save the table with [Yes]{.uicontrol}.
+8.  Switch to [Datasheet View]{.uicontrol}. When prompted to save the table, click [Yes]{.uicontrol}.
 
-9.  Add the following records:
+9.  Enter the following records:
 
-![Records table Transport Companies.](images/tables/t-transport-companies-records.png){#fig-t-transport-companies-records}
+![Sample records in the Transport Companies table.](images/tables/t-transport-companies-records.png){#fig-t-transport-companies-records}
 
-10. Close table [Transport Companies]{.varname}.
+10. Close the [Transport Companies]{.varname} table.
 :::
 
-## New table with Excel import {#sec-tables-import-excel}
+## Importing an Excel Worksheet as a Table {#sec-tables-import-excel}
 
-Purpose: Import an Excel worksheet as a new Access table.
+Purpose: Import an Excel worksheet into Access as a new table.
 
-Access works well with Excel. So you can import an entire worksheet in a new or an existing table.
+Access integrates well with Excel, making it easy to import a worksheet as either a new table or into an existing one.
 
 ::: {#prp-tables-import-excel}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
 
-2.  Choose [tab External Data \> New Data Source (group Import & Link) \> From File \> Excel]{.uicontrol}.
+2.  Go to [External Data tab \> New Data Source (Import & Link group) \> From File \> Excel]{.uicontrol}.
 
-![Dialog box Get External Data - Excel Spreadsheet.](images/tables/import-excel-dialogbox.png){#fig-import-excel-dialogbox}
+![Get External Data - Excel Spreadsheet dialog box.](images/tables/import-excel-dialogbox.png){#fig-import-excel-dialogbox}
 
-3.  Navigate with the button [Browse]{.uicontrol} to the file `transport.xlsx`.
+3.  Use the [Browse]{.uicontrol} button to locate the file `transport.xlsx`.
 
-4.  Select the first option [Import the source data into a new table in the current database]{.uicontrol} and click [OK]{.uicontrol}. The ***Import Spreadsheet Wizard*** appears.
+4.  Select [Import the source data into a new table in the current database]{.uicontrol} and click [OK]{.uicontrol}. The ***Import Spreadsheet Wizard*** opens.
 
-5.  Select the option [First Row Contains Column Headings]{.uicontrol} and click [Next]{.uicontrol}. In the wizard screen that appears now, several characteristics of the fields can be changed.
+5.  Check [First Row Contains Column Headings]{.uicontrol} and click [Next]{.uicontrol}. You can now adjust field properties.
 
-6.  Click [Next]{.uicontrol}. The wizard asks now what should be used as a key for the new table.
+6.  Click [Next]{.uicontrol}. You'll be asked to define a primary key.
 
-7.  Select [No primary key]{.uicontrol} and click [Next]{.uicontrol}. The wizard then asks for the name of the table.
+7.  Choose [No primary key]{.uicontrol} and click [Next]{.uicontrol}.
 
-8.  Specify the name [Transport]{.varname} for the table and click [Finish]{.uicontrol}. The wizard now shows that the data is imported from Excel.
+8.  Enter `Transport` as the table name and click [Finish]{.uicontrol}.
 
-9.  Click [Close]{.uicontrol}.
+9.  Click [Close]{.uicontrol} when the import is complete.
 
-10. Open the table, look at the result, and close the table.
+10. Open the new table to review the results, then close it.
 :::
 
 ## Creating a List Box {#sec-tables-listbox}
 
-Purpose: Create a list box in a field so that the values can be selected from a list.
+Purpose: Configure a field to use a list box for data entry.
 
-When only a limited number of pre-defined values should be entered in a field, then the use of a list box can be very useful. For example, the [Customers]{.varname} table has a field [Region]{.varname} in which only the values `North` and `South` are allowed. In the following steps, the data type for this field will be changed in a list box.
+When only a limited set of predefined values is allowed in a field, a list box is a useful solution. For example, the [Customers]{.varname} table has a [Region]{.varname} field that should only contain `North` or `South`. You'll change the data type to a list box.
 
 ::: callout-warning
-Unfortunately, the list box does not automatically update the forms that are based on this table as the form Registration. To make the list box work in the form Registration, you must in design view first remove the field Region and then added again. That's not part of this task.
+List boxes do not automatically update forms based on the modified table, such as the Registration form. To enable the list box in the form, open the form in Design View, delete the Region field, and add it again. This step is not included in this task.
 :::
 
 ::: {#prp-tables-listbox}
@@ -320,233 +318,238 @@ Unfortunately, the list box does not automatically update the forms that are bas
 
 1.  Open the database.
 
-2.  Open table [Customers]{.varname} in [Design View]{.uicontrol}.
+2.  Open the [Customers]{.varname} table in [Design View]{.uicontrol}.
 
-3.  Click in the box [Data Type]{.uicontrol} of field [Region]{.varname}.
+3.  Click in the [Data Type]{.uicontrol} box for the [Region]{.varname} field.
 
-4.  Click the down arrow and select [Lookup Wizard...]{.uicontrol}. The first dialog box of the Lookup Wizard appears.
+4.  Click the dropdown arrow and select [Lookup Wizard...]{.uicontrol}.
 
-5.  Select the option [I will type in the values that I want.]{.uicontrol} and click [Next]{.uicontrol}. Now you can type in the values for the list.
+5.  Choose [I will type in the values that I want.]{.uicontrol} and click [Next]{.uicontrol}.
 
-6.  Type in the first cell `North` and in the second cell `South`.
+6.  Enter "North" in the first cell and "South" in the second.
 
-![Dialog box Lookup Wizard.](images/tables/lookup-wizard-region.png){#fig-lookup-wizard-region}
+![Lookup Wizard value entry dialog.](images/tables/lookup-wizard-region.png){#fig-lookup-wizard-region}
 
 7.  Click [Finish]{.uicontrol}.
 
-8.  Switch to [Datasheet View]{.uicontrol} and answer the question to save the table with [Yes]{.uicontrol}.
+8.  Switch to [Datasheet View]{.uicontrol} and click [Yes]{.uicontrol} to save changes.
 
-9.  Click at some customer in the field [Region]{.uicontrol} and make sure the list box is present and works.
+9.  Verify that the list box appears in the [Region]{.uicontrol} field and works as expected.
 
-![List box Region.](images/tables/listbox-region.png){#fig-listbox-region}
+![Region list box in action.](images/tables/listbox-region.png){#fig-listbox-region}
 :::
 
-## Relations between tables {#sec-tables-relations}
+## Relations Between Tables {#sec-tables-relations}
 
-Between two tables exists a relation when a key field from one table is linked to a key field in the other table. The linked fields in both tables have mostly the same name and the same data type. What relations should be established is the result of the normalization process which removes the redundant information and puts this in multiple tables.
+A relationship exists between two tables when a key field from one table is linked to a corresponding key field in another table. The related fields typically have the same name and data type. Relationships are established as part of the normalization process, which removes redundant data and organizes it across multiple tables.
 
-When tables are related, you can create queries, forms, and reports where the information can be combined from multiple tables and is displayed as an entity.
+When tables are related, you can create queries, forms, and reports that combine information from multiple tables and present it as a single entity.
 
-### One-to-many relationship {#sec-tables-relationtype-one2many}
+### One-to-Many Relationship {#sec-tables-relationtype-one2many}
 
-A one-to-many relationship is the most common kind of relationship. In this kind of relationship, a row in table A can have many matching rows in table B. But a row in table B can have only one matching row in table A. This is sometimes called a parent-child relation.
+The one-to-many relationship is the most common type. In this relationship, a single row in Table A can be associated with multiple rows in Table B. However, each row in Table B relates to only one row in Table A. This is often referred to as a parent-child relationship.
 
-An example is the relation between the tables [Customers]{.varname} and [Orders]{.varname}. Between these two tables is a link on the basis of the field [CustomerCode]{.varname}. A customer from the [Customers]{.varname} table can have several orders in the [Orders]{.varname} table. But every order belongs to only one customer. The table [Customers]{.varname} is on the one-side of the relation and the table [Orders]{.varname} on the many-side. The table [Customers]{.varname} is the primary table in the relation and the table [Orders]{.varname} is the related table. Through this link, all orders can be collected for a customer.
+For example, the [Customers]{.varname} table is related to the [Orders]{.varname} table via the [CustomerCode]{.varname} field. A customer can place multiple orders, but each order belongs to one customer only. Therefore, [Customers]{.varname} is on the "one" side, and [Orders]{.varname} is on the "many" side of the relationship. [Customers]{.varname} is the primary table, and [Orders]{.varname} is the related table.
 
-![One-to-many relation between the tables customers and orders.](images/tables/relationship-customers-orders.png){#fig-relationship-customers-orders}
+![One-to-many relationship between Customers and Orders.](images/tables/relationship-customers-orders.png){#fig-relationship-customers-orders}
 
-For this type of relationship the field with which the link is realized at one side of the relationship should be unique. In almost all cases the **primary key** of the table is used. The field at the many-side of the relation is called the **foreign key**.
+The field used to establish the relationship on the "one" side must contain unique values, usually a **primary key**. The field on the "many" side is known as the **foreign key**.
 
 ![Example of a one-to-many relationship.](images/tables/relationship-one2many.png){#fig-relationship-one2many}
 
-In Access, a one-to-many relationship is displayed by a line between the primary key and foreign key, with the number 1 at the one-side and the infinity symbol ∞ at the may-side.
+In Access, a one-to-many relationship is shown by a line connecting the primary key to the foreign key, with a "1" on one end and an infinity symbol (∞) on the many end.
 
-### One-to-one relationship {#sec-tables-relationtype-one2one}
+### One-to-One Relationship {#sec-tables-relationtype-one2one}
 
-In a one-to-one relationship, a row in table A can have no more than one matching row in table B, and vice versa. This kind of relationship is not common, because most information that is related in this manner would be in one table. This will sometimes be done to divide a table with many fields in two tables, each with fewer fields. In general, one should try to avoid this situation.
+In a one-to-one relationship, each row in Table A corresponds to no more than one row in Table B, and vice versa. This type of relationship is uncommon, as such related data is typically stored in a single table. Sometimes, it’s used to split a large table into two smaller ones. Generally, this design should be avoided unless there is a specific reason.
 
-### Many-to-many relationship {#sec-tables-relationtype-many2many}
+### Many-to-Many Relationship {#sec-tables-relationtype-many2many}
 
-In a many-to-many relationship, a row in table A can have many matching rows in table B, and vice versa. A many-to-many relationship can not be defined directly in Access. You create such a relationship by defining a third table that is called a **junction table**. This junction table is related to each of both tables through a one-to-many relationship.
+In a many-to-many relationship, rows in Table A can match multiple rows in Table B, and vice versa. This type of relationship cannot be directly created in Access. Instead, you must use a third table—called a **junction table** which creates two one-to-many relationships.
 
-An example is the table [Orders]{.varname} and the table [Boxes]{.varname}. Each order is likely to contain several boxes and each box is probably on multiple orders. The table [OrderDetails]{.varname} can act as the junction table. The table [OrderDetails]{.varname} is related to the table [Orders]{.varname} in a one-to-many relationship via the field [OrderCode]{.varname}. And the table [OrderDetails]{.varname} is also related to the table [Boxes]{.varname} in a one-to-many relationship via the field [BoxCode]{.varname}.
+For example, consider the relationship between [Orders]{.varname} and [Boxes]{.varname}. One order may include several boxes, and one box may be part of multiple orders. The [OrderDetails]{.varname} table serves as the junction table. It links to [Orders]{.varname} through [OrderCode]{.varname} and to [Boxes]{.varname} through [BoxCode]{.varname}, each via a one-to-many relationship.
 
-![Example many-to-many relationship.](images/tables/relationship-many2many.png){#fig-relationship-many2many}
+![Example of a many-to-many relationship.](images/tables/relationship-many2many.png){#fig-relationship-many2many}
 
-### Relationships: creating, modifying and deleting {#sec-tables-relationships-edit}
+### Creating, Modifying, and Deleting Relationships {#sec-tables-relationships-edit}
 
-Relations between tables can be created in the window ***Relationships***. In this window, you can also modify or delete a relation. The window can be made visible by clicking on [tab Database Tools \> Relationships (group Relationships)]{.uicontrol}.
+Relationships are managed in the ***Relationships*** window, which can be opened from [Database Tools tab \> Relationships (Relationships group)]{.uicontrol}.
 
-![Window Relationships.](images/tables/relationships-window.png){#fig-relationships-window}
+![Relationships window.](images/tables/relationships-window.png){#fig-relationships-window}
 
-The ribbon contains commands for editing the relationships.
+The ribbon includes commands for editing relationships.
 
-![Ribbon Design relationships.](images/tables/relationships-ribbon-design.png){#fig-relationships-ribbon-design}
+![Relationships ribbon.](images/tables/relationships-ribbon-design.png){#fig-relationships-ribbon-design}
 
-If there are no relations made earlier then the window Relationships is empty. Through the button [Show Table]{.uicontrol}, a window with tables (and queries) is displayed with which you can add tables.
+If no relationships have been created yet, the window will be empty. Click [Show Table]{.uicontrol} to add tables and queries to the window.
 
-A relation between two tables can be created by dragging the primary key from one table to the foreign key in another table. Then the dialog box ***Edit Relationships*** is displayed.
+To create a relationship, drag the primary key from one table to the corresponding foreign key in another. This opens the ***Edit Relationships*** dialog box.
 
-![Dialog box Edit Relationships](images/tables/relationship-edit-boxes-boxdetails.png){#fig-relationship-edit-boxes-boxdetails-1}
+![Edit Relationships dialog box.](images/tables/relationship-edit-boxes-boxdetails.png){#fig-relationship-edit-boxes-boxdetails-1}
 
-If you want to enforce referential integrity for this relation then check the box [Enforce Referential Integrity]{.uicontrol}.
+To enforce referential integrity, check the [Enforce Referential Integrity]{.uicontrol} box.
 
-A relationship can be modified by first selecting the relationship line. This line is then displayed thicker. Then double-clicking will display the dialog box ***Edit Relationships***.
+To modify a relationship, first select the relationship line—it will appear thicker—then double-click it to open the ***Edit Relationships*** dialog box.
 
-You can delete a relationship by selecting the relationship line and then press the [DELETE]{.uicontrol} key.
+To delete a relationship, select the line and press the [DELETE]{.uicontrol} key.
 
-### Referential integrity {#sec-tables-referential-integrity}
+### Referential Integrity {#sec-tables-referential-integrity}
 
-Referential integrity is a system of rules by which it is ensured that the internal consistency between the tables is ensured. Access then ensures that relations between records in related tables are valid, and related information is not inadvertently removed or altered.
+Referential integrity ensures consistency between related tables. When enabled, Access prevents changes that would break the link between related records.
 
-Referential integrity is handled through the dialog box ***Edit Relationships*** by selecting the box [Enforce Referential Integrity]{.uicontrol}.
+You can enable referential integrity via the ***Edit Relationships*** dialog box by checking the [Enforce Referential Integrity]{.uicontrol} option.
 
 ::: callout-important
-**Consequences Referential Integrity**
+**Consequences of Enforcing Referential Integrity**
 
--   You cannot enter a value for the foreign key in the related table if that value does not exist in the primary key of the primary table. For example, you cannot enter an order for a non-existent customer. With an order for a new customer, you must therefore first create the customer and only then the order.
+-   You cannot enter a value in the foreign key field of the related table if that value doesn’t exist in the primary table. For example, you can’t enter an order for a customer who doesn’t exist. Create the customer first.
 
--   You cannot delete a record from the primary table if there is a record that relates in another related table. For example, you cannot delete a record from the [Customers]{.varname} table if records for this customer still exist in the [Orders]{.varname} table.
+-   You cannot delete a record from the primary table if matching records exist in a related table. For example, you can’t delete a [Customers]{.varname} record if that customer has orders in the [Orders]{.varname} table.
 
--   You cannot change the value of the primary key in the primary table if there is a record that relates in another related table. For example, you cannot change the customer code in the [Customers]{.varname} table if records in the [Orders]{.varname} table are assigned to this customer.
+-   You cannot change the primary key value in the primary table if related records exist in another table. For example, you can’t change a customer’s code if their orders still reference it.
 :::
 
-When the referential integrity is enforced and any of the foregoing rules is violated by an action, then an appropriate error message is displayed. In @fig-warning-referential-integrity you see an example of this.
+If you attempt an action that violates these rules, Access displays an error message, like the one shown in @fig-warning-referential-integrity.
 
-![Error message when entering an order for a non existing client.](images/tables/warning-referential-integrity.png){#fig-warning-referential-integrity}
+![Error message when entering an order for a non-existent customer.](images/tables/warning-referential-integrity.png){#fig-warning-referential-integrity}
 
-You can set referential integrity between two tables on the following conditions
+To enable referential integrity, these conditions must be met:
 
--   Both of these tables are in the same Access database.
--   The linked field in the primary table is a primary key or has a unique index.
--   The linked fields have the same data type and numeric fields must have the same field length.
--   Existing data in both tables don't violate the rules of referential integrity.
+-   Both tables are in the same Access database.
+-   The linked field in the primary table must be a primary key or have a unique index.
+-   Linked fields must have the same data type, and numeric fields must match in size.
+-   Existing data must not violate referential integrity.
 
-::: callout-warning
-AutoNumber fields may be linked to fields of the type `Number` providing that the property [Field Size]{.uicontrol} has the value `Long Integer`.
+::: callout-important
+AutoNumber fields can be linked to `Number` fields as long as their [Field Size]{.uicontrol} property is set to `Long Integer`.
 :::
 
-When existing data in the tables break the rules for referential integrity, these violations must be addressed first. Usually, these problems arise by any of the following causes.
+If existing data violates these rules, you must resolve the issues first. Common causes include:
 
-1.  The fields that are linked to each other are not of the same data type or do not have the same length. This is easy to solve by changes in the design of one or both tables.
+1.  The linked fields differ in data type or size. This can be fixed by modifying the table designs.
 
-2.  In the table at the many-side exist records with values in the linking field that don't exist in the table at the one-side. This occurs when you delete a record in the table on the on- side without deleting the corresponding records in the table on the many-side. In fact, this creates orphans in the table on the many-side. Fortunately, Access provides a type of query with which you can find these orphans and delete them yet. If this is the case, select [tab Create \> Query Wizard (group Queries) \> Find Unmatched Query Wizard]{.uicontrol}.
+2.  The related table contains values that don’t exist in the primary table. This happens when records are deleted from the primary table but remain in the related one, creating “orphan” records. Use the [Create tab \> Query Wizard (Queries group) \> Find Unmatched Query Wizard]{.uicontrol} to identify and remove them.
 
-### Create Relationship Boxes-BoxDetails {#sec-tables-relationship}
+### Creating the Boxes–BoxDetails Relationship {#sec-tables-relationship}
 
-A relationship connects two fields in different tables together. Before you start creating the relation, you must first determine which table is the primary table, which the related table and which fields are the linking fields.
+To define a relationship, determine the primary and related tables, and the linking fields:
 
-Until now there is no relationship between the tables [Boxes]{.varname} and [BoxDetails]{.varname}. This is necessary because otherwise, it is not possible to determine which pralines and the amount of them are in a particular box.
-
--   Primary table: [Boxes]{.varname}, link field [BoxCode]{.varname}
--   Related table: [BoxDetails]{.varname}, link field [BoxCode]{.varname}
+-   Primary table: [Boxes]{.varname}, field: [BoxCode]{.varname}
+-   Related table: [BoxDetails]{.varname}, field: [BoxCode]{.varname}
 
 ::: {#prp-tables-relationship}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
 
-2.  Click [tab Database Tools \> Relationships (group Relationships)]{.uicontrol}. Window Relationships will be displayed. It shows the existing relations. You can also see that currently no relationships exists between the tables [Boxes]{.varname} and [BoxDetails]{.varname}.
+2.  Go to [Database Tools tab \> Relationships (Relationships group)]{.uicontrol}. The Relationships window will appear, showing existing relationships.
 
-![Window relationships.](images/tables/relationships-window-boxes-boxdetails.png){#fig-relationships-window-boxes-boxdetails}
+![Relationships window showing Boxes and BoxDetails.](images/tables/relationships-window-boxes-boxdetails.png){#fig-relationships-window-boxes-boxdetails}
 
-3.  Select in table [Boxes]{.varname} the field [BoxCode]{.varname} and drag it to the field [BoxCode]{.varname} in table [BoxDetails]{.varname}.
+3.  Drag the [BoxCode]{.varname} field from [Boxes]{.varname} to the [BoxCode]{.varname} field in [BoxDetails]{.varname}.
 
-![Dialog box Edit Relationships.](images/tables/relationship-edit-boxes-boxdetails.png){#fig-relationship-edit-boxes-boxdetails-2}
+![Edit Relationships dialog box.](images/tables/relationship-edit-boxes-boxdetails.png){#fig-relationship-edit-boxes-boxdetails-2}
 
-4.  Check the box [Enforce Referential Integrity]{.uicontrol} and click [Create]{.uicontrol}. The relationship is now visible in the window.
+4.  Check [Enforce Referential Integrity]{.uicontrol} and click [Create]{.uicontrol}. The relationship will now be visible in the window.
 
-5.  Close window ***Relationships*** and answer the question to save the changes with [Yes]{.uicontrol}
+5.  Close the ***Relationships*** window and click [Yes]{.uicontrol} to save changes.
 :::
 
 ## Exercises {#sec-tables-exercises}
 
 ::: {#exr-tabl001}
-**Prevent duplicate names (tabl001)**
+**Prevent Duplicate Names (tabl001)**
 
-The [Suppliers]{.varname} table has a field [Supplier]{.varname}. This is the name of the supplier. It is now possible to use the same supplier name more than once, which is undesirable. To prevent this, you can set the value of the property [Indexed]{.uicontrol} of this field on [Yes (No Duplicates)]{.uicontrol}. Apply this change.
+The [Suppliers]{.varname} table has a [Supplier]{.varname} field. Currently, duplicate supplier names are allowed. Prevent this by setting the [Indexed]{.uicontrol} property of the field to [Yes (No Duplicates)]{.uicontrol}.
 :::
 
 ::: {#exr-tabl002}
-**Insertion in names (tabl002)**
+**Name Order Formatting (tabl002)**
 
-The last name of the customer with CustomerCode 15 is `Molen, van de` and the first name is `Robert`. If you use these names when creating labels, then you will see: `Robert Molen, van de`. This is not professional and you want the name to be listed on the label `Robert van de Molen`. A possible solution could be to change [LastName]{.varname} in `van de Molen`. But this solution has the drawback that the sort by name will produce an undesired sequence. Think of a better solution, if necessary the design of the table may be changed. Do not apply this change in the database.
+The customer with CustomerCode 15 has the last name `Molen, van de` and first name `Robert`. When printing labels, this results in `Robert Molen, van de`, which is incorrect. You want it to read `Robert van de Molen`. Simply changing the [LastName]{.varname} to `van de Molen` will affect sorting. Think of a better solution. You may propose changes to the table design but do not apply them in the database.
 :::
 
 ::: {#exr-tabl003}
-**Title field with a list box (tabl003)**
+**Title Field with List Box (tabl003)**
 
-Some customers appreciate that their title is listed with a mailing. Add a field [Title]{.varname} to table [Customers]{.varname}. Use data type [Lookup Wizard]{.uicontrol} to produce a list with the values: ing. , ir., drs., mr., dr.
+Some customers prefer to have their title included in mailings. Add a [Title]{.varname} field to the [Customers]{.varname} table. Use the [Lookup Wizard]{.uicontrol} to create a list with these values: ing., ir., drs., mr., dr.
 :::
 
 :::: {#exr-tabl004}
-**Currency format (tabl004)**
+**Currency Format (tabl004)**
 
-In this exercise, you need the table [Transport]{.varname} that had to be made earlier in the course. When this table is not present in your database, you have two possibilities:
+Use the [Transport]{.varname} table created earlier. If it's not in your database, either:
 
--   You still perform the task by creating this table.
--   You use database `transport.accdb` where the table [Transport]{.varname} already was made for you.
+-   Recreate the table manually, or
+-   Use the `transport.accdb` database, where it already exists.
 
-Open table [Transport]{.varname} and note that the transport costs do not appear in a currency format. Change the value of the property [Format]{.uicontrol} of field [TransportationCosts]{.varname} in a currency format with your local currency symbol. Then switch to datasheet view and observe the result of the change.
+Open the [Transport]{.varname} table. Notice the transport costs are not formatted as currency. Change the [Format]{.uicontrol} property of the [TransportationCosts]{.varname} field to display currency using your local symbol. Switch to Datasheet View to observe the result.
 
 ::: callout-note
-The showed currency symbol depends on the local Windows settings.
+The displayed currency symbol depends on your Windows regional settings.
 :::
 ::::
 
-::: {#exr-tabl005}
-**Composite key (tabl005)**
+:::: {#exr-tabl005}
+**Composite Key (tabl005)**
 
-In this exercise, you need the table [Transport]{.varname} that had to be made earlier in the course, see @sec-tables-manually. When this table is not present in your database, you have two possibilities:
+In the [Transport]{.varname} table, [ID TransportCompany]{.varname} has repeated values, so it cannot serve as a primary key. Similarly, [DeliveryProvince]{.varname} is also repeated. However, the combination of both fields is unique and can be used as a composite primary key. Set this composite key in the [Transport]{.varname} table.
+
+::: callout-note
+In this exercise, you need the table [Transport]{.varname} that you should have made earlier (see @sec-tables-manually). When this table is not present in your database, you have two possibilities:
 
 -   You still perform the task by creating this table.
 -   You use database `transport.accdb` where the table [Transport]{.varname} already was made for you.
-
-In the [Transport]{.varname} table, the [ID TransportCompany]{.varname} field regularly has the same value. So you can see 13 times the value 1. Therefore, this field can not serve as a primary key. The value of [DeliveryProvince]{.varname} appears three times because each carrier has a rate per province. The field [DeliveryProvince]{.varname} therefore can not serve as a primary key. The combination of the fields [ID TransportCompany]{.varname} and [DeliveryProvince]{.varname} is unique and can therefore be used as a primary key. Set this as primary key table [Transport]{.varname}.
 :::
+::::
 
 ::: {#exr-tabl006}
-**A field target group with a list box (tabl006)**
+**Target Group Field (tabl006)**
 
-There is a need to classify each customer in one of the following target groups: top customer, good customer, small customer. To do this the design of the [Customers]{.varname} table needs to be modified. Make a new field in this table with the name [TargetGroup]{.varname} with a list box with the values mentioned before.
+Customers should be classified into target groups: top customer, good customer, or small customer. Add a [TargetGroup]{.varname} field to the [Customers]{.varname} table using a list box with these options.
 :::
 
 ::: {#exr-tabl007}
-**Relationship BoxDetails-Pralines (tabl007)**
+**Create Relationship: BoxDetails–Pralines (tabl007)**
 
-Create a relationship between the tables [BoxDetails]{.varname} and [Pralines]{.varname} and enforce referential integrity.
+Create a relationship between [BoxDetails]{.varname} and [Pralines]{.varname}, and enforce referential integrity.
 :::
 
 ::: {#exr-tabl008}
-**Table Employees (tabl008)**
+**Employees Table (tabl008)**
 
-Late 2010 was decided to track which employee has entered an order. There is already an Excel file containing the data of all employees. Perform the following actions:
+In late 2010, the company decided to track which employee processed each order. An Excel file already contains employee data. Do the following:
 
--   Import the Excel file `employees.xlsx` and give the table the name [Employees]{.varname}. Provide an appropriate primary key for this table.
--   Add a field [EmployeeCode]{.varname}.
--   Create a relationship between the tables [Orders]{.varname} and [Employees]{.varname} and enforce referential integrity.
+-  Import the Excel file `employees.xlsx` and name the table [Employees]{.varname}. Assign a suitable primary key.
+-  dd an [EmployeeCode]{.varname} field.
+-  Create a relationship between [Orders]{.varname} and [Employees]{.varname}, and enforce referential integrity.
 :::
 
 ::: {#exr-tabl009}
-**Contact registration (tabl009)**
+**Contact Registration (tabl009)**
 
-The marketing department wants to record all contacts ( telephone, mail, email, visits) in order to calculate the costs incurred for a customer. For each contact, the contact type, date, start time and end time, subject, and any charges (e.g. to send a gift) are tracked. If for example an employee has spent half an hour with a letter, then it must be possible to calculate later that the costs are `0.5 * $60`.
+The marketing department wants to log all customer contacts (phone, mail, email, visits) to track time and costs. Each entry should include the contact type, date, start and end time, subject, and any costs.
 
-To do this, create a new table named [Contacts]{.varname} and link this to table [Customers]{.varname} and enforce referential integrity.
+Create a new table [Contacts]{.varname} and link it to [Customers]{.varname}, enforcing referential integrity.
 
-If the table [Employees]{.varname} is available (created in @exr-tabl008), when registering the contact moment, also include which employee handled the registration. To do this, you must link the table [Contacts]{.varname} to the table [Employees]{.varname}.
+If the [Employees]{.varname} table exists (see @exr-tabl008), include which employee logged the contact by linking [Contacts]{.varname} to [Employees]{.varname}.
 :::
 
 ::: {#exr-tabl010}
-**Complaints registration (tabl010)**
+**Complaints Registration (tabl010)**
 
-There are complaints from customers. The complaints can be classified into the following categories: Packaging damaged, Box not delivered on the date, Best before date has expired, Pralines don't taste.
+Customers sometimes submit complaints. These can be categorized as:
 
-A complaint always refers to an order. Create new table [Complaints]{.varname} and link this to table [Orders]{.varname} and enforce referential integrity.
+-  Damaged packaging  
+-  Box not delivered on time  
+-  Expired best-before date  
+-  Poor taste of pralines
+
+Each complaint refers to an order. Create a [Complaints]{.varname} table and relate it to [Orders]{.varname}, enforcing referential integrity.
 :::
 
 ::: {#exr-tabl011}
-**Referential integrity (tabl011)**
+**Check Referential Integrity (tabl011)**
 
-Check if the referential integrity is enforced at the relationships of tables [Customers]{.varname}, [Orders]{.varname}, [OrderDetails]{.varname}, [Boxes]{.varname}, [BoxDetails]{.varname}, and [Pralines]{.varname}. If not, do it.
+Verify whether referential integrity is enforced in relationships involving [Customers]{.varname}, [Orders]{.varname}, [OrderDetails]{.varname}, [Boxes]{.varname}, [BoxDetails]{.varname}, and [Pralines]{.varname}. If not, enable it.
 :::

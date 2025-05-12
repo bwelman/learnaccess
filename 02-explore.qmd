@@ -6,20 +6,20 @@
 ::: callout
 **OBJECTIVES**
 
--   Understanding sample database `{{< var database >}}`.
--   What to do with security alerts.
--   The windows and navigation options within Access.
--   The display capabilities of tables, forms, reports and queries.
--   How a command button works on a form.
--   How to search, sort and filter a record.
--   Printing tables, queries, forms and reports.
+-   Understand the sample database `{{< var database >}}`.
+-   Learn how to handle security alerts.
+-   Explore the windows and navigation options within Access.
+-   Discover the display capabilities of tables, forms, reports, and queries.
+-   See how a command button works on a form.
+-   Learn how to search, sort, and filter records.
+-   Print tables, queries, forms, and reports.
 :::
 
-The course is built around the sample file `{{< var database >}}`. This chapter explains the design and use of the tables in the database. You are going to experiment with this sample database, you go some experimenting to discover different aspects of working with Access. Some of the features are further explored in other chapters.
+This course is centered around the sample file `{{< var database >}}`. This chapter explains the design and use of the tables in the database. You will experiment with this sample database to discover different aspects of working with Access. Some features are explored further in other chapters.
 
-## Example database Candy {#sec-explore-about}
+## Example Database Candy {#sec-explore-about}
 
-The example database `{{< var database >}}` contains data of the company SNOOPY, a company that sells boxes with pralines to customers. In the boxes are different types of pralines. The information is kept in 6 tables:
+The example database `{{< var database >}}` contains data from the company SNOOPY, which sells boxes of pralines to customers. Each box contains different types of pralines. The information is stored in six tables:
 
 -   [Customers]{.varname}
 -   [Orders]{.varname}
@@ -30,234 +30,240 @@ The example database `{{< var database >}}` contains data of the company SNOOPY,
 
 ![Design database Candy.](images/explore/example-db-design.png){#fig-example-db-design}
 
-The customer data are in the table [Customers]{.varname}. The orders of the customers are stored in the tables [Orders]{.varname} and [OrderDetails]{.varname}. The data of a box pralines, for example, name and price, are stored in the table [Boxes]{.varname}. In the table [BoxDetails]{.varname} you can find which pralines and how much of them are in each box. The table [Pralines]{.varname} contains information about the name of the pralines, chocolate type, filling, and even includes a picture.
+Customer data is stored in the [Customers]{.varname} table. Customer orders are recorded in the [Orders]{.varname} and [OrderDetails]{.varname} tables. Information about each box of pralines, such as name and price, is stored in the [Boxes]{.varname} table. The [BoxDetails]{.varname} table shows which pralines and how many of each are in each box. The [Pralines]{.varname} table contains details about each praline, including its name, chocolate type, filling, and even a picture.
 
 ::: callout-note
-Each table should include a column or set of columns that uniquely identifies each row stored in the table. This is often a unique identification number, such as an article number or an employee number. In database terminology, this information is called the\[primary key\]of the table. The value of the primary key can occur only once in the table. Duplicate values for the primary key are prohibited. Most of the tables have a primary key consisting of one field, but sometimes it is necessary to combine fields to achieve a unique combination. In the tables [Customers]{.varname}, [Orders]{.varname}, [Boxes]{.varname}, and [Pralines]{.varname} the key is one field. In the tables [OrderDetails]{.varname} and [BoxDetails]{.varname} two fields are required for the key. See  @fig-example-db-design.
+Each table should include a column or set of columns that uniquely identifies each row. This is often a unique identification number, such as an article number or employee number. In database terminology, this is called the **primary key** of the table. The value of the primary key must be unique in the table; duplicate values are not allowed. Most tables have a primary key consisting of a single field, but sometimes a combination of fields is needed to ensure uniqueness.
+
+In the [Customers]{.varname}, [Orders]{.varname}, [Boxes]{.varname}, and [Pralines]{.varname} tables, the key is a single field. In the [OrderDetails]{.varname} and [BoxDetails]{.varname} tables, two fields are required for the key. See @fig-example-db-design.
 :::
 
-The six tables are shortly discussed below.
+The six tables are briefly discussed below.
 
 ### Table Customers {#sec-explore-table-customers}
 
 ![Table Customers.](images/explore/table-customers.png){#fig-table-customers}
 
-Various details of a customer are stored in the table [Customers]{.varname}. Every customer has a unique customer code. The field [CustomerCode]{.varname} is the primary key of the table. Each row of a table is called a record. Customers are sorted by the values of the primary key.
+The [Customers]{.varname} table stores various details about each customer. Every customer has a unique customer code. The [CustomerCode]{.varname} field is the primary key of the table. Each row in a table is called a record. Customers are sorted by the primary key.
 
-> Check that there are 325 customers in table [Customers]{.varname}.
+> Check that there are 325 customers in the [Customers]{.varname} table.
 
 ### Table Orders {#sec-explore-table-orders}
 
 ![Table Orders.](images/explore/table-orders.png){#fig-table-orders}
 
-In the table [Orders]{.varname} is [OrderCode]{.varname} the primary key, the value of [OrderCode]{.varname} is unique. A certain value of [CustomerCode]{.varname} can appear more than once in this table because a customer can have multiple orders. An order is always associated with one customer.
+In the [Orders]{.varname} table, [OrderCode]{.varname} is the primary key, and its value is unique. A specific [CustomerCode]{.varname} can appear more than once in this table because a customer can place multiple orders. Each order is always associated with one customer.
 
-> Check that there are 784 orders in table [Orders]{.varname}.
+> Check that there are 784 orders in the [Orders]{.varname} table.
 
 ### Table OrderDetails {#sec-explore-table-orderdetails}
 
 ![Table OrderDetails.](images/explore/table-orderdetails.png){#fig-table-orderdetails}
 
-An order can contain multiple boxes, but each [BoxCode]{.varname} can only occur once in an order. However, a certain box can be ordered in multiple orders, so that a [BoxCode]{.varname} can belong to multiple values of [OrderCode]{.varname}. table [OrderDetails]{.varname} has 1537 records (order rows).
+An order can contain multiple boxes, but each [BoxCode]{.varname} can only appear once per order. However, a particular box can be ordered in multiple orders, so a [BoxCode]{.varname} can be linked to multiple [OrderCode]{.varname} values. The [OrderDetails]{.varname} table has 1,537 records (order rows).
 
-> Check that two different boxes were ordered on the order with order code 3, because the table contains two lines with order code 3. A total of three boxes were ordered on this order, two boxes with the box code CHER and 1 box with the box code NOWI.
+> Check that two different boxes were ordered in the order with order code 3, as the table contains two rows with order code 3. A total of three boxes were ordered in this order: two boxes with box code CHER and one box with box code NOWI.
 
-The combination of [OrderCode]{.varname} and [BoxCode]{.varname} is always unique. Therefore, the key in the table is a combination of these two fields.
+The combination of [OrderCode]{.varname} and [BoxCode]{.varname} is always unique. Therefore, the key in this table is a combination of these two fields.
 
 ::: callout-note
-The total number of ordered boxes on all orders is the sum of all the numbers in the column Quantity. This number is not present in the table. In another chapter of this course will be explained how you can calculate it.
+The total number of boxes ordered across all orders is the sum of all values in the Quantity column. This number is not present in the table. Another chapter in this course will explain how to calculate it.
 :::
 
 ### Table Boxes {#sec-explore-table-boxes}
 
 ![Table Boxes.](images/explore/table-boxes.png){#fig-table-boxes}
 
-In the table [Boxes]{.varname} is [BoxCode]{.varname} the key. There are 18 different boxes, each with a unique [BoxCode]{.varname}. This table is the Snoopy company's article list.
+In the [Boxes]{.varname} table, [BoxCode]{.varname} is the key. There are 18 different boxes, each with a unique [BoxCode]{.varname}. This table serves as the Snoopy company's product list.
 
 ### Table BoxDetails {#sec-explore-table-boxdetails}
 
 ![Table BoxDetails.](images/explore/table-boxdetails.png){#fig-table-boxdetails}
 
-In table [BoxDetails]{.varname} is stored what kinds of pralines and how many of them are in a certain box. So you can read that there are six kinds of pralines in box ALLS, two of each, a total of twelve pralines. In this table, the key is a combination of the fields [BoxCode]{.varname} and [PralineCode]{.varname}. The table has 84 records.
+The [BoxDetails]{.varname} table stores which types of pralines and how many of each are in a specific box. For example, you can see that box ALLS contains six types of pralines, two of each, for a total of twelve pralines. In this table, the key is a combination of [BoxCode]{.varname} and [PralineCode]{.varname}. The table has 84 records.
 
 ### Table Pralines {#sec-explore-table-pralines}
 
 ![Table Pralines.](images/explore/table-pralines.png){#fig-table-pralines}
 
-In table [Pralines]{.varname}, some properties of each kind of praline are stored. The key is the field [PralineCode]{.varname}. The table has 41 records (praline types).
+The [Pralines]{.varname} table stores properties of each type of praline. The key is the [PralineCode]{.varname} field. The table contains 41 records (praline types).
 
-You can easily make some calculations based on the data from the tables.
+You can easily perform some calculations based on the data from these tables.
 
-1.  What is the average number of praline types per box? For this you have to divide the total number of records in the table [Box details]{.varname} by the total number of box types. So $\frac{84}{18}= 4.7$.
+1.  **What is the average number of praline types per box?**\
+    Divide the total number of records in the [BoxDetails]{.varname} table by the total number of box types: $\frac{84}{18}= 4.7$.
 
-2.  What is the average number of box types per order? This can be calculated from the total number of order rows divided by the total number of orders. So $\frac{1537}{784} = 2.0$.
+2.  **What is the average number of box types per order?**\
+    Divide the total number of order rows by the total number of orders: $\frac{1537}{784} = 2.0$.
 
-You can't easily calculate the average number of pralines in a box. To do that, you need the total number of pralines in all boxes. This is the sum of all numbers in the column [Quantity]{.varname} in the table [BoxDetails]{.varname}.
+You can't easily calculate the average number of pralines in a box. To do this, you need the total number of pralines in all boxes, which is the sum of all values in the [Quantity]{.varname} column in the [BoxDetails]{.varname} table.
 
-## Security and macros {#sec-explore-security}
+## Security and Macros {#sec-explore-security}
 
-How to deal with security warnings when opening a database.
+How to handle security warnings when opening a database.
 
-Some databases such as `{{< var database >}}` contain macros. In most cases, these macros are made to carry out certain tasks in the database. However, virus writers can use these opportunities to spread a virus. When such a database is not on a trusted location or signed by a trusted publisher, then Access displays when opening the database a security warning on the opening of the database. The macros in the database are disabled.
+Some databases, such as `{{< var database >}}`, contain macros. In most cases, these macros are designed to perform specific tasks in the database. However, virus writers can use macros to spread malware. When a database is not in a trusted location or signed by a trusted publisher, Access displays a security warning when opening the database, and macros are disabled.
 
 ![Security warning on opening of a database with macros.](images/common/security-warning.png){#fig-security-warning}
 
-You can enable the macros in one of the following ways.
+You can enable macros in one of the following ways.
 
-### Enable macros temporarily {.unnumbered}
+### Enable Macros Temporarily {.unnumbered}
 
-Click in the area with the security alert on the button[Enable Content]{.uicontrol}.
+Click the [Enable Content]{.uicontrol} button in the area with the security alert.
 
-This method is not recommended because every time you open the database this warning appears you to enable macros.
+This method is not recommended because you will have to enable macros every time you open the database and see this warning.
 
-### Ad publisher to list with trusted publishers {.unnumbered}
+### Add Publisher to Trusted Publishers List {.unnumbered}
 
-If the database creator that has provided a digital certificate, you can add the creator to the list Trusted Publishers. Access automatically enables all macros that are created by this maker in all databases. This is a very secure method, but usually, only the larger companies use a digital certificate. The database `{{< var database >}}` doesn't have a digital certificate.
+If the database creator has provided a digital certificate, you can add the creator to the Trusted Publishers list. Access will automatically enable all macros created by this publisher in all databases. This is a very secure method, but usually only larger companies use digital certificates. The database `{{< var database >}}` does not have a digital certificate.
 
-### Move database to a trusted location {.unnumbered}
+### Move Database to a Trusted Location {.unnumbered}
 
-Access provides trusted locations (folders). Macros in databases on a trusted location are automatically enabled. This is the most convenient way to work safely without interruptions by security alerts and this method is also recommended for the database `{{< var database >}}`. Perform this action as follows.
+Access provides trusted locations (folders). Macros in databases stored in a trusted location are automatically enabled. This is the most convenient and recommended way to work safely without interruptions from security alerts for the database `{{< var database >}}`. To do this:
 
-Choose [File \> Options \> Trust Center \> Trust Center Settings... \> Trusted Locations \> Add new location...]{.uicontrol}.
+Go to [File \> Options \> Trust Center \> Trust Center Settings... \> Trusted Locations \> Add new location...]{.uicontrol}.
 
 ![Dialog box Microsoft Office trusted location.](images/common/security-trusted-location.png){#fig-security-trusted-location}
 
-In the example the folder `C:\temp` is added as a trusted location.
+In this example, the folder `C:\temp` is added as a trusted location.
 
-### Security settings for all macros {.unnumbered}
+### Security Settings for All Macros {.unnumbered}
 
-Optionally you can change the way Access handles all macros in all databases. Perform this action as follows.
+Optionally, you can change how Access handles all macros in all databases:
 
-Choose [File \> Options \> Trust Center \> Trust Center Settings... \> Macro Settings]{.uicontrol}
+Go to [File \> Options \> Trust Center \> Trust Center Settings... \> Macro Settings]{.uicontrol}
 
 ![Dialog box Trust Center.](images/common/security-trust-center.png){#fig-security-trust-center}
 
-It is not recommended to enable all macros, then you will lose the security control.
+It is not recommended to enable all macros, as this removes important security controls.
 
-## Exploring database {#sec-explore-database}
+## Exploring the Database {#sec-explore-database}
 
-For this exploration you must have opened database `{{< var database >}}`.
+To explore, you must have the database `{{< var database >}}` open.
 
 ::: callout-note
-When a security warning is displayed, you should you take action, see @sec-explore-security.
+If a security warning is displayed, you should take action as described in @sec-explore-security.
 :::
 
 ![Access with the Snoopy database with opened group Tables.](images/common/access-window.png){#fig-explore-access-window}
 
-The Navigation Pane is on the left side and in it are all objects of the database. The objects are divided into groups: [Tables]{.uicontrol}, [Queries]{.uicontrol}, [Forms]{.uicontrol}, [Reports]{.uicontrol}, [Macros]{.uicontrol}. The pane of the group [Tables]{.uicontrol} is unfolded in the example. The navigation pane itself and the panes of the groups can be folded and unfolded.
+The Navigation Pane is on the left side and contains all objects in the database. Objects are divided into groups: [Tables]{.uicontrol}, [Queries]{.uicontrol}, [Forms]{.uicontrol}, [Reports]{.uicontrol}, [Macros]{.uicontrol}. In the example, the [Tables]{.uicontrol} group is expanded. The navigation pane and its groups can be expanded or collapsed.
 
--   ![](images/common/button-object-selection.png) - selection of showed objects
+-   ![](images/common/button-object-selection.png) - select which objects are shown
 
--   ![](images/common/button-group-open.png) - unfolding group pane
+-   ![](images/common/button-group-open.png) - expand a group pane
 
--   ![](images/common/button-group-close.png) - folding group pane
+-   ![](images/common/button-group-close.png) - collapse a group pane
 
--   ![](images/common/button-navigation-close.png) - folding navigation pane
+-   ![](images/common/button-navigation-close.png) - collapse the navigation pane
 
--   ![](images/common/button-navigation-open.png) - unfolding navigation pane
+-   ![](images/common/button-navigation-open.png) - expand the navigation pane
 
-Double-clicking on an object in the Navigation Pane will open the object and displays the content in a document window. When you have opened several objects then these are displayed as tabbed documents.
+Double-clicking an object in the Navigation Pane opens it and displays its contents in a document window. If you open several objects, they are displayed as tabbed documents.
 
 ![Document window with the Customers and Orders tables in tabs.](images/explore/document-tabs.png){#fig-document-tabs}
 
 ::: callout-note
-You can change this setting through [File \> Options \> Current Database]{.uicontrol}. In @fig-document-window-options you see the possibilities for the document windows.
+You can change this setting through [File \> Options \> Current Database]{.uicontrol}. In @fig-document-window-options, you can see the available document window options.
 
 ![Document Window Options.](images/common/document-window-options.png){#fig-document-window-options}
 
-When you select [Overlapping Windows]{.uicontrol}, then the objects are displayed in separate windows, above each other.
+If you select [Overlapping Windows]{.uicontrol}, objects are displayed in separate windows, overlapping each other.
 :::
 
-If you need more space in width you can fold up the navigation pane. Do you need more space in height, then you can hide the ribbon by double-clicking on a ribbon tab. Double-clicking again on a tab unhide the ribbon.
+If you need more horizontal space, you can collapse the navigation pane. If you need more vertical space, you can hide the ribbon by double-clicking a ribbon tab. Double-clicking again will show the ribbon.
 
 ## Exploring Tables {#sec-explore-tables}
 
-Tables are the key components of a database since all data is stored here.
+Tables are the key components of a database, as all data is stored here.
 
-The two most important views of a table are
+The two most important views of a table are:
 
 Datasheet View
 
-:   In this view, you can see the contents of the records, change it, and also allows you to add new records.
+:   In this view, you can see and edit the contents of records, and add new records.
 
 Design View
 
-:   In this view, you can see the design of the table and customize it.
+:   In this view, you can see and modify the design of the table.
 
-::: {#prp-explore-tables}
+:::: {#prp-explore-tables}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
 
-2.  Open the table [Customers]{.varname}. The table opens in Datasheet View.
+2.  Open the [Customers]{.varname} table. The table opens in Datasheet View.
 
-3.  Put the table [Customers]{.varname} in the Design View on one of the following ways:
+3.  Switch the [Customers]{.varname} table to Design View in one of the following ways:
 
-    -   Click in the bottom right of the program window on the button Design View ![](images/common/button-design-view.png)
-    -   Choose [tab Home \> View (group Views) \> Design View]{.uicontrol}
-    -   Right-clicking on the table name in the navigation pane and then choose [Design View]{.uicontrol} from the shortcut menu.
+    -   Click the Design View button in the bottom right of the program window ![](images/common/button-design-view.png)
+    -   Choose [Home tab \> View (Views group) \> Design View]{.uicontrol}
+    -   Right-click the table name in the navigation pane and choose [Design View]{.uicontrol} from the shortcut menu.
 
-4.  Put the table [Customers]{.varname} in the Datasheet View again on one of the following ways:
+4.  Switch the [Customers]{.varname} table back to Datasheet View in one of the following ways:
 
-    -   Click in the bottom right of the program window on the button Datasheet View ![](images/common/button-datasheet-view.png)
-    -   Choose [tab Home \> View (group Views) \> Datasheet View]{.uicontrol}
-    -   Right-clicking on the table name in the navigation pane and then [Open]{.uicontrol}
+    -   Click the Datasheet View button in the bottom right of the program window ![](images/common/button-datasheet-view.png)
+    -   Choose [Home tab \> View (Views group) \> Datasheet View]{.uicontrol}
+    -   Right-click the table name in the navigation pane and choose [Open]{.uicontrol}
 
-5.  Close the table [Customers]{.varname} via the Close button [X]{.uicontrol}, top right of the document window.
+5.  Close the [Customers]{.varname} table using the Close button [X]{.uicontrol} at the top right of the document window.
 
-6.  Open the table [Orders]{.varname} in the Datasheet View.
+6.  Open the [Orders]{.varname} table in Datasheet View.
 
 ::: callout-note
-In the table [Orders]{.varname} is a unfold button\[+\]in front of the records. By clicking on it you see the details of the order. These data come from table OrderDetails. That the associated details of a particular order can be found is possible because in both tables the field OrderCode is present.
+In the [Orders]{.varname} table, there is an expand button `+` in front of the records. Clicking it shows the order details, which come from the \[OrderDetails\] table. The associated details can be found because both tables contain the \[OrderCode\] field.
 :::
 
-7.  Click the unfold button at a few records to see which boxes and how much of them are ordered.
+7.  Click the expand button on a few records to see which boxes and how many were ordered.
 
 ![Orders details of order 3.](images/explore/table-orders-details3.png){#fig-table-orders-details3}
 
-8.  Close the table [Orders]{.varname}.
-:::
+8.  Close the [Orders]{.varname} table.
+::::
 
 ## Exploring Forms {#sec-explore-forms}
 
-Forms are especially important in displaying, adding, and editing data.
+Forms are especially important for displaying, adding, and editing data.
 
-The most important views of a form are:
+The main views of a form are:
 
 Form View
 
-:   In this view, the information is displayed, you can edit it and enter new data.
+:   In this view, information is displayed, and you can edit or enter new data.
 
-Datasheet View A view similar to that of the table.
+Datasheet View
+
+:    A view similar to that of the table.
 
 Design View
 
-:   In this view, you can see the design of the form and customize it.
+:   In this view, you can see and modify the design of the form.
 
-::: {#prp-explore-forms}
+:::: {#prp-explore-forms}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
 
-2.  Open form [Pralines]{.varname}. The form opens in the form view.
+2.  Open the [Pralines]{.varname} form. The form opens in Form View.
 
-![Form View of form Pralines. The data of the first record is displayed.](images/explore/form-pralines-form-view.png){#fig-form-pralines-form-view}
+![Form View of form Pralines. The data for the first record is displayed.](images/explore/form-pralines-form-view.png){#fig-form-pralines-form-view}
 
-3.  Put form [Pralines]{.varname} in Design View on one of the following ways:
+3.  Switch the [Pralines]{.varname} form to Design View in one of the following ways:
 
-    -   Click in the bottom right of the program window on the button Design View ![](images/common/button-design-view.png).
-    -   Choose [tab Home \> View (group Views) \> Design View]{.uicontrol}
-    -   Right-clicking on the form name in the navigation pane and then choose [Design View]{.uicontrol} from the shortcut menu.
+    -   Click the Design View button in the bottom right of the program window ![](images/common/button-design-view.png).
+    -   Choose [Home tab \> View (Views group) \> Design View]{.uicontrol}
+    -   Right-click the form name in the navigation pane and choose [Design View]{.uicontrol} from the shortcut menu.
 
-![Design view of form Pralines.](images/explore/form-pralines-design-view.png){#fig-form-pralines-design-view}
+![Design View of form Pralines.](images/explore/form-pralines-design-view.png){#fig-form-pralines-design-view}
 
 ::: callout-note
-In the design view, you can change the layout of the form and add controls like text boxes, labels, list boxes, checkboxes, etc.
+In Design View, you can change the layout of the form and add controls such as text boxes, labels, list boxes, checkboxes, and more.
 :::
 
-4.  Put the form [Pralines]{.varname} in the Form View with ![](images/common/button-form-view.png).
+4.  Switch the [Pralines]{.varname} form back to Form View using ![](images/common/button-form-view.png).
 
-5.  Browse through the records with the navigation buttons on the left bottom of the document window.
+5.  Browse through the records using the navigation buttons at the bottom left of the document window.
 
     -   ![](images/common/button-record-first.png) - First record
 
@@ -270,42 +276,42 @@ In the design view, you can change the layout of the form and add controls like 
     -   ![](images/common/button-record-new.png) - New (empty) record
 
 6.  Close the form.
-:::
+::::
 
-## Using command button {#sec-explore-commandbutton}
+## Using a Command Button {#sec-explore-commandbutton}
 
-The form [Boxes]{.varname} can be used for data entry but also for viewing data. On this form is a command button with the caption [Sales]{.varname}
+The [Boxes]{.varname} form can be used for data entry as well as for viewing data. This form includes a command button labeled [Sales]{.varname}.
 
 ::: {#prp-explore-commandbutton}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
 
-2.  Open the form [Boxes]{.varname}.
+2.  Open the [Boxes]{.varname} form.
 
-3.  Click the button [Sales]{.varname} on the form. The form [Box sales]{.varname} is displayed. You will see all orders related to the selected box in the form [Boxes]{.varname} and even the total sales of this box.
+3.  Click the [Sales]{.varname} button on the form. The [Box sales]{.varname} form is displayed. You will see all orders related to the selected box in the [Boxes]{.varname} form, including the total sales for that box.
 
 4.  Close all forms.
 :::
 
-## Searching a record {#sec-explore-search-records}
+## Searching for a Record {#sec-explore-search-records}
 
-A form may also be used to search for a record. In the following steps, you will search for a box with "autumn" in the name.
+A form can also be used to search for a record. In the following steps, you will search for a box with "autumn" in its name.
 
 ::: {#prp-explore-search-records}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
 
-2.  Open the form [Boxes]{.varname}.
+2.  Open the [Boxes]{.varname} form.
 
-3.  Click in the field [Box name]{.varname} and choose on the ribbon [tab Home \>]{.uicontrol} ![](images/common/button-find.png) [Find (group Find)]{.uicontrol}. The dialog box ***Find and Replace*** is displayed.
+3.  Click in the [Box name]{.varname} field and, on the ribbon, choose [Home tab \>]{.uicontrol} ![](images/common/button-find.png) [Find (Find group)]{.uicontrol}. The ***Find and Replace*** dialog box appears.
 
-4.  Type `autumn` in the text box [Find What]{.uicontrol} and select [Any Part of Field]{.uicontrol} in the text box [Match]{.uicontrol}.
+4.  Type "autumn" in the [Find What]{.uicontrol} text box and select [Any Part of Field]{.uicontrol} in the [Match]{.uicontrol} box.
 
 ![Dialog box find and replace.](images/explore/find-replace-dialogbox.png){#fig-find-replace-dialogbox}
 
-5.  Click [Find Next]{.uicontrol}. The content of the box Autumn Surprise is displayed.
+5.  Click [Find Next]{.uicontrol}. The content for the box "Autumn Surprise" is displayed.
 
 6.  Click [Cancel]{.uicontrol} to close the search window.
 
@@ -314,7 +320,7 @@ A form may also be used to search for a record. In the following steps, you will
 
 ## Exploring Queries {#sec-explore-queries}
 
-Queries are important if you want to select or summarize data from tables. A query is a specified question to the database to provide certain information.
+Queries are important for selecting or summarizing data from tables. A query is a specific question to the database to retrieve certain information.
 
 The two most important views of a query are:
 
@@ -324,49 +330,49 @@ Datasheet View
 
 Design View
 
-:   In this view, you can see the design of the query and customize it.
+:   In this view, you can see and modify the design of the query.
 
-::: {#prp-explore-queries}
+::::: {#prp-explore-queries}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
 
-2.  Open the query [Pralines per box]{.varname}.
+2.  Open the [Pralines per box]{.varname} query.
 
 ::: callout-note
-Access executes the query and produces a data sheet containing the results of the query, see @fig-query-pralines-box-datasheet.
+Access executes the query and displays a datasheet with the results, as shown in @fig-query-pralines-box-datasheet.
 
-The results of this query are derived from multiple tables. To know which tables are used, you had to go to the design view of the query.
+The results of this query are derived from multiple tables. To see which tables are used, switch to the query's Design View.
 :::
 
 ![Query pralines per box in datasheet view.](images/explore/query-pralines-box-datasheet.png){#fig-query-pralines-box-datasheet}
 
-3.  Put the query [Pralines per box]{.varname} in the Design View on one of the following ways:
+3.  Switch the [Pralines per box]{.varname} query to Design View in one of the following ways:
 
-    -   Click in the bottom right of the program window on the button Design View ![](images/common/button-design-view.png).
+    -   Click the Design View button in the bottom right of the program window ![](images/common/button-design-view.png).
     -   Choose [tab Home \> View (group Views) \> Design View]{.uicontrol}.
-    -   Right-clicking on the query name in the navigation pane and then choose [Design View]{.uicontrol} from the shortcut menu.
+    -   Right-click the query name in the navigation pane and choose [Design View]{.uicontrol} from the shortcut menu.
 
 ![Design query Pralines per box.](images/explore/query-pralines-box-design.png){#fig-query-pralines-box-design}
 
 ::: callout-note
-The upper three rectangles represent the tables that are used for this query. The line with arrows connects the field names by which two tables are related to each other.
+The upper three rectangles represent the tables used in this query. The lines with arrows connect the field names by which the tables are related.
 
-In the lower part of this window, you will find in the first row the names of the used fields. In the third column is an expression, a kind of formula with operations on the fields. The expression formulated here is `Sum([Pralines].[PralineCosts]*[BoxDetails].[Quantity])`. Between the brackets, you see the names of the tables and fields.
+In the lower part of this window, the first row contains the names of the fields used. In the third column is an expression, a formula that performs operations on the fields. The expression here is `Sum([Pralines].[PralineCosts]*[BoxDetails].[Quantity])`. The names in brackets indicate the tables and fields.
 
-To see the whole expression the column must be widened by dragging the column to the right edge.
+To see the entire expression, widen the column by dragging its right edge.
 :::
 
-4.  Put the query in the Datasheet View.
+4.  Switch the query back to Datasheet View.
 
 5.  Close the query
-:::
+:::::
 
 ## Exploring Reports {#sec-explore-reports}
 
-With reports, you can print the information from the tables nicely laid out on screen, display, or paper. The displayed data may be derived from multiple tables and/or queries. Also, calculated values are possible. Furthermore, you can provide a report with titles, headings, headers, and footers.
+Reports allow you to print information from tables in a well-organized layout, either on screen or on paper. The displayed data may come from multiple tables and/or queries, and calculated values are possible. You can also add titles, headings, headers, and footers to a report.
 
-The most important views of a report are:
+The main views of a report are:
 
 Report View
 
@@ -374,237 +380,241 @@ Report View
 
 Print Preview
 
-:   The display of the report when it will be printed.
+:   Shows how the report will look when printed.
 
 Design View
 
-:   In this view, you can see the report of the design and customize it.
+:   In this view, you can see and modify the design of the report.
 
-::: {#prp-explore-reports}
+:::: {#prp-explore-reports}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
 
-2.  Open the report [Pralines per box]{.varname}. The report is opens in the report view.
+2.  Open the [Pralines per box]{.varname} report. The report opens in the Report View.
 
 ![Report pralines per box in report view.](images/explore/report-pralines-box-report.png){#fig-report-pralines-box-report}
 
-3.  Put the report [Pralines per box]{.varname} in Print Preview on one of the following ways:
+3.  Switch the [Pralines per box]{.varname} report to Print Preview in one of the following ways:
 
-    -   Click in the bottom right of the program window on the button \[Print Preview\] ![](images/common/button-print-preview.png)
-    -   Choose [tab Home \> View (group Views) \> Print Preview]{.uicontrol}.
-    -   Right-clicking on the report name in the navigation pane and then choose [Print Preview]{.uicontrol} from the shortcut menu.
+    -   Click the [Print Preview]{.uicontrol} button in the bottom right of the program window ![](images/common/button-print-preview.png)
+    -   Choose [Home tab\> View (Views group) \> Print Preview]{.uicontrol}.
+    -   Right-click the report name in the navigation pane and choose [Print Preview]{.uicontrol} from the shortcut menu.
 
-4.  Put the report [Pralines per box]{.varname} in Design View on one of the following ways:
+4.  Switch the [Pralines per box]{.varname} report to Design View in one of the following ways:
 
-    -   Click in the bottom right of the program window on the button Design View ![](images/common/button-design-view.png)
-    -   Choose [tab Home \> View (group Views) \> Design View]{.uicontrol}.
-    -   Right-clicking on the report name in the navigation pane and then choose [Design View]{.uicontrol} from the shortcut menu.
+    -   Click the Design View button in the bottom right of the program window ![](images/common/button-design-view.png)
+    -   Choose [Home tab\> View (Views group) \> Design View]{.uicontrol}.
+    -   Right-click the report name in the navigation pane and choose [Design View]{.uicontrol} from the shortcut menu.
 
 ![Report pralines per box in design view.](images/explore/report-pralines-box-design.png){#fig-report-pralines-box-design}
 
 ::: callout-note
-In the design view, you can change the layout of the report and add controls like text boxes, labels, list boxes, checkboxes, etc.
+In Design View, you can change the layout of the report and add controls such as text boxes, labels, list boxes, checkboxes, and more.
 :::
 
-5.  Put the report in \[Report View\] with ![](images/common/button-report-view.png).
+5.  Switch the report back to [Report View] using ![](images/common/button-report-view.png).
 
 6.  Close the report
-:::
+::::
 
 ## Sorting {#sec-explore-sorting}
 
-You can sort the records in a table based on the values in one or more fields. Sorting can be in ascending and descending order.
+You can sort the records in a table based on the values in one or more fields, either in ascending or descending order.
 
-In the next practice you need to change the table [Customers]{.varname} so that an overview is created of first the city, then the last name and then first name. The records must also be sorted in that order.
+In the next exercise, you will modify the [Customers]{.varname} table to create an overview sorted first by city, then by last name, and then by first name.
 
-![Table Customers sort on city, last name and first name.](images/explore/table-customers-sorted.png){#fig-table-customers-sorted}
+![Table Customers, sorted on city, last name and first name.](images/explore/table-customers-sorted.png){#fig-table-customers-sorted}
 
-::: {#prp-explore-sorting}
+::::: {#prp-explore-sorting}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
 
-2.  Open the table [Customers]{.varname}. The table opens in the Datasheet View.
+2.  Open the [Customers]{.varname} table. The table opens in Datasheet View.
 
-3.  Select the column [City]{.varname} by clicking on the column header and drag the column to the left so this will be the first column in the table.
+3.  Select the [City]{.varname} column by clicking its header and drag it to the left to make it the first column.
 
-4.  Same way, move the columns [LastName]{.varname} and [FirstName]{.varname} to respectively the 2e and 3e position in the table.
+4.  Similarly, move the [LastName]{.varname} and [FirstName]{.varname} columns to the second and third positions, respectively.
 
-5.  Click in column [City]{.varname} on the arrow at the right side in the column header and select from the shortcut menu[Sort A to Z]{.uicontrol}
-
-::: callout-note
-Access reorganizes the records in alphabetical order by city and shows a small upward pointing arrow (![](images/common/button-arrow-down-sortedup.png)) at the right side of the column header to indicate the sort order.
-:::
-
-6.  Cancel the sorting through [tab Home \> Remove Sort (group Sort & Filter)]{.uicontrol}
-
-7.  To sort on multiple fields, select the columns [City]{.varname}, [LastName]{.varname}, and [FirstName]{.varname}.
-
-8.  Choose [tab Home \> Ascending ![](images/common/button-sort-ascending.png) (group Sort & Filter)]{.uicontrol}
+5.  Click the arrow on the right side of the [City]{.varname} column header and select [Sort A to Z]{.uicontrol} from the shortcut menu.
 
 ::: callout-note
-Access reorganizes the records in ascending alphabetical order, first by city, then by the last name and then by the first name. At the right side of each of the headers of these three columns, you can see the small upward pointing arrow, see @fig-table-customers-sorted.
+Access reorganizes the records in alphabetical order by city and shows a small upward-pointing arrow (![](images/common/button-arrow-down-sortedup.png)) at the right side of the column header to indicate the sort order.
 :::
 
-9.  Close the table [Customers]{.varname} and choose [No]{.uicontrol} on the question to save the changes.
+6.  Remove the sorting by choosing [Home tab \> Remove Sort (Sort & Filter group)]{.uicontrol}.
+
+7.  To sort by multiple fields, select the [City]{.varname}, [LastName]{.varname}, and [FirstName]{.varname} columns.
+
+8.  Choose [Home tab \> Ascending ![](images/common/button-sort-ascending.png) (Sort & Filter group)]{.uicontrol}.
+
+::: callout-note
+Access reorganizes the records in alphabetical order by city and shows a small upward-pointing arrow (![](images/common/button-arrow-down-sortedup.png)) at the right side of the column header to indicate the sort order.
 :::
+
+9.  Close the [Customers]{.varname} table and choose [No]{.uicontrol} when asked to save changes.
+:::::
 
 ## Filtering {#sec-explore-filtering}
 
-Filtering is a useful way to see only the data that you want to be displayed. You can use filters to display specific records in a form, report, query, or table. For example, you can easily create a filter to show all of the pralines with chocolate type Milk and filling type Marzipan. There are several ways to filter a table. A few methods will be discussed in the following practices.
+Filtering is a useful way to display only the data you want to see. You can use filters to display specific records in a form, report, query, or table. For example, you can easily create a filter to show all pralines with chocolate type "Milk" and filling type "Marzipan." Several filtering methods are discussed in the following exercises.
 
-### Simple filter {#sec-explore-filter-simpel}
+### Simple Filter {#sec-explore-filter-simpel}
 
-Information need: Show all pralines with the chocolate type White.
+**Information needed:** Show all pralines with chocolate type "White."
 
-::: {#prp-explore-filter-simpel}
+:::: {#prp-explore-filter-simpel}
 [File]{.smallcaps}: `{{< var database >}}`
 
 1.  Open the database.
 
-2.  Open table [Pralines]{.varname}. The table Pralines opens in Datasheet View.
+2.  Open the [Pralines]{.varname} table. The table opens in Datasheet View.
 
-3.  Click in the column [ChocolateType]{.varname} on a value White.
+3.  Click a value "White" in the [ChocolateType]{.varname} column.
 
-4.  Choose [tab Home \> button Selection (group Sort & Filter) \> Equals "White"]{.uicontrol}.
+4.  Choose [Home tab \> Selection (Sort & Filter group) \> Equals "White"]{.uicontrol}.
 
 ::: callout-note
-Access shows now the records (4 records ) whose chocolate type is white. You can see that a filtering has been applied to the table:
+Access now shows the records (4 records) where the chocolate type is white. You can see that a filter has been applied:
 
--   To the right of the column heading [ChocolateType]{.varname} there is now a small symbol of a filter (![](images/common/button-arrow-down-filter.png))
--   On the status bar you see ![](images/explore/statusbar-filtered.png)
+-   A small filter icon appears to the right of the [ChocolateType]{.varname} column header (![](images/common/button-arrow-down-filter.png))
+-   The status bar shows ![](images/explore/statusbar-filtered.png)
 :::
-:::
+::::
 
-### Modifying filter {#sec-explore-filter-modify}
+### Modifying a Filter {#sec-explore-filter-modify}
 
-Information need: Show all pralines with the chocolate type Milk.
+**Information needed:** Show all pralines with chocolate type "Milk."
 
-For this, the previous filter will be changed.
+Here, you will modify the previous filter.
 
-::: {#prp-explore-filter-modify}
+:::: {#prp-explore-filter-modify}
 [File]{.smallcaps}: `{{< var database >}}`
 
-1.  Click on the filter symbol at the right of the column head [ChocolateType]{.varname}.
+1.  Click the filter icon to the right of the [ChocolateType]{.varname} column header.
 
 ![Dialog box filter.](images/explore/filter-chocolatetype.png){#fig-filter-chocolatetype}
 
-2.  Select in the dialog box Milk and deselect White. Click [OK]{.uicontrol}. There are now 18 records shown, all with chocolate type Milk.
+2.  In the dialog box, select "Milk" and deselect "White." Click [OK]{.uicontrol}. Now, 18 records are shown, all with chocolate type "Milk."
 
 ::: callout-note
-The showed options in @fig-filter-chocolatetype depend on the field type. With a text field, there is a submenu [Text Filters]{.uicontrol} and with a numeric field, there is a submenu [Number Filters]{.uicontrol}.
+The options shown in @fig-filter-chocolatetype depend on the field type. For a text field, there is a [Text Filters]{.uicontrol} submenu; for a numeric field, there is a [Number Filters]{.uicontrol} submenu.
 :::
-:::
+::::
 
-### Filter on 2 criteria {#sec-explore-filter-criteria2}
+### Filter on Two Criteria {#sec-explore-filter-criteria2}
 
-Information need: Show all pralines with the chocolate type Milk and filling type Marzipan.
+**Information needed:** Show all pralines with chocolate type "Milk" and filling type "Marzipan."
 
-A second selection criterion is added for this.
+Here, you add a second selection criterion.
 
-::: {#prp-explore-filter-criteria2}
+:::: {#prp-explore-filter-criteria2}
 [File]{.smallcaps}: `{{< var database >}}`
 
-1.  Click in column [FillingType]{.vartype} on a value Marzipan.
+1.  Click a value "Marzipan" in the [FillingType]{.vartype} column.
 
-2.  Choose [tab Home \> Button Selection (group Sort & Filter) \> Equals "Marzipan"]{.uicontrol}.
+2.  Choose [Home tab \> Selection (Sort & Filter group) \> Equals "Marzipan"]{.uicontrol}.
 
-    Three records are displayed with chocolate type Milk and with filling type Marzipan.
+    Three records are displayed with chocolate type "Milk" and filling type "Marzipan."
 
-3.  Undo filtering through [tab Home \> button ![](images/common/button-filter-toggle.png) (group Sort & Filter)]{.uicontrol}.
+3.  Remove the filter by choosing [Home tab \> ![](images/common/button-filter-toggle.png) (Sort & Filter group)]{.uicontrol}.
 
 ::: callout-note
 Filtering is removed and all records are displayed again.
 
-Another way to remove the filter is by clicking on the button [Filtered]{.uicontrol} in the status bar. The text on the button will turn into [Unfiltered]{.uicontrol}. Clicking again applies the last used filter.
+Another way to remove the filter is by clicking the [Filtered]{.uicontrol} button in the status bar. The text on the button will change to [Unfiltered]{.uicontrol}. Clicking again reapplies the last used filter.
 :::
-:::
+::::
 
-### Number filter {#sec-explore-filter-number}
+### Number Filter {#sec-explore-filter-number}
 
-Information need; Show all pralines with costs from \$0.25 to \$0.35.
+**Information needed:** Show all pralines with costs from \$0.25 to \$0.35.
 
 ::: {#prp-explore-filter-number}
 [File]{.smallcaps}: `{{< var database >}}`
 
-1.  Click the arrow tip at the right in column head [PralineCosts]{.varname}, choose [Number Filters \> Between...]{.uicontrol}.
+1.  Click the arrow in the [PralineCosts]{.varname} column header, then choose [Number Filters \> Between...]{.uicontrol}.
 
-![Dialog box Between Numbers.](images/explore/filter-number-between.png){#fig-filter-number-between}
+![Between Numbers dialog box.](images/explore/filter-number-between.png){#fig-filter-number-between}
 
-2.  Enter 0.25 at [Smallest]{.uicontrol}, 0.35 at [Largest]{.uicontrol}, then click [OK]{.uicontrol}. There are now 22 records shown with bonbon costs from 0.25 to 0.35.
+2.  Enter 0.25 for [Smallest]{.uicontrol}, 0.35 for [Largest]{.uicontrol}, then click [OK]{.uicontrol}. Now, 22 records are shown with praline costs from 0.25 to 0.35.
 
-3.  Close the table [Pralines]{.varname} and choose [No]{.uicontrol} on the question to save the changes.
+3.  Close the [Pralines]{.varname} table and choose [No]{.uicontrol} when asked to save changes.
 :::
 
-## Print {#sec-explore-print}
+## Printing {#sec-explore-print}
 
-For printing, Access uses the printers that are available in Windows.
+Access uses the printers available in Windows for printing.
 
-Depending on the view in an Access object, the result can be printed. For example, you can print datasheet views at tables and queries, report views at reports, and form views at forms.
+Depending on the view of an Access object, the result can be printed. For example, you can print datasheet views for tables and queries, report views for reports, and form views for forms.
 
 ::: callout-note
-There is no option for printing the design view, but Access has a tool named [Database Documenter]{.uicontrol} with which you can print the design characteristics of database objects.
+There is no option to print the design view, but Access has a tool called [Database Documenter]{.uicontrol} that lets you print the design characteristics of database objects.
 :::
 
-The print options are available through [File \> Print]{.uicontrol}. You then have the following options:
+Print options are available through [File \> Print]{.uicontrol}. You have the following options:
 
 ![Print options in Access.](images/common/print-options.png){#fig-print-options}
 
-With the choice [Print Preview]{.uicontrol}, you can customize the print, such as page size, portrait or landscape, margins, ....
+With [Print Preview]{.uicontrol}, you can customize the printout, such as page size, orientation, margins, and more.
 
 ## Exercises {#sec-explore-exercises}
 
-::: {#exr-expl001}
-**Selection Pralines (expl001)**
+:::: {#exr-expl001}
+**Select Pralines (expl001)**
 
-Create a filter to select Pralines with chocolate type Milk or Dark
-whose price is at most \$0.30.
+Create a filter to select pralines with chocolate type "Milk" or "Dark" whose price is at most \$0.30.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Tip")`
+
 With numeric fields, you have several options for number ranges:
 
 ![Number filter](images/explore/expl001-filter-numbers.png)
+
 `r unhide()`
 
 `r hide("Answer")`
+
 The result is 18 records.
+
 `r unhide()`
 :::
+::::
 
-:::
+:::: {#exr-expl002}
+**Select Customers in Specific Cities (expl002)**
 
-::: {#exr-expl002}
-**Selection Customers in city (expl002)**
-
-Make a selection of the customers who live in Enschede, Hengelo, and
-Almelo
+Select the customers who live in Enschede, Hengelo, and Almelo.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")`
-The result is 12 records.
+
+The result is 12 records. 
+
 `r unhide()`
 :::
+::::
 
-:::
+:::: {#exr-expl003}
+**Select Customers by Zip Code (expl003)**
 
-::: {#exr-expl003}
-**Selection Customers on zip code (expl003)**
-
-Make a selection of customers whose zip code begins with 20 and is
-living in Amsterdam.
+Select customers whose zip code begins with 20 and who live in Amsterdam.
 
 ::: {.content-visible when-format="html:js"}
-`r hide("Tip")`
+`r hide("Tip")` 
+
 ZipCode is a text field, so you can use text filters:
 
 ![Text filter](images/explore/expl003-filter-text.png)
+
 `r unhide()`
 
 `r hide("Answer")`
+
 The result is 3 records.
+
 `r unhide()`
 :::
-
-:::
+::::

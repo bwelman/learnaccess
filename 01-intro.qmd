@@ -3,166 +3,166 @@
 ::: callout
 **OBJECTIVES**
 
--   What are databases and how they are structured.
--   Brief introduction to the components (tables, queries, forms, reports, macros, modules).
--   Starting and closing Access.
--   Opening an existing database and being able to save it under a different name and/or in a different file format.
--   The layout of the Access program window.
+-   Understand what databases are and how they are structured.
+-   Get a brief introduction to database components (tables, queries, forms, reports, macros, modules).
+-   Learn how to start and close Access.
+-   Open an existing database and save it under a different name and/or file format.
+-   Get familiar with the layout of the Access program window.
 :::
 
-Access is a program from the Microsoft Office package and it allows you to create databases and work with them. And with databases, you can store, manage, and analyze data.
+Access is part of the Microsoft Office suite and allows you to create and manage databases. With databases, you can store, organize, and analyze data efficiently.
 
-Data includes, for example, detailed information about customers, orders, products, suppliers, etc. These data are saved ordered. This allows you to get answers to questions like
+Data may include details such as customer information, orders, products, suppliers, and more. This data is stored in a structured way, enabling you to answer questions like:
 
--   What was the revenue per customer in the past six months?
--   Which articles provide for the bulk of sales?
+-   What was the revenue per customer over the past six months?
+-   Which products account for the majority of sales?
 
-Access is seen as the most difficult program from the Microsoft Office package. That is caused by the way databases are structured and work. So you can start Excel, PowerPoint, and Word and then immediately entering data. That is not possible in Access. Before you can enter data, you must first invent and create a structure for the database. For larger and more complex databases it will be work for database specialists.
+Access is often considered the most complex application in the Microsoft Office suite. This is primarily due to how databases are structured and function. Unlike Excel, PowerPoint, or Word, where you can start entering data right away, Access requires you to design and create a database structure before adding any data. For large or complex databases, this is typically done by database professionals.
 
-## What are databases? {#sec-intro-about}
+## What Are Databases? {#sec-intro-about}
 
-A short introduction to what databases are and how they are structured.
+A brief overview of what databases are and how they are organized.
 
-A database is a collection of data relating to a particular subject or a particular purpose. In a database, you can store and track information from various sources, such as:
+A database is a collection of data related to a specific topic or purpose. It allows you to store and manage information from various sources, such as:
 
--   Addresses of Customers in an address list
--   Telephone numbers of suppliers in a card catalog
--   Article data in an file cabinet
--   Orders of customers in a folder
+-   Customer addresses in an address list
+-   Supplier phone numbers in a directory
+-   Product data in a filing system
+-   Customer orders in a folder
 
-All this information is often stored in separate tables that make up the database. In its simplest form, a database table can be consist of only one table. Between the tables, there could be relations, and if so you can link data from different tables together. Such a database is called a relational database.
+This information is usually stored in separate tables that make up the database. In its simplest form, a database may consist of just one table. However, tables can be related to one another, allowing you to link data across tables. Such a setup is known as a **relational database**.
 
-![Example of a relational database with three tables with their relations.](images/intro/example-rel-db.png){#fig-example-rel-db}
+![Example of a relational database with three tables and their relationships.](images/intro/example-rel-db.png){#fig-example-rel-db}
 
-In addition to creating and maintaining tables, you can also create forms, queries, and reports. With forms, you can update information easily and efficiently. And with queries, you can get answers on questions. Reports ensure that the output will be neatly displayed on screen or paper.
+In addition to creating and managing tables, you can build forms, queries, and reports. Forms make data entry more efficient. Queries allow you to retrieve specific information. Reports help present your results in a clear and readable format for screen or print.
 
-Access has the following components (objects) in a database:
+A database in Access can contain the following components (also called **objects**):
 
 -   Tables
 -   Queries
 -   Forms
 -   Reports
--   Macro's
+-   Macros
 -   Modules
 
-Access stores a database as a single file that contains all components of the database.
+Access stores all of these components in a single file.
 
-There are two different types of work carried out with databases:
+There are two main tasks when working with databases:
 
--   **Designing the database**. This involves the creation of tables, queries, forms, and reports. Once the database is created, this task is done.
+-   **Designing the database** – This includes creating the structure: tables, queries, forms, and reports. Once completed, this task is usually done.
 
--   **Dealing with data**. Entering data, updating data, creating reports, searching in the database, etc. This work you are constantly doing.
+-   **Working with data** – Entering, updating, querying, reporting, and managing the data. This is an ongoing task.
 
 ### Tables {#sec-intro-tables}
 
-Data is stored in tables. For each type of data, there is usually a table. So you can have a table Products that contains various information about the products. And a table Suppliers contains information about the companies that supply those products. To know which tables you need for what, you had to think thoroughly in advance about the structure of the database. A well-designed database must meet certain criteria. To get a well-designed database, designers often use a process called normalization.
+Data in Access is stored in tables. Each table usually represents a specific type of data. For example, a `Products` table might store product details, while a `Suppliers` table contains information about companies that provide those products. Determining which tables you need—and how they relate—requires careful planning and structure. Database designers often follow a process called **normalization** to ensure efficiency and avoid redundancy.
 
-The data is arramged in a table with columns (**fields**) and rows (**records**).
+Data in a table is organized into **columns (fields)** and **rows (records)**.
 
 ![Example of a table with 3 records and 5 fields.](images/intro/example-table.png){#fig-example-table}
 
 Field
 
-:   A field is a category of data, such as company name, contact person, phone number, unit price, .... Each column in a table is a field.
+:   A field is a data category, such as company name, contact person, phone number, or unit price. Each column in a table is a field.
 
 Record
 
-:   A record is a collection of data about a person, a product, a company, ... Each row in a table is a record.
+:   A record is a complete set of data for a single item—such as a product, person, or company. Each row in a table is a record.
 
 ### Queries {#sec-intro-queries}
 
-Through a query, you can give a command to select specific data and display it. It is like you ask a question to the database, e.g. "Which products have a supplier in Australia". The necessary data to answer the question can come from multiple tables. The query collects the desired information. The result of a query is a set of records, also called a **dynaset**.
+A **query** is used to retrieve specific data from one or more tables. It's like asking the database a question, such as "Which products have a supplier located in Australia?" The data used to answer this question may come from multiple tables. The query gathers and displays the relevant records, also known as a **dynaset**.
 
-When designing a query, you indicate the data you want. Here you have many options to select only certain data. For example, you can define a query to view order details for a certain period. The query retrieves the data from the various tables. You can also perform calculations in a query, for example calculating totals.
+When creating a query, you define the information you want to extract. You can also set conditions to filter the data. For example, you might create a query to view order details from a certain time period. Queries can also perform calculations, such as totals or averages.
 
-![Example of a query with order data.](images/intro/example-query.png){#fig-example-query}
+![Example of a query showing order data.](images/intro/example-query.png){#fig-example-query}
 
-Another type of query is the **action query**, that operates on the selected records.
+Another type of query is an **action query**, which modifies the selected records.
 
 ### Forms {#sec-intro-forms}
 
-If you want to view multiple records, a table view is easy and comfortable. If you want to view individual records or present information with a custom format, then you better use a form.
+While tables are great for viewing multiple records at once, **forms** are better suited for displaying individual records or presenting data in a customized layout.
 
-A form often offers the most convenient way for entering, modifying, and viewing records in a database. In the form design, you specify how the data should be displayed. When you open a form, the required data is retrieved from tables and formatted ​​according to the design of the form. You can also use data from multiple tables and automating tasks with the help of macros or modules.
+Forms provide a user-friendly way to enter, update, and view records. When designing a form, you decide how the data should appear. When you open the form, Access retrieves and displays the data based on your design. Forms can pull data from multiple tables and include macros or modules for automation.
 
-![Example of a form for entering or changing customer data. A drop-down list is provided for entering the  Region.](images/intro/example-form.png){#fig-example-form}
+![Example of a form for entering or changing customer data. A drop-down list is provided for selecting the  region.](images/intro/example-form.png){#fig-example-form}
 
-In forms, you can add pick lists of values to choose from, you can highlight important information with color and you can display a message if you enter an incorrect value. Furthermore, forms allow you to fill in data automatically and you can show calculation results. And with one mouse click, you can switch from form view to datasheet view, a table-like view of the same set of records.
+Forms can include features like dropdown lists, color-coded highlights, validation messages, automatic calculations, and more. You can also switch between form view and datasheet view (a table-like layout) with a single click.
 
 ### Reports {#sec-intro-reports}
 
-With a report, you can present data on paper or screen, together with totals and grand totals of a whole set of records.
+**Reports** are used to present data clearly on screen or paper, often including subtotals or grand totals across groups of records.
 
-The elements of a form or report with which you display data are called controls. With controls, you can show field data, calculation results, text, charts, ... You can also create labels with reports.
+The elements in a form or report that display data are called **controls**. These can show field values, calculations, charts, and more. Reports can also be used to create labels.
 
-![Example of part of a report.](images/intro/example-report.png){#fig-example-report}
+![Example of a part of a report.](images/intro/example-report.png){#fig-example-report}
 
 ::: callout-note
 **Controls**
 
-The elements of a form or report that cause data to be displayed or printed are called controls. Examples of controls include buttons, list boxes, and check boxes.
+Controls are elements on forms or reports that display or print data. Examples include buttons, list boxes, and check boxes.
 
-Controls allow you to display things like: data in a field, the results of a calculation, words for a title or message, a chart or figure, or any other object, even another form or report.
+They allow you to show field values, calculations, titles, messages, charts, or even other forms or reports.
 :::
 
 ### Macros {#sec-intro-macros}
 
-A macro is a collection of one or more actions, such as the opening of a Form or the printing of a report. With macros, you can automate common tasks. You can use macros in different places. For example, you can connect a macro with a form, report, control, key, or in a menu. You don't have to need programming knowledge for creating macros.
+A **macro** is a set of one or more actions, such as opening a form or printing a report. Macros help you automate routine tasks and can be attached to forms, reports, controls, keyboard shortcuts, or menus. You don’t need programming skills to create them.
 
 ### Modules {#sec-intro-modules}
 
-Access has a built-in programming language, Visual Basic for Applications (**VBA**). A module is a collection of VBA procedures that allows you to automate complex database tasks. To create a VBA module you need some programming experience.
+**Modules** contain code written in Visual Basic for Applications (**VBA**), the programming language built into Access. Modules let you automate complex or custom tasks. Creating VBA modules does require some programming experience.
 
 ## Starting and Closing Access {#sec-intro-start-access}
 
-The possibilities to start Access depend on the way the system is installed. This course assumes a default installation of Microsoft 365 English on a system with Windows 10 English. On almost all computers Access can be started through the start button of Windows and this method is described here.
+How you start Access depends on how it's installed. This course assumes a default installation of Microsoft 365 in English on a Windows 10 English system. On most computers, you can start Access via the Windows Start button:
 
 ::: {#prp-intro-start-access}
 
 1.  Choose [Start \> Access]{.uicontrol}.
 
-The initial screen of Access is displayed. In the left part (under Recent) are the last opened files and the right part contains some available templates for creating new databases.
+The Access start screen appears. On the left (under Recent), you’ll see your most recently opened files. On the right, you can choose from templates to create new databases.
 
-2.  Close Access through the close button of the program window. This is a button marked with [X]{.uicontrol} in the upper right corner of the window.
+2.  To close Access, click the [X]{.uicontrol} button in the upper-right corner of the window.
 
 ::: {.callout-note}
-Unlike most other programs you don't need to save a database in Access. All changes made are automatically saved.
+Unlike many other programs, Access automatically saves all changes. You don’t need to manually save your database.
 :::
 
 :::
 
-## Open database {#sec-intro-open-database}
+## Opening a Database {#sec-intro-open-database}
 
-Commonly used methods for opening an existing Access database are:
+You can open an existing database in several ways:
 
--   Double click an Access file in the Windows explorer.
--   Click in the initial screen of Access on a recently used file or choose [Open Other Files]{.uicontrol}.
--   When Access is already open choose [File \> Open]{.uicontrol}.
+-   Double-click the Access file in Windows Explorer.
+-   In Access’s start screen, click a recent file or choose [Open Other Files]{.uicontrol}.
+-   If Access is already open, choose [File > Open]{.uicontrol}.
 
 ::: {#prp-intro-open-database}
 [File]{.smallcaps}: `{{< var database >}}`
 
-Open the database by one of the methods mentioned above.
+Use one of the methods above to open the database.
 
 ::: {.callout-note}
-To close a database and keep Access open, choose [File \> Close]{.uicontrol}.
+To close the current database but keep Access open, choose [File > Close]{.uicontrol}.
 :::
 
 :::
 
-## Access screen {#sec-intro-access-window}
+## The Access Interface {#sec-intro-access-window}
 
-The screen of Access exists from top to bottom from a part to control the program, the documents area, and the status bar.
+The Access window includes several main parts from top to bottom: program controls, document area, and the status bar.
 
-![Program window Access.](images/common/access-window.png){#fig-access-window}
+![Access program window.](images/common/access-window.png){#fig-access-window}
 
 File
 
-:   This button is in the upper left corner of the program window. Under this button are some basic commands that are found in all Office programs such as opening, saving, and printing files. Also included is the important command [Options]{.uicontrol}, with which you can set some settings for Access.
+:   The File tab in the top-left corner provides common options like opening, saving, printing, and customizing Access through [Options]{.uicontrol}.
 
 Quick Access Toolbar
 
-:   The Quick Access Toolbar is a customizable toolbar for shortcuts to frequently used features and commands. It is also where you can add the shortcuts to Access features that are not available on the ribbon. The default installation has three shortcuts:
+:   This customizable toolbar contains shortcuts for frequently used actions. By default, it includes:
 
 :   -   ![](images/common/button-save.png) - Save
 
@@ -172,47 +172,49 @@ Quick Access Toolbar
 
 Ribbon
 
-:   The ribbon is a panel, a wide toolbar at the upper side of the program window. The commands on the ribbon are organized in logical groups and collected together under tabs like Start, Create ... Each tab has a specific task that it performs. Some tabs, so-called contextual tabs, are only displayed when they are needed. An example is the tab Table, that only appears when a table is opened. Furthermore, the commands you will need often are on the left and the most specialized commands are on the right.
+:   A panel at the top with organized commands grouped under tabs such as Home or Create. Some contextual tabs appear only when needed (e.g., the Table tab appears when a table is open). Frequently used commands are on the left; specialized ones are on the right.
 
 ::: callout-note
-There is no way to delete the ribbon, but you can minimize it through the keyboard shortcut [CTRL + F1]{.uicontrol}. Then you see only the tabs. Pressing this shortcut again restores the ribbon.
+You can’t remove the ribbon, but you can minimize it using [CTRL + F1]{.uicontrol}. Pressing it again restores the ribbon.
 :::
 
 Tabs
 
-:   At the upper side of the ribbon are tabs. On each tab, there are groups of commands. Some tabs are only displayed when they are needed.
+:   Tabs appear at the top of the ribbon, grouping related commands. Some tabs only appear contextually.
 
 Groups
 
-:   On each tab, there are groups of related commands. A group contains all the necessary commands for a particular task. Not all the commands of a group are mostly visible. When you want to see more options for the group you should click on the arrow ![](images/common/button-dialogwindow.png) in the bottom right corner of the group.
+:   Commands are grouped logically within each tab. To view more options, click the small arrow ![](images/common/button-dialogwindow.png) in the bottom-right corner of a group.
 
 Command button
 
-:   When you click on a command button then usually the change takes effect immediately. It is also possible that a choice list or a dialog box appears first.
+:   Clicking a button usually applies an action immediately or opens a dialog box or drop-down menu.
 
 Navigation Pane
 
-:   The navigation pane is on the left and here you can find all database objects.
+:   Located on the left, this pane lists all database objects.
 
 Document window
 
-:   When an object is opened it will appear in a separate document window.
+:   When you open an object, it appears in a separate tabbed document window.
 
-## New database {#sec-intro-database-new}
+## Creating a New Database {#sec-intro-database-new}
 
-Before creating a new database you should mostly do a thorough information analysis, followed by a normalization process. Then the structure of the database is determined and you know which tables with which fields should be created. Therefore, creating a new database is not a subject in this course. When you know what has to be created, the creation of the database is not so difficult. Hereafter a few guidelines on how you might proceed.
+Before creating a new database, you should first perform an information analysis and design its structure—typically using normalization. Once that’s complete, building the database is relatively straightforward. While this course doesn’t cover database creation in detail, here are some general steps:
 
-The starting point is the initial screen of Access. In the left part (under Recent) are the last opened files and the right part contains some available templates for creating new databases.
+From the Access start screen:
 
-First, you can instruct Access to create a new empty database by clicking on the template [Blank database]{.uicontrol}. In the following screen, you must specify the name and storage location of the new database. Then Access creates this database with a new empty table. Creating Tables is discussed later in this course.
+- Click [Blank database]{.uicontrol} to start with an empty database.
+- Specify the file name and location.
+- Access creates the new database with an empty table. (Table creation is discussed later.)
 
-Access provides many templates for common types of databases, see the buttons on the start-up screen. When the newly created database comes close to one of these templates you can use this template. When clicking on a template, a database including tables with fields and mostly some queries, forms, and reports are created. Then you can adjust the designs. This is sometimes convenient and faster than manually start from scratch.
+You can also use one of Access’s many templates. These templates include predefined tables, queries, forms, and reports, which you can customize as needed—this can save time over starting from scratch.
 
-## Database save as {#sec-intro-database-saveas}
+## Saving a Database As... {#sec-intro-database-saveas}
 
-Sometimes it may be desirable to have multiple versions of a file. In that case, you can use [Save As]{.uicontrol} to save the file with a new name. And if you want to save the file in an older Access format you can also use [Save As]{.uicontrol}.
+You might want to save your database under a different name or file format. Use [Save As]{.uicontrol} to do so.
 
-In this course, a database with the name `{{< var database >}}` will be used. Because all changes you make, will be saved immediately without asking. And soon you don't have the original database. It is therefore recommended to start with making a copy of the original database `{{< var database >}}`, before you are going to work with this database. You can do that at the file level with the Windows explorer, but you can also use the [Save As]{.uicontrol} command in Access.
+This course uses a sample database named `{{< var database >}}`. Since Access saves changes automatically, your original copy would quickly be altered. To avoid losing the original, create a working copy before making changes—either using Windows File Explorer or the [Save As]{.uicontrol} command.
 
 ::: {#prp-intro-database-saveas}
 [File]{.smallcaps}: `{{< var database >}}`
@@ -221,31 +223,31 @@ In this course, a database with the name `{{< var database >}}` will be used. Be
 
 2.  Choose [File \> Save As]{.uicontrol}.
 
-![Window save As.](images/common/saveas.png){#fig-saveas}
+![Save As window.](images/common/saveas.png){#fig-saveas}
 
-3.  Select [Access Database (\*.accdband)]{.uicontrol} click [Save As]{.uicontrol}.
+3.  Select [Access Database (*.accdb)]{.uicontrol} and click [Save As]{.uicontrol}.
 
-4.  Browse in the dialog window to the storage location, specify the name of the new file, and click [Save]{.uicontrol}.
+4.  Choose a location, enter a new file name, and click [Save]{.uicontrol}.
 :::
 
 ### Backup {#sec-intro-database-backup}
 
-A backup is nothing more than a copy of a database that you have created at a certain moment. In fact, it is the same process as with the [Save As]{.uicontrol} command. Nevertheless, Access provides in a Backup function.
+A backup is simply a copy of your database at a given point in time. Though you can use [Save As], Access also offers a built-in **Backup** feature:
 
-Choose [File \> Save As]{.uicontrol}. Select in the window Back Up Database and click [Save As]{.uicontrol}. Afterthat, you can specify the storage location and file name. Default, the proposed name is the name of the original database file supplemented with the current date.
+Choose [File > Save As]{.uicontrol}, select **Back Up Database**, and click [Save As]{.uicontrol}. You’ll be prompted to choose a location and file name. By default, Access adds the current date to the original file name.
 
 ::: callout-note
-When you restore data or objects from a backup, you want to know which database the backup came from and when the backup was created. Therefore, it is usually a good idea to use the proposed default file name.
+When restoring from a backup, it helps to know which database it came from and when it was created. Using the default file name is a good practice.
 :::
 
-## File formats of Access {#sec-intro-fileformats}
+## Access File Formats {#sec-intro-fileformats}
 
-An overview of the new and old file formats of Access.
+A summary of Access file formats:
 
 ACCDB
 
-:   This is the default format for files created with Access 2007, 2010, 2013 and 2016. Because the file formats are the same, you can for example open a database in Access 2007 that was created with Access 2016. However, new features that are not available in the older versions will not work. This can cause problems.
+:   The default format for Access 2007 and newer (2010, 2013, 2016, 2019, 365). Files are compatible across versions, but newer features may not work in older versions.
 
 MDB
 
-:   This is the format for files created with Access 2003 and earlier. Such a file can be opened by Access 2007, 2010, 2013 and 2016. And Access 2016 can also store a database in this older file format.
+:   The format used by Access 2003 and earlier. Access 2007 and later can open and save MDB files, but newer features are not supported.

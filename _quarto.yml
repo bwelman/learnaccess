@@ -12,7 +12,8 @@ book:
   site-url: https://learnaccess.netlify.app/
   repo-url: https://github.com/bwelman/learnaccess
   repo-actions: [issue]
-  description: "A task-oriented textbook."
+  description: "A task-oriented textbook with exercises."
+  favicon: images/favicon-access.png
   downloads: [pdf]
 
   chapters:
@@ -60,7 +61,7 @@ format:
     callout-appearance: simple
     author-meta: "Ben Welman"
     description-meta: "With this task oriented textbook you learn to work with Microsoft Access."
-    # keywords: ["Access", "databases", "tables", "queries", "forms", "reports", "macros"]
+    keywords: ["Access", "databases", "tables", "queries", "forms", "reports", "macros", "textbook"]
 
   pdf:
     documentclass: scrbook

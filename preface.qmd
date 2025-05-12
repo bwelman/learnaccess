@@ -1,40 +1,41 @@
 # Preface {.unnumbered}
 
-This textbook is intended as a thorough introduction to Microsoft Access and has been developed especially for students in higher education and users of Microsoft Access. The focus is on creating queries, forms and reports and not on designing databases. The chapters on these components contain many exercises to practice you in gathering information from the database.
+This textbook offers a comprehensive introduction to Microsoft Access and is designed specifically for students in higher education and users of Microsoft Access. The primary focus is on creating queries, forms, and reports rather than on database design. The chapters covering these components include numerous exercises to help you practice retrieving information from a database.
 
-This textbook is different from other Access textbooks in several ways.
+This textbook differs from other Access textbooks in several key ways:
 
-+ It is free and online, making it accessible to a wide audience.
+-   It is free and available online, making it accessible to a wide audience.
 
-+ Topics are developed to perform a specific task and master a specific task, no more and no less. This has resulted in concrete stepwise tasks without additional information that may cause only distraction.
+-   Each topic is developed to accomplish a specific task—nothing more, nothing less. This results in clear, step-by-step instructions without unnecessary information that might distract from the learning objective.
 
-+ The content of the tasks and exercises is mainly determined by competences and skills that higher education requires. Many of the problems comes from experiences of students in the professional practice during internships and graduation.
+-   The tasks and exercises are based on the competencies and skills required in higher education. Many of the challenges are drawn from real-life experiences of students during internships and graduation projects.
 
+# 
 
-## Organization textbook {.unnumbered}
+## Textbook Organization {.unnumbered}
 
-The textbook is built around the database `{{< var database >}}` of the fictitious company SNOOPY that sells an assortment of chocolate boxes to customers. The chapters in this book have a logical structure about working with this database.
+This textbook is centered around the `{{< var database >}}` database of the fictional company SNOOPY, which sells a variety of chocolate boxes to customers. The chapters follow a logical structure for working with this database:
 
-+ @sec-intro is an introduction to the Access program itself and the contents of databases in general.
+-   @sec-intro introduces the Access program and explains the general structure and contents of databases.
 
-+ @sec-explore is an exploration of the database `{{< var database >}}`, such as which tables has this database and what is in it. You will experiment with this database to discover different aspects of working with Access.
+-   @sec-explore provides an overview of the `{{< var database >}}` database, including its tables and contents. You will experiment with the database to explore different features of working with Access.
 
-+ @sec-data deals with adding and/or modifying data, which is often one of the most important task of the user. 
+-   @sec-data covers how to add and modify data, one of the most important tasks for users.
 
-+ @sec-tables focuses on creating tables and establishing relationships between tables.
+-   @sec-tables focuses on creating tables and establishing relationships between them.
 
-+ @sec-queries deals with obtaining desired information from a database, also a common end-user action. Queries are needed to provide the desired information. You will learn how to create these queries.
+-   @sec-queries teaches you how to retrieve specific information from a database using queries, another common end-user task.
 
-+ @sec-forms covers forms that allow you to display an organized and formatted view of fields in tables and queries. Forms are also important for data entry.
+-   @sec-forms introduces forms, which present organized, formatted views of table and query fields. Forms are also essential for data entry.
 
-+ @sec-reports deals with reports, overviews usually intended for printing. Labels are also a form of reports.
+-   @sec-reports covers reports, which are typically formatted for printing. This chapter also includes label creation, a special type of report.
 
-+ @sec-integration discusses a few ways to make Access work with Excel and Word.
+-   @sec-integration discusses ways to integrate Access with Excel and Word.
 
-+ @sec-tools shows which tools are available within Access to analyze, troubleshoot and correct a database.
+-   @sec-tools presents the tools available in Access to analyze, troubleshoot, and correct issues within a database.
 
-+ @sec-macros shows how to automate actions that are common or quite complex using macros.
+-   @sec-macros shows how to automate common or complex tasks using macros.
 
 ## Software {.unnumbered}
 
-This textbook works with **Access 365**, but it can also be used for other Access versions such as 2016 and 2019 and even the older 2010 and 2007 versions. 
+This textbook is based on **Access 365**, but it is also suitable for earlier versions such as 2016, 2019, and even older versions like 2010 and 2007.

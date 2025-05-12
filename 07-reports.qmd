@@ -6,327 +6,329 @@
 ::: callout
 **OBJECTIVES**
 
--   For which you can use reports.
--   How to create labels with the Wizard.
--   Creating an automatically generated report with manual adjustments.
+-   What reports are used for.
+-   How to create labels using the Wizard.
+-   Creating an auto-generated report with manual adjustments
 -   Creating a grouped report.
--   Creating a report with images of chocolates on labels.
+-   Creating a label report with chocolate images
 :::
 
-Reports are overviews that are usually meant for printing. Also, labels are a form of reports.
+Reports are structured summaries typically intended for printing. Labels are also a form of report.
 
-## About creating reports {#sec-reports-about}
+## Creating Reports {#sec-reports-about}
 
-Reports are usually overviews and summaries of large amounts of information.
+Reports are used to present summaries or overviews of large data sets, especially when preparing them for printing.
 
-If you want to print a sales report clearly on paper, then you use a report. In a report, you can also calculate subtotals and grand totals. You can create reports by hand, but it's easier to use the Wizard.
+For example, to clearly print a sales summary on paper, you would use a report. Reports can include subtotals and grand totals. You can build reports manually, but using the Wizard is much more efficient.
 
-Reports can be dynamically by using parameters. When generating the report you will be prompted for additional information. As an example see report [Sales per box]{.uicontrol}. When opening this report you are asked to enter a start date and after that for an end date.
+Reports can also be dynamic through the use of parameters. When opening a report, you may be prompted to enter criteria. For example, the [Sales per box]{.uicontrol} report asks for a start and end date when opened.
 
 ## Creating Labels {#sec-reports-labels}
 
-How to create labels with the Wizard.
+This section explains how to create address labels using the Label Wizard.
 
-In this task, you are going to create address labels for the customers with the Label Wizard. First, you have to select the table with the necessary fields.
-
-::: {#prp-reports-labels}
+:::: {#prp-reports-labels}
 [File]{.smallcaps}: `{{< var database >}}`
 
-1. Open the database.
+1.  Open the database.
 
-2.  Select table [Customers]{.uicontrol}.
+2.  Select the [Customers]{.uicontrol} table.
 
-3.  Choose [tab Create \> Labels (group Reports]{.uicontrol}.
+3.  Go to [Create \> Labels (group Reports)]{.uicontrol}.
 
-4.  Select measures `Metric`, manufacturer `Avery` and then product `Avery L7160`, see @fig-label-wizard-avery7160.
+4.  Choose `Metric` units, manufacturer `Avery`, and product `Avery L7160`, see @fig-label-wizard-avery7160.
 
-![Selection label type Avery L7160.](images/reports/label-wizard-avery7160.png){#fig-label-wizard-avery7160}
+![Label selection: Avery L7160 (metric, A4)](images/reports/label-wizard-avery7160.png){#fig-label-wizard-avery7160}
 
-5.  Click [Next]{.uicontrol}. In the screen that is displayed now, you can change font and color for the text.
+5.  Click [Next]{.uicontrol}. On the next screen, you can customize the font and color of the label text.
 
 6.  Accept the default settings and click [Next]{.uicontrol}.
 
-![Data on the label.](images/reports/label-wizard-fields.png){#fig-label-wizard-fields}
+![Inserting fields in the Label Wizard.](images/reports/label-wizard-fields.png){#fig-label-wizard-fields}
 
-::: {.callout-note}
-By double-clicking on a field name, the field is inserted at the cursor location. You can also use button [\>]{.uicontrol}. The field name appears between brackets on the prototype label. Also, text and spaces can be typed. With the Enter button, you can create a new line.
+::: callout-note
+You can insert fields by double-clicking the field name or using the [\>]{.uicontrol} button. The field name appears in curly braces on the sample label. You can type regular text and use Enter to create line breaks.
 :::
 
-7.  Create the following prototype label (with 1 space between the first and last name, and 2 spaces between zip code and city):
+7.  Create the following sample label (with one space between first and last name, and two spaces between zip code and city):
 
-```{=html}
-<!-- -->
+```         
+{FirstName} {LastName}
+{Address}
+{ZipCode} {City}
 ```
-    {FirstName} {LastName}
-    {Address}
-    {ZipCode} {City}
 
-8.  Click op [Next]{.uicontrol}. In the screen that is displayed now you can specify if the labels should be sorted, and if so, by which fields.
+8.  Click [Next]{.uicontrol}. Choose to sort the labels by [ZipCode]{.varname}.
 
-9.  There must be sorted by [ZipCode]{.varname}. Add this field and click [Next]{.uicontrol}. The last screen of the Wizard is displayed now. Here you can specify the name for the report.
+9.  Click [Next]{.uicontrol}. On the final screen, give the report the name [Labels Customers]{.varname} and click [Finish]{.uicontrol}.
 
-10. Name the report [Labels Customers]{.varname} and click [Finish]{.uicontrol}.
+![Print Preview of customer address labels.](images/reports/report-customers-printpreview.png){#fig-report-customers-printpreview}
 
-![Print Preview.](images/reports/report-customers-printpreview.png){#fig-report-customers-printpreview}
+10. Close the report.
+::::
 
-11. Close the report.
-:::
+## Auto-Generated Report {#sec-reports-autoreport}
 
-## Generated report {#sec-reports-autoreport}
+Access can generate a basic report from a table or query. While the result is functional, it often needs manual refinement.
 
-Access can automatically generate a report based on a table or a query. Sometimes the generated report is sufficient, but mostly you need to make manual adjustments.
-
-::: {#prp-reports-autoreport}
+:::: {#prp-reports-autoreport}
 [File]{.smallcaps}: `{{< var database >}}`
 
-1. Open the database.
+1.  Open the database.
 
-2.  Select query [Sales per region per box]{.uicontrol}.
+2.  Select the [Sales per region per box]{.uicontrol} query.
 
-3.  Click [tab Create \> Report (group Reports)]{.uicontrol}. The report is generated and opened in [Layout View]{.uicontrol}.
+3.  Go to [Create \> Report (Reports group)]{.uicontrol}. The report is generated and opens in [Layout View]{.uicontrol}.
 
-It's not beautiful that the value of [Region]{.varname} is repeated for each record and that the Sales values are not properly formatted. In the following steps, this will be changed.
+You'll notice that the [Region]{.varname} field is repeated for each record and that the sales amounts are not formatted as currency. We'll fix this.
 
-4.  Close the report and answer the question to save the changes with [Yes]{.uicontrol}. The dialog box ***Save As*** is displayed.
+4.  Close the report and confirm saving when prompted.
 
 5.  Name the report [Sales per region per box]{.varname} and click [OK]{.uicontrol}.
 
-6.  Open the report [Sales per region per box]{.uicontrol} in [Design View]{.uicontrol}.
+6.  Reopen the report in [Design View]{.uicontrol}.
 
-7.  Select in section [Detail]{.uicontrol} the field [Region]{.uicontrol}. In the [Property Sheet]{.uicontrol} change the value of property [Hide Duplicates]{.uicontrol} in `Yes`.
+7.  Select the [Region]{.uicontrol} field in the [Detail]{.uicontrol} section. In the [Property Sheet]{.uicontrol}, set [Hide Duplicates]{.uicontrol} to `Yes`.
 
-::: {.callout-note}
-The [Property Sheet]{.uicontrol} is on the right side of the screen and can be made visible and invisible by clicking on button [Property Sheet]{.uicontrol} or by using hotkey [F4]{.uicontrol}.
+::: callout-note
+The [Property Sheet]{.uicontrol} can be made visible and invisible by clicking on button [Property Sheet]{.uicontrol} or by using hotkey [F4]{.uicontrol}.
 :::
 
-8.  Select in section [Detail]{.uicontrol} the field [Sales]{.varname}. In the [Property Sheet]{.uicontrol} set the value of property [Format]{.uicontrol} on `Currency`.
+8.  Select the [Sales]{.uicontrol} field and set its [Format]{.uicontrol} to `Currency`.
 
-9.  Switch to [Report View]{.uicontrol}. The value of field [Region]{.varname} is now displayed only once and the sales values are in currency format.
+9.  Switch to [Report View]{.uicontrol}. Now the [Region]{.varname} is shown only once per group and the sales values are formatted properly.
 
-10. Close the report and save the changes.
-:::
+10. Save and close the report.
+::::
 
-## Report with grouping {#sec-reports-grouping}
+## Grouped Report {#sec-reports-grouping}
 
-INFORMATION NEEDS
+GOAL
 
-:   Create a report which shows over a specified period the sales per box, as well as the details of each order. As an example, see @fig-group-report-result which shows part of the report for November 2009.
+Create a report that shows, for a specified period, the sales per box, including order details. For example, see @fig-group-report-result, which shows a portion of the report for November 2009.
 
 ![Report November 2009 (partial view).](images/reports/group-report-result.png){#fig-group-report-result}
 
 ANALYSIS
 
-The required data are [BoxName]{.varname}, [OrderCode]{.varname}, [OrderDate]{.varname}, [Quantity]{.varname}, and a calculated field [Sales]{.varname} from the expression `[Quantity]*[BoxPrice]`. A query for this data is already available with the name [Sales per box per order per period]{.varname}.
+The report needs the following fields:
+
+-   [BoxName]{.varname}
+-   [OrderCode]{.varname}
+-   [OrderDate]{.varname}
+-   [Quantity]{.varname}
+-   [Sales]{.varname}, calculated as `[Quantity] * [BoxPrice]`
+
+A query named [Sales per box per order per period]{.varname} already exists and includes all these fields.
 
 ::: {#prp-reports-grouping}
 [File]{.smallcaps}: `{{< var database >}}`
 
-1. Open the database.
+1.  Open the database.
 
-2.  Select query [Sales per box per order per period]{.varname}.
+2.  Select the query [Sales per box per order per period]{.varname}.
 
-3.  Choose [tab Create \> Report Wizard (group Reports)]{.uicontrol}.
+3.  Go to [tab Create \> Report Wizard (Reports group)]{.uicontrol}.
 
-![Specifying fields.](images/reports/group-wizard-fields.png){#fig-group-wizard-fields}
+![Selecting fields to include in the grouped report.](images/reports/group-wizard-fields.png){#fig-group-wizard-fields}
 
-4.  Add all query fields, then click [Next]{.uicontrol}. In the screen that is displayed now, you can specify if you want to add grouping levels.
+4.  Add all fields from the query, then click [Next]{.uicontrol}.
 
-5.  Remove existing grouping levels ([OrderCode]{.varname}) and add [BoxName]{.varname} as grouping level
+5.  Remove the default grouping ([OrderCode]{.varname}) and add [BoxName]{.varname} as the grouping level.
 
-![Specifying fields for grouping.](images/reports/group-wizard-levels.png){#fig-group-wizard-levels}
+![Choosing grouping levels for the report.](images/reports/group-wizard-levels.png){#fig-group-wizard-levels}
 
-6.  Click [Next]{.uicontrol}. In the screen that is displayed now, you can specify the sort order.
+6.  Click [Next]{.uicontrol}. Set sorting to ascending by [OrderCode]{.varname}.
 
-7.  Specify to sort ascending on [OrderCode]{.varname}.
+![Defining sort order and summary options.](images/reports/group-wizard-sort.png){#fig-group-wizard-sort}
 
-![Specifying sort order and summary information.](images/reports/group-wizard-sort.png){#fig-group-wizard-sort}
+7.  Click [Summary Options...]{.uicontrol}. Enable summing for both [Quantity]{.varname} and [Sales]{.varname}.
 
-8.  Click button [Summary Options...]{.uicontrol} and select that the Sum should be calculated for the fields [Quantity]{.varname} and [Sales]{.varname}.
+![Enabling calculated totals for Quantity and Sales.](images/reports/group-wizard-summary.png){#fig-group-wizard-summary}
 
-![Specifying calculated summary values.](images/reports/group-wizard-summary.png){#fig-group-wizard-summary}
+8.  Click [OK]{.uicontrol}, then [Next]{.uicontrol}.
 
-9.  Click [OK]{.uicontrol} and after that [Next]{.uicontrol}. Now you can specify the layout of the report.
+9.  Choose the [Outline]{.uicontrol} layout.
 
-10. Select [Outline]{.uicontrol} layout.
+![Choosing the report layout style.](images/reports/group-wizard-layout.png){#fig-group-wizard-layout}
 
-![Layout report.](images/reports/group-wizard-layout.png){#fig-group-wizard-layout}
+10. Click [Next]{.uicontrol}. Enter the report name: [Sales per box per order per period]{.varname}, then click [Finish]{.uicontrol}.
 
-11. Click [Next]{.uicontrol}. The last screen of the Wizard is displayed now. Here you can specify the name for the report.
+11. When prompted, enter the start and end dates. For example:
 
-12. Name the report [Sales per box per order per period]{.varname} and click [Finish]{.uicontrol}.
+    -   Start Date: `11/1/2009`
+    -   End Date: `11/30/2009`
 
-The report is created and displayed in [Print Preview]{.uicontrol}. Because the query has parameters for the start and end date, you should enter values for these parameters.
-
-13. Test with Start date `11/1/2009` and End date `11/30/2009`.
-
-14. Close the report.
+12. Close the report after verifying the output.
 :::
 
 ## Praline Pictures {#sec-reports-pictures}
 
-In this task, you create a report with pictures of the pralines and the code and name above it. For that, labels are used, and on each label the data of the praline.
+In this task, you’ll create a report that includes images of pralines, with the praline code and name displayed above each image. This will be done using labels, with one praline per label.
 
 ::: {#prp-reports-pictures}
 [File]{.smallcaps}: `{{< var database >}}`
 
-1. Open the database.
+1.  Open the database.
 
-2.  Select table [Pralines]{.uicontrol}.
+2.  Select the [Pralines]{.uicontrol} table.
 
-3.  Choose [tab Create \> Labels (group Reports)]{.uicontrol}.
+3.  Go to [tab Create \> Labels (Reports group)]{.uicontrol}.
 
-4.  Select measures `Metric`, manufacturer `Zweckform` and then product `Zweckform 3415`.
+4.  Choose `Metric` as the unit, manufacturer `Zweckform`, and product `Zweckform 3415`.
 
-![Label type Zweckform 3415.](images/reports/label-wizard-zweckform3415.png){#fig-label-wizard-zweckform3415}
+![Label selection: Zweckform 3415 (metric format).](images/reports/label-wizard-zweckform3415.png){#fig-label-wizard-zweckform3415}
 
-5.  Click [Next]{.uicontrol}. In the screen that is displayed now, you can change font and color for the text.
+5.  Click [Next]{.uicontrol}. On the next screen, you can change the font and text color.
 
 6.  Accept the default settings and click [Next]{.uicontrol}.
 
-7.  Create the following Prototype label ( with 1 space between the fields):
+7.  Create the following prototype label ( with one space between the fields):
 
-        {PralineCode} {PralineName}
+    ```         
+    {PralineCode} {PralineName}
+    ```
 
-8.  Click [Next]{.uicontrol}. Specify to sort by [PralineCode]{.varname}.
+8.  Click [Next]{.uicontrol} and sort the labels by [PralineCode]{.varname}.
 
-9.  Click [Next]{.uicontrol}. Name the report [Labels Pralines]{.varname}.
+9.  Click [Next]{.uicontrol}. Name the report [Labels Pralines]{.varname} and click [Finish]{.uicontrol}.
 
-10. Click [Finish]{.uicontrol}. The report is generated and displayed in [Print Preview]{.uicontrol}.
+10. The report is generated and displayed in [Print Preview]{.uicontrol}. Switch to [Design View]{.uicontrol}.
 
-11. Switch to [Design View]{.uicontrol}.
+11. Click [Design \> Bound Object Frame (group Controls)]{.uicontrol}, ![](images/common/control-bound-object-frame.png), and draw a square about 1 inch by 1 inch in the [Detail]{.uicontrol} section.
 
-12. Click op [tab Design \> Bound Object Frame (group Controls)]{.uicontrol} ![](images/common/control-bound-object-frame.png) and draw a rectangle of approximately 1 inch by 1 inch in the [Detail]{.uicontrol} section.
+![Inserting a Bound Object Frame for images.](images/reports/label-praline-objectframe.png){#fig-label-praline-objectframe}
 
-![Object frame.](images/reports/label-praline-objectframe.png){#fig-label-praline-objectframe}
+12. With the frame selected, adjust the following properties in the [Property Sheet]{.uicontrol}:
 
-13. Make sure the frame remains selected, and then apply through the [Property Sheet]{.uicontrol} the following changes:
+    -   In the \[Format\] tab, set Width and Height to `1"` (Access may slightly adjust the dimensions).
+    -   In the \[Data\] tab, set the [Control Source]{.uicontrol} to the field `Picture`.
 
--   In tab [Format]{.uicontrol}: set Width and Height on 1 inch. Access may adjusts the dimensions a little bit. That's no problem.
+![Setting dimensions of the image frame to 1x1 inch.](images/reports/label-praline-dimensions.png){#fig-label-praline-dimensions}
 
-![Frame dimensions.](images/reports/label-praline-dimensions.png){#fig-label-praline-dimensions}
+![Binding the image frame to the Picture field.](images/reports/label-praline-controlsource.png){#fig-label-praline-controlsource}
 
--   In tab [Data]{.uicontrol}: specify for property [Control Source]{.uicontrol} field `Picture`.
+13. Select the label that is located behind the image frame.
 
-![Control Source.](images/reports/label-praline-controlsource.png){#fig-label-praline-controlsource}
+![Selecting the default label underneath the image frame.](images/reports/label-praline-label.png){#fig-label-praline-label}
 
-14. Select the label which is located substantially behind the frame.
+14. Delete the label using the [Delete]{.uicontrol} key.
 
-![Selecting label.](images/reports/label-praline-label.png){#fig-label-praline-label}
+15. Switch to [Print Preview]{.uicontrol}.
 
-15. Remove the label with the [Delete]{.uicontrol} key.
+The images are now displayed, but their vertical alignment may vary. To ensure consistency, the text fields should have a fixed height so all images align evenly.
 
-16. Switch to [Print Preview]{.uicontrol}.
+16. Return to [Design View]{.uicontrol}, select the text box, and set the following properties:
+    -   [Height]{.uicontrol}: `0.4"`
+    -   [Can Grow]{.uicontrol}: `No`
+    -   [Can Shrink]{.uicontrol}: `No`
 
-It is now almost good. Only the images don't all start at the same height so that the representation is chaotic. The text of [PralineCode]{.varname} and [PralineName]{.varname} should get a fixed height so that all images are placed at the same height.
+![Setting fixed height and disabling growth/shrink for the text box.](images/reports/label-praline-textbox.png){#fig-label-praline-textbox}
 
-17. Switch to [Design View]{.uicontrol}, select the text box and set property [Height]{.uicontrol} on 0.4 inch. Set also the properties [Can Grow]{.uicontrol} and [Can Shrink]{.uicontrol} on `No`.
+17. Align the text box and the image frame to the left.
 
-![Properties text box.](images/reports/label-praline-textbox.png){#fig-label-praline-textbox}
+![Aligning the text box and image frame.](images/reports/label-praline-alignment.png){#fig-label-praline-alignment}
 
-18. Align text box and frame to the left.
+18. Switch back to [Print Preview]{.uicontrol} to verify the layout.
 
-![Align controls.](images/reports/label-praline-alignment.png){#fig-label-praline-alignment}
+![Final result: labels with praline name, code, and image.](images/reports/report-pralines-result.png){#fig-report-pralines-result}
 
-19. Switch to [Print Preview]{.uicontrol}.
-
-![Print preview pralines.](images/reports/report-pralines-result.png){#fig-report-pralines-result}
-
-20. Close the report and save the changes.
+19. Save and close the report.
 :::
 
 ## Exercises {#sec-reports-exercises}
 
 ::: {#exr-rapp001}
-**Sales per region per box (rapp001)**
+**Sales per Region per Box (rapp001)**
 
-Create a report with the sales per region per box. The report should also show the total sales for each region and the percentage across all regions. Name the report [rapp001]{.varname}.
+Create a report showing sales per region per box. The report should also include the total sales for each region and show the percentage of total sales across all regions. Name the report [rapp001]{.varname}.
 
-![](images/reports/rapp001-report.png)
+![Example output of report \[rapp001\]: Sales per region per box.](images/reports/rapp001-report.png)
 :::
 
 ::: {#exr-rapp002}
-**Sales per box per region (rapp002)**
+**Sales per Box per Region (rapp002)**
 
-Create a report with per box the sales per region. Name the report [rapp002]{.varname}.
+Create a report that shows, for each box, the sales figures per region. Name the report [rapp002]{.varname}.
 
-![](images/reports/rapp002-report.png)
+![Example output of report \[rapp002\]: Sales per box per region.](images/reports/rapp002-report.png)
 :::
 
 ::: {#exr-rapp003}
-**Box and PralineCosts (rapp003)**
+**Box and Praline Costs (rapp003)**
 
-Create a report that shows all pralines in each box, together with the costs of these pralines. Also, display the sum of all praline costs. Name the report [rapp003]{.varname}.
+Create a report that lists all pralines in each box, including the cost of each praline. Also, include the total praline cost per box. Name the report [rapp003]{.varname}.
 
-![](images/reports/rapp003-report.png)
+![Example output of report \[rapp003\]: Praline costs per box.](images/reports/rapp003-report.png)
 :::
 
-::: {#exr-rapp004}
-**Box and Praline costs grouped (rapp004)**
+:::: {#exr-rapp004}
+**Box and Praline Costs Grouped (rapp004)**
 
-Create a copy of the report [rapp003]{.varname} and name the copy [rapp004]{.varname}. Make the report more legible to print all data of a box on a separate page. This can be done by inserting a page break before the header of each group. You need to set the property Force New Page of the groupheader with the value Before Section.
+Create a copy of the [rapp003]{.varname} report and name the copy [rapp004]{.varname}. Modify the report so that each box starts on a new page. To do this, set the [Force New Page]{.uicontrol} property of the group header to `Before Section`.
 
-Furthermore, make some small changes to the layout. The text box Sum should be moved to the right with only a small horizontal line above the sum.
+Also adjust the layout slightly: move the Sum text box to the right and draw a small horizontal line above the sum.
 
-![](images/reports/rapp004-report.png)
+![Example output of report \[rapp004\]: Grouped praline costs per box with page breaks.](images/reports/rapp004-report.png)
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Tip")`
-Every box is a group, so the group header in this report is named Box Header.
+
+Each box forms a group, so the group header is called "Box Header".
+
 `r unhide()`
 :::
-
-:::
+::::
 
 ::: {#exr-rapp005}
-**Sales per box per order per period (rapp005)**
+**Sales per Box per Order per Period (rapp005)**
 
-Create a copy of the report [Sales per box per order per period]{.varname} and name the copy [rapp005]{.varname}. Change the design of the report so that the total amount per box is printed next to the name box.
+Create a copy of the [Sales per box per order per period]{.varname} report and name it [rapp005]{.varname}. Modify the layout so that the total sales per box are printed next to the box name.
 
-![Report November 2009](images/reports/rapp005-report.png)
+![Modified report \[rapp005\]: Totals printed next to box names](images/reports/rapp005-report.png)
 :::
 
-::: {#exr-rapp006}
-**Box data on separated pages (rapp006)**
+:::: {#exr-rapp006}
+**Box Data on Separate Pages (rapp006)**
 
-Create a copy of report the [rapp005]{.varname} and name the copy [rapp006]{.varname}. Change the design of report rapp006 so that each box starts on a new page.
+Create a copy of the [rapp005]{.varname} report and name it [rapp006]{.varname}. Modify the design so that each box starts on a new page.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Tip")`
-Set property [Force New Page]{.uicontrol} of the group header (BoxName Header) on `Before Section`.
+
+Set the [Force New Page]{.uicontrol} property of the BoxName group header to `Before Section`.
+
 `r unhide()`
 :::
-
-:::
+::::
 
 ::: {#exr-rapp007}
 **Box Labels (rapp007)**
 
-Create a report with labels for all boxes according to the following picture. Name the report [rapp007]{.varname}.
+Create a label report for all boxes following the example below. Use Avery J8163 labels (1½" x 3 9/10"), font: Consolas, size: 12 pt, black. Name the report [rapp007]{.varname}.
 
-label type Avery J8163 1 1/2" x 3 9/10", Font Consolas 12pt normal black.
+```         
+All Seasons
 
-    All Seasons
-
-    Code  : ALLS
-    Weight: 150 gram
+Code  : ALLS
+Weight: 150 gram
+```
 :::
 
-::: {#exr-rapp008}
-**Yearly sales per region (rapp008)**
+:::: {#exr-rapp008}
+**Yearly Sales per Region (rapp008)**
 
-A report based on a parameter query and grouping.
+Create a report based on a parameter query with grouping.
 
-Create a report showing the number of boxes sold in a given year per region. Upon opening the report you should be asked for which year you want to see the report. Name the report [rapp008]{.varname}.
+The report should show the number of boxes sold per region for a user-specified year. When opening the report, the user should be prompted to enter the year. Name the report [rapp008]{.varname}.
 
-In the following picture, you see the beginning of the output for the year 2009.
-
-![](images/reports/rapp008-report.png)
+![Report \[rapp008\]: Yearly box sales per region (example: 2009).](images/reports/rapp008-report.png)
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Tip")`
-First create a parameter query [Yearly sales per region]{.varname} which provides the necessary data for the report and asks for the sales year.
+
+First, create a parameter query named [Yearly sales per region]{.varname} that retrieves the required data and prompts for the year.
+
 `r unhide()`
 :::
-
-:::
-
+::::
