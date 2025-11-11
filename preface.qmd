@@ -10,8 +10,6 @@ This textbook differs from other Access textbooks in several key ways:
 
 -   The tasks and exercises are based on the competencies and skills required in higher education. Many of the challenges are drawn from real-life experiences of students during internships and graduation projects.
 
-# 
-
 ## Textbook Organization {.unnumbered}
 
 This textbook is centered around the `{{< var database >}}` database of the fictional company SNOOPY, which sells a variety of chocolate boxes to customers. The chapters follow a logical structure for working with this database:
