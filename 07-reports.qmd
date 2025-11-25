@@ -201,8 +201,8 @@ In this task, you’ll create a report that includes images of pralines, with th
 
 12. With the frame selected, adjust the following properties in the [Property Sheet]{.uicontrol}:
 
-    -   In the \[Format\] tab, set Width and Height to `1"` (Access may slightly adjust the dimensions).
-    -   In the \[Data\] tab, set the [Control Source]{.uicontrol} to the field `Picture`.
+    -   In the [Format]{.uicontrol} tab, set Width and Height to `1"` (Access may slightly adjust the dimensions).
+    -   In the [Data]{.uicontrol} tab, set the [Control Source]{.uicontrol} to the field `Picture`.
 
 ![Setting dimensions of the image frame to 1x1 inch.](images/reports/label-praline-dimensions.png){#fig-label-praline-dimensions}
 
@@ -243,7 +243,7 @@ The images are now displayed, but their vertical alignment may vary. To ensure c
 
 Create a report showing sales per region per box. The report should also include the total sales for each region and show the percentage of total sales across all regions. Name the report [rapp001]{.varname}.
 
-![Example output of report \[rapp001\]: Sales per region per box.](images/reports/rapp001-report.png)
+![Example output of report rapp001: Sales per region per box.](images/reports/rapp001-report.png)
 :::
 
 ::: {#exr-rapp002}
@@ -251,7 +251,7 @@ Create a report showing sales per region per box. The report should also include
 
 Create a report that shows, for each box, the sales figures per region. Name the report [rapp002]{.varname}.
 
-![Example output of report \[rapp002\]: Sales per box per region.](images/reports/rapp002-report.png)
+![Example output of report rapp002: Sales per box per region.](images/reports/rapp002-report.png)
 :::
 
 ::: {#exr-rapp003}
@@ -259,7 +259,7 @@ Create a report that shows, for each box, the sales figures per region. Name the
 
 Create a report that lists all pralines in each box, including the cost of each praline. Also, include the total praline cost per box. Name the report [rapp003]{.varname}.
 
-![Example output of report \[rapp003\]: Praline costs per box.](images/reports/rapp003-report.png)
+![Example output of report rapp003: Praline costs per box.](images/reports/rapp003-report.png)
 :::
 
 :::: {#exr-rapp004}
@@ -269,7 +269,7 @@ Create a copy of the [rapp003]{.varname} report and name the copy [rapp004]{.var
 
 Also adjust the layout slightly: move the Sum text box to the right and draw a small horizontal line above the sum.
 
-![Example output of report \[rapp004\]: Grouped praline costs per box with page breaks.](images/reports/rapp004-report.png)
+![Example output of report rapp004: Grouped praline costs per box with page breaks.](images/reports/rapp004-report.png)
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Tip")`
@@ -285,7 +285,7 @@ Each box forms a group, so the group header is called "Box Header".
 
 Create a copy of the [Sales per box per order per period]{.varname} report and name it [rapp005]{.varname}. Modify the layout so that the total sales per box are printed next to the box name.
 
-![Modified report \[rapp005\]: Totals printed next to box names](images/reports/rapp005-report.png)
+![Modified report rapp005: Totals printed next to box names](images/reports/rapp005-report.png)
 :::
 
 :::: {#exr-rapp006}
@@ -322,7 +322,7 @@ Create a report based on a parameter query with grouping.
 
 The report should show the number of boxes sold per region for a user-specified year. When opening the report, the user should be prompted to enter the year. Name the report [rapp008]{.varname}.
 
-![Report \[rapp008\]: Yearly box sales per region (example: 2009).](images/reports/rapp008-report.png)
+![Report rapp008: Yearly box sales per region (example: 2009).](images/reports/rapp008-report.png)
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Tip")`

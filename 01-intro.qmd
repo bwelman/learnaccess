@@ -232,7 +232,7 @@ This course uses a sample database named `{{< var database >}}`. Since Access sa
 
 ### Backup {#sec-intro-database-backup}
 
-A backup is simply a copy of your database at a given point in time. Though you can use [Save As], Access also offers a built-in **Backup** feature:
+A backup is simply a copy of your database at a given point in time. Though you can use [Save As]{.uicontrol}, Access also offers a built-in **Backup** feature:
 
 Choose [File > Save As]{.uicontrol}, select **Back Up Database**, and click [Save As]{.uicontrol}. You’ll be prompted to choose a location and file name. By default, Access adds the current date to the original file name.
 

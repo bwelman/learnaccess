@@ -125,7 +125,7 @@ Start by copying the form [Search customer by code]{.varname}. Add a second [Com
 
 3.  Name the new form [Search customer by name]{.varname}, and open it in [Design View]{.uicontrol}.
 
-4.  Drag the top edge of the \[Detail\] section downward to make space in the header.
+4.  Drag the top edge of the [Detail]{.uicontrol} section downward to make space in the header.
 
 ![Expanding the form header to make room for an additional combo box.](images/macros/customername-formheader.png){#fig-customername-formheader}
 

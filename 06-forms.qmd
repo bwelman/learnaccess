@@ -361,8 +361,8 @@ To enter new orders and view existing ones, you'll create an order form that inc
 
 To supply data to these forms:
 
--   Create a query [Orders-Customers]{.varname} that combines the necessary fields from \[Orders\] and \[Customers\].
--   Create a query [OrderDetails-Boxes]{.varname} combining data from \[OrderDetails\] and \[Boxes\], with the \[Total\] calculated as `Quantity * BoxPrice`.
+-   Create a query [Orders-Customers]{.varname} that combines the necessary fields from [Orders]{.varname} and [Customers]{.varname}.
+-   Create a query [OrderDetails-Boxes]{.varname} combining data from [OrderDetails]{.varname} and [Boxes]{.varname}, with the [Total]{.varname} calculated as `Quantity * BoxPrice`.
 
 Then use the [Form Wizard]{.uicontrol} to create the form and subform based on these queries.
 
@@ -574,7 +574,7 @@ The main form displays customer data, which comes from the [Customers]{.varname}
 
     -   From [Orders]{.varname}: [OrderCode]{.varname}, [OrderDate]{.varname}.
 
-    -   From \[OrderDetails: [BoxCode]{.varname}, [Quantity]{.varname}.
+    -   From [OrderDetails]{.varname}: [BoxCode]{.varname}, [Quantity]{.varname}.
 
 5.  Click [Next]{.uicontrol}. Choose to view data by [Customers]{.varname} and select [Linked Forms]{.uicontrol} as the layout.
 

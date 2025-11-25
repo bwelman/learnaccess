@@ -212,7 +212,7 @@ Design View
 6.  Open the [Orders]{.varname} table in Datasheet View.
 
 ::: callout-note
-In the [Orders]{.varname} table, there is an expand button `+` in front of the records. Clicking it shows the order details, which come from the \[OrderDetails\] table. The associated details can be found because both tables contain the \[OrderCode\] field.
+In the [Orders]{.varname} table, there is an expand button `+` in front of the records. Clicking it shows the order details, which come from the [OrderDetails]{.varname} table. The associated details can be found because both tables contain the [OrderCode]{.varname} field.
 :::
 
 7.  Click the expand button on a few records to see which boxes and how many were ordered.
@@ -413,7 +413,7 @@ Design View
 In Design View, you can change the layout of the report and add controls such as text boxes, labels, list boxes, checkboxes, and more.
 :::
 
-5.  Switch the report back to [Report View] using ![](images/common/button-report-view.png).
+5.  Switch the report back to [Report View]{.uicontrol} using ![](images/common/button-report-view.png).
 
 6.  Close the report
 ::::
