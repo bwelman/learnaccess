@@ -1,8 +1,6 @@
 # Starting with Access {#sec-intro}
 
-::: callout
-**OBJECTIVES**
-
+::: callout-intro
 -   Understand what databases are and how they are structured.
 -   Get a brief introduction to database components (tables, queries, forms, reports, macros, modules).
 -   Learn how to start and close Access.
@@ -97,9 +95,7 @@ The elements in a form or report that display data are called **controls**. Thes
 
 ![Example of a part of a report.](images/intro/example-report.png){#fig-example-report}
 
-::: callout-note
-**Controls**
-
+::: {.callout-note title="Controls"}
 Controls are elements on forms or reports that display or print data. Examples include buttons, list boxes, and check boxes.
 
 They allow you to show field values, calculations, titles, messages, charts, or even other forms or reports.
@@ -125,7 +121,7 @@ The Access start screen appears. On the left (under Recent), you’ll see your m
 
 2.  To close Access, click the [X]{.uicontrol} button in the upper-right corner of the window.
 
-::: {.callout-note}
+::: {.callout-note title="Saving Changes"}
 Unlike many other programs, Access automatically saves all changes. You don’t need to manually save your database.
 :::
 
@@ -144,7 +140,9 @@ You can open an existing database in several ways:
 
 Use one of the methods above to open the database.
 
-::: {.callout-note}
+::: {.callout-note title="Closing Database"}
+When you open a database, Access loads all its components (tables, queries, forms, reports, macros, modules) into memory. This allows you to work with the data and design elements efficiently.
+
 To close the current database but keep Access open, choose [File > Close]{.uicontrol}.
 :::
 
@@ -174,7 +172,7 @@ Ribbon
 
 :   A panel at the top with organized commands grouped under tabs such as Home or Create. Some contextual tabs appear only when needed (e.g., the Table tab appears when a table is open). Frequently used commands are on the left; specialized ones are on the right.
 
-::: callout-note
+::: {.callout-note title="Minimizing the Ribbon"}
 You can’t remove the ribbon, but you can minimize it using [CTRL + F1]{.uicontrol}. Pressing it again restores the ribbon.
 :::
 
@@ -236,7 +234,7 @@ A backup is simply a copy of your database at a given point in time. Though you 
 
 Choose [File > Save As]{.uicontrol}, select **Back Up Database**, and click [Save As]{.uicontrol}. You’ll be prompted to choose a location and file name. By default, Access adds the current date to the original file name.
 
-::: callout-note
+::: {.callout-note title="Backup File Name"}
 When restoring from a backup, it helps to know which database it came from and when it was created. Using the default file name is a good practice.
 :::
 

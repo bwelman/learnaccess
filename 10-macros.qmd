@@ -1,8 +1,6 @@
 # Macros {#sec-macros}
 
-::: callout
-**OBJECTIVES**
-
+::: callout-intro
 -   Understand what macros can do.
 -   Learn how to create macros.
 -   Learn how to connect macros to a form.
@@ -18,8 +16,7 @@ In Access, a macro consists of a sequence of actions. Many actions require addit
 
 You don't need any programming experience to create a macro. Each macro is saved as an object within the database.
 
-::: callout-caution
-**Security note:**
+::: {.callout-caution title="Macros and security"}
 
 Access classifies macro actions into two types:
 
@@ -147,7 +144,7 @@ Start by copying the form [Search customer by code]{.varname}. Add a second [Com
 
 7.  Select the second combo box. In the Property Sheet (tab Other), set [Name]{.uicontrol} to [searchname]{.varname}. In the [After Update]{.uicontrol} event (tab Event), enter [Search customer by name]{.varname}.
 
-::: callout-note
+::: {.callout-note title="Macro not created yet"}
 The macro does not exist yet, you'll create it in the next step.
 :::
 
@@ -163,7 +160,7 @@ The macro does not exist yet, you'll create it in the next step.
 
 11. Add the action [FindRecord]{.uicontrol}, and set [Find What]{.uicontrol} to `=[searchname]`.
 
-::: callout-note
+::: {.callout-note title="Synchronizing combo boxes"}
 To keep both combo boxes synchronized, you’ll need to use [SetValue]{.uicontrol} to update the first combo box when the second is used.
 :::
 
@@ -180,7 +177,7 @@ To keep both combo boxes synchronized, you’ll need to use [SetValue]{.uicontro
 
 15. Open the form [Search customer by name]{.varname} and test both combo boxes.
 
-::: callout-note
+::: {.callout-note title="Synchronization combo boxes"}
 If you want the first combo box to update when the second is used, you'll need to add a similar [SetValue]{.uicontrol} action to the other macro as well. However, doing so may affect the original form [Search customer by code]{.varname}.
 :::
 ::::::

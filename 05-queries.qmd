@@ -3,9 +3,7 @@
 ```{r, file = "R/webex.R", include = FALSE}
 ```
 
-::: callout
-**OBJECTIVES**
-
+::: callout-intro
 -   Understand the types of queries and their uses.
 -   Create a simple select query using the wizard.
 -   Apply conditions in a query.
@@ -139,7 +137,7 @@ To perform this task, you must have completed the steps in @sec-queries-customer
 
 ![Query Design Grid with criteria for Province and OrderDate.](images/queries/q-utrecht-dec2009-criteria.png){#fig-q-utrecht-dec2009-criteria}
 
-::: callout-note
+::: {.callout-note title="Explanation of criteria"}
 -   For the date criteria you can use `Like "12*2009"` if you only care about the month and the year. For more precise date ranges you should need `Between #12/1/2009# And #12/31/2009#.`
 
 -   The asterisk \* is a wildcard meaning any characters can be in its place. So, the string "12/\*/2009" would match any day in December 2009.
@@ -168,7 +166,7 @@ This section describes creating a select query involving three tables.
 
 When using the Wizard to create the query, it is sufficient to add only the necessary fields from the [Customers]{.varname} and [OrderDetails]{.varname} tables. The Wizard will then automatically add the [Orders]{.varname} table because it links the [Customers]{.varname} and [OrderDetails]{.varname} tables. If you create the query manually from scratch, you must remember to add the [Orders]{.varname} table yourself. Therefore, using the Wizard is preferred for this task.
 
-::: callout-note
+::: {.callout-note title="No need for an additional criterion"}
 It's not necessary to include a criterion stating that at least one box was ordered, because this condition is automatically enforced by the joins between linked tables when retrieving related data.
 :::
 
@@ -261,7 +259,7 @@ A calculated field takes data from one or more fields and performs arithmetic op
 2.  Enter a name for the calculation (the result), followed by a colon (`:`).
 3.  Enter the expression for the calculation.
 
-::: callout-note
+::: {.callout-note title="Field names in expressions"}
 -   You can use field names in the expression. Field names must be enclosed in square brackets (\[\]). If a field name contains no spaces, Access will add the square brackets for you after you enter the name. If a field name contains spaces, you must type the square brackets yourself.
 
 -   When using one of the calculation options for summarizing, it is recommended to also provide a new name in front of the field name (e.g., `AvgCost: PralineCosts)`; otherwise, Access generates a default name for the result in Datasheet View (e.g., `AvgOfPralineCosts`). This new name must also be followed by a colon.
@@ -396,7 +394,7 @@ By default, Access uses field names as column headings in Datasheet View. For su
 
 7.  Switch to [Design View]{.uicontrol}.
 
-::: callout-note
+::: {.callout-note title="Properties of objects"}
 All objects in Access have properties. These properties determine, among other things, the appearance of the object. You can set properties in the [Property Sheet]{.uicontrol}. You can toggle the visibility of the Property Sheet with [Query Design tab \> Property Sheet (Show/Hide group)]{.uicontrol}. A faster way is to use the keyboard shortcut [F4]{.uicontrol}.
 
 To format the amounts as currency, you need to change the [Format]{.uicontrol} property of the calculated [Amount]{.varname} field.
@@ -513,7 +511,7 @@ Update
 
 :   Changes values in one or more records. Existing values in a field are replaced by new values, similar to a search and replace operation. You cannot undo the changes made by an update query, so it is advisable to first back up the database or the specific table before running the update query.
 
-::: callout-important
+::: {.callout-important title="Security risk of action queries"}
 Because these queries change data in the database, these queries could be a security risk. To provide protection, a number of checks are carried out in Access and the Trust Center. The trust center can disable the content. When opening such a database, Access displays a message with a security warning.
 
 ![Access Message Bar showing a security warning.](images/common/security-warning.png){#fig-securitywarning}
@@ -543,7 +541,7 @@ This section provides an example of a simple update query that changes values in
 
 **ANALYSIS**: All necessary data is in the [Pralines]{.varname} table. You need the [ChocolateType]{.varname} and [PralineCosts]{.varname} fields. Selecting the white chocolate types can be done by adding a criterion to the query. You can increase the [PralineCosts]{.varname} by 10% by multiplying the current value by `1.1`.
 
-::: callout-important
+::: {.callout-important title="Caution with Update Queries"}
 Make a backup (copy) of the table, so you can restore the original situation. Another possibility is to backup (copy) the whole database.
 :::
 
@@ -568,7 +566,7 @@ Make a backup (copy) of the table, so you can restore the original situation. An
 
 ![Update Query Design: Logic to increase PralineCosts by 10% for White chocolate.](images/queries/q-increase-costs-design2.png){#fig-q-increase-costs-design2}
 
-::: callout-note
+::: {.callout-note title="Field names and text in expressions"}
 -   Access will surround text criteria like "White" with double quotes if you don't type them.
 -   Field names in expressions must be enclosed in square brackets (\[\]).
 :::
@@ -631,7 +629,7 @@ Purpose: Creating a new table using a Make-Table query.
 
 15. click [Yes]{.uicontrol}.
 
-::: callout-note
+::: {.callout-note title="Query type change and its implications"}
 This prompt appears because the query type has been changed. This change is also reflected by the query's icon in the Navigation Pane under [Queries]{.uicontrol}.
 
 The query icon in front of the query name, ![](images/queries/q-maketable-icon.png), indicates it's an action query:
@@ -802,7 +800,7 @@ Create a list of all customers who do not live in Amsterdam. Name the query [que
 ::: {.content-visible when-format="html:js"}
 `r hide("Tip")`
 
-Find out which operator to use for "not equal to" (usually <>).
+Find out which operator to use for "not equal to" (usually \<\>).
 
 `r unhide()`
 
@@ -917,7 +915,7 @@ Result: 22 pralines
 :::: {#exr-quer016}
 **Boxes Heavier than 150 Grams with Max Price \$35 (quer016)**
 
-Create a list of boxes that are heavier than 150 grams and have a maximum price of $35. Show only BoxCode, BoxName, and BoxPrice. Sort the boxes by price in ascending order. Name the query [quer016]{.varname}.
+Create a list of boxes that are heavier than 150 grams and have a maximum price of \$35. Show only BoxCode, BoxName, and BoxPrice. Sort the boxes by price in ascending order. Name the query [quer016]{.varname}.
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")`
@@ -1055,7 +1053,7 @@ Due to a decline in the world market price of chocolate, the prices of all boxes
 2.  Design an update query to implement this reduction. Name the query [quer026]{.varname} and run it.
 3.  After verifying the result, you would typically keep this change. For exercise purposes, restore the original situation from your backup.
 
-::: {.callout-warning)
+::: {.callout-important title="Make a backup before running an update query"}
 -   Making a backup is crucial because you cannot easily undo the execution of an update query.
 -   Be aware that every time you run this query, the prices will be reduced by an additional 15% from their current values.
 :::
@@ -1065,7 +1063,6 @@ Due to a decline in the world market price of chocolate, the prices of all boxes
 **Crosstab Boxes per Weight (quer027)**
 
 Create a crosstab query with box names as row headings, the weight of the boxes as column headings, and the stock quantity as the summarized value in the table. Name the query [quer027]{.varname}.
-
 
 ::: {.content-visible when-format="html:js"}
 `r hide("Answer")`
@@ -1085,7 +1082,7 @@ Due to an increase in the chocolate price on the world market, the prices of all
 2.  Design an update query to implement this price increase. Name the query [quer028]{.varname} and execute it.
 3.  For exercise purposes, restore the original situation from your backup.
 
-::: {.callout-warning)
+::: {.callout-important title="Make a backup before running an update query"}
 -   Making a backup is important because you cannot revert the execution of an update query.
 -   Be aware that each time you execute this query, the prices will be further increased by 10%.
 :::

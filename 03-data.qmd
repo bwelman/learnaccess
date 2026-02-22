@@ -1,8 +1,6 @@
 # Data Entry and Modification {#sec-data}
 
-::: callout
-**OBJECTIVES**
-
+::: callout-intro
 -   Using a data entry form.
 -   Editing, adding and deleting records in a table.
 -   Using a main form with a subform.
@@ -49,7 +47,7 @@ The [Registration]{.varname} form is designed exclusively for adding new records
 
 2.  Open the [Registration]{.varname} form.
 
-::: callout-note
+::: {.callout-note title="How to use the Registration form"}
 The [Registration]{.varname} form contains blank fields for data entry. The insertion point indicates where the typed text will appear. You can move the insertion point by clicking on another field or by repeatedly pressing the TAB key.
 :::
 
@@ -57,7 +55,7 @@ The [Registration]{.varname} form contains blank fields for data entry. The inse
 
 ![Data entry with form Registration.](images/data/form-registration.png){#fig-form-registration}
 
-::: callout-note
+::: {.callout-note title="Edit mode"}
 You will see the pencil icon again, indicating that the form is in edit mode and the data has not yet been saved.
 
 The record is automatically saved when you close the form or navigate to another record.
@@ -112,7 +110,7 @@ Subform ([Boxes subform]{.varname})
 
 :   This form contains data about the pralines in the box, such as [PralineCode]{.varname} and [Quantity]{.varname}. This data is stored in the [BoxDetails]{.varname} table.
 
-::: callout-note
+::: {.callout-note title="Calculation of BoxCosts"}
 The content of the [BoxCosts]{.varname} field is calculated by summing `PralineCosts * Quantity` for all pralines in the box. Because this value can be calculated, it is not stored in a table
 :::
 
@@ -178,7 +176,7 @@ A memo from Snoopy's marketing department states that the price of the Buttersco
 
     `Box price too low, should be minimal 2*BoxCosts. Contact marketing department for further information.`
 
-::: callout-note
+::: {.callout-note title="Why a Validation message?"}
 This message appears because a validation rule is associated with the [BoxPrice]{.varname} field.
 :::
 

@@ -3,9 +3,7 @@
 ```{r, file = "R/webex.R", include = FALSE}
 ```
 
-::: callout
-**OBJECTIVES**
-
+::: callout-intro
 -   Understand the sample database `{{< var database >}}`.
 -   Learn how to handle security alerts.
 -   Explore the windows and navigation options within Access.
@@ -32,7 +30,7 @@ The example database `{{< var database >}}` contains data from the company SNOOP
 
 Customer data is stored in the [Customers]{.varname} table. Customer orders are recorded in the [Orders]{.varname} and [OrderDetails]{.varname} tables. Information about each box of pralines, such as name and price, is stored in the [Boxes]{.varname} table. The [BoxDetails]{.varname} table shows which pralines and how many of each are in each box. The [Pralines]{.varname} table contains details about each praline, including its name, chocolate type, filling, and even a picture.
 
-::: callout-note
+::: {.callout-note title="Primary Keys"}
 Each table should include a column or set of columns that uniquely identifies each row. This is often a unique identification number, such as an article number or employee number. In database terminology, this is called the **primary key** of the table. The value of the primary key must be unique in the table; duplicate values are not allowed. Most tables have a primary key consisting of a single field, but sometimes a combination of fields is needed to ensure uniqueness.
 
 In the [Customers]{.varname}, [Orders]{.varname}, [Boxes]{.varname}, and [Pralines]{.varname} tables, the key is a single field. In the [OrderDetails]{.varname} and [BoxDetails]{.varname} tables, two fields are required for the key. See @fig-example-db-design.
@@ -66,7 +64,7 @@ An order can contain multiple boxes, but each [BoxCode]{.varname} can only appea
 
 The combination of [OrderCode]{.varname} and [BoxCode]{.varname} is always unique. Therefore, the key in this table is a combination of these two fields.
 
-::: callout-note
+::: {.callout-note title="Calculation of total number of boxes"}
 The total number of boxes ordered across all orders is the sum of all values in the Quantity column. This number is not present in the table. Another chapter in this course will explain how to calculate it.
 :::
 
@@ -142,7 +140,7 @@ It is not recommended to enable all macros, as this removes important security c
 
 To explore, you must have the database `{{< var database >}}` open.
 
-::: callout-note
+::: {.callout-important title="Security warning"}
 If a security warning is displayed, you should take action as described in @sec-explore-security.
 :::
 
@@ -164,7 +162,7 @@ Double-clicking an object in the Navigation Pane opens it and displays its conte
 
 ![Document window with the Customers and Orders tables in tabs.](images/explore/document-tabs.png){#fig-document-tabs}
 
-::: callout-note
+::: {.callout-note title="Document window options"}
 You can change this setting through [File \> Options \> Current Database]{.uicontrol}. In @fig-document-window-options, you can see the available document window options.
 
 ![Document Window Options.](images/common/document-window-options.png){#fig-document-window-options}
@@ -211,7 +209,7 @@ Design View
 
 6.  Open the [Orders]{.varname} table in Datasheet View.
 
-::: callout-note
+::: {.callout-note title="Showing the order details"}
 In the [Orders]{.varname} table, there is an expand button `+` in front of the records. Clicking it shows the order details, which come from the [OrderDetails]{.varname} table. The associated details can be found because both tables contain the [OrderCode]{.varname} field.
 :::
 
@@ -257,7 +255,7 @@ Design View
 
 ![Design View of form Pralines.](images/explore/form-pralines-design-view.png){#fig-form-pralines-design-view}
 
-::: callout-note
+::: {.callout-note title="Design View of a form"}
 In Design View, you can change the layout of the form and add controls such as text boxes, labels, list boxes, checkboxes, and more.
 :::
 
@@ -339,7 +337,7 @@ Design View
 
 2.  Open the [Pralines per box]{.varname} query.
 
-::: callout-note
+::: {.callout-note title="Query result"}
 Access executes the query and displays a datasheet with the results, as shown in @fig-query-pralines-box-datasheet.
 
 The results of this query are derived from multiple tables. To see which tables are used, switch to the query's Design View.
@@ -355,7 +353,7 @@ The results of this query are derived from multiple tables. To see which tables 
 
 ![Design query Pralines per box.](images/explore/query-pralines-box-design.png){#fig-query-pralines-box-design}
 
-::: callout-note
+::: {.callout-note title="Design View of a query"}
 The upper three rectangles represent the tables used in this query. The lines with arrows connect the field names by which the tables are related.
 
 In the lower part of this window, the first row contains the names of the fields used. In the third column is an expression, a formula that performs operations on the fields. The expression here is `Sum([Pralines].[PralineCosts]*[BoxDetails].[Quantity])`. The names in brackets indicate the tables and fields.
@@ -409,7 +407,7 @@ Design View
 
 ![Report pralines per box in design view.](images/explore/report-pralines-box-design.png){#fig-report-pralines-box-design}
 
-::: callout-note
+::: {.callout-note title="Design View of a report"}
 In Design View, you can change the layout of the report and add controls such as text boxes, labels, list boxes, checkboxes, and more.
 :::
 
@@ -475,7 +473,7 @@ Filtering is a useful way to display only the data you want to see. You can use 
 
 4.  Choose [Home tab \> Selection (Sort & Filter group) \> Equals "White"]{.uicontrol}.
 
-::: callout-note
+::: {.callout-note title="Filter results"}
 Access now shows the records (4 records) where the chocolate type is white. You can see that a filter has been applied:
 
 -   A small filter icon appears to the right of the [ChocolateType]{.varname} column header (![](images/common/button-arrow-down-filter.png))
@@ -498,7 +496,7 @@ Here, you will modify the previous filter.
 
 2.  In the dialog box, select "Milk" and deselect "White." Click [OK]{.uicontrol}. Now, 18 records are shown, all with chocolate type "Milk."
 
-::: callout-note
+::: {.callout-note title="Filter options"}
 The options shown in @fig-filter-chocolatetype depend on the field type. For a text field, there is a [Text Filters]{.uicontrol} submenu; for a numeric field, there is a [Number Filters]{.uicontrol} submenu.
 :::
 ::::
@@ -520,7 +518,7 @@ Here, you add a second selection criterion.
 
 3.  Remove the filter by choosing [Home tab \> ![](images/common/button-filter-toggle.png) (Sort & Filter group)]{.uicontrol}.
 
-::: callout-note
+::: {.callout-note title="Alternative to Enable/Disable Filter"}
 Filtering is removed and all records are displayed again.
 
 Another way to remove the filter is by clicking the [Filtered]{.uicontrol} button in the status bar. The text on the button will change to [Unfiltered]{.uicontrol}. Clicking again reapplies the last used filter.
@@ -549,7 +547,7 @@ Access uses the printers available in Windows for printing.
 
 Depending on the view of an Access object, the result can be printed. For example, you can print datasheet views for tables and queries, report views for reports, and form views for forms.
 
-::: callout-note
+::: {.callout-note title="Printing Design View"}
 There is no option to print the design view, but Access has a tool called [Database Documenter]{.uicontrol} that lets you print the design characteristics of database objects.
 :::
 

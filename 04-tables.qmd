@@ -1,8 +1,6 @@
 # Tables {#sec-tables}
 
-::: callout
-**OBJECTIVES**
-
+::: callout-intro
 -   Understand the organization of tables and the relationships between them.
 -   Learn the various methods for creating tables.
 -   Explore field properties.
@@ -55,7 +53,7 @@ The data type defines what kind of data can be stored in a field. This is a crit
 
 : Data types in Access {#tbl-datatypes tbl-colwidths="\[30,30,40\]"}
 
-::: callout-note
+::: {.callout-note title="Lookup Wizard Data Type"}
 You can also choose `Lookup Wizard` as a data type. This launches the Lookup Wizard, which lets you define a field that displays values from another table or a custom list.
 :::
 
@@ -83,7 +81,7 @@ Required
 
 :   Specifies whether a value must be entered. Options are `Yes` or `No` (default).
 
-::: callout-note
+::: {.callout-note title="Input validation"}
 Special field properties like `Input Mask`, `Validation Rule`, and `Validation Text` help enforce data consistency and accuracy.
 :::
 
@@ -114,7 +112,7 @@ An input mask consists of one required and two optional parts, separated by semi
 
 -   **Third part (optional):** Sets the placeholder character (default is underscore `_`).
 
-::: callout-note
+::: {.callout-note title="Save storage space"}
 Setting the second part to `1` can save database space.
 :::
 
@@ -177,8 +175,7 @@ Validation Text
 
 :   A message shown when a value violates the validation rule.
 
-::: callout-tip
-**Syntax Tips:**
+::: {.callout-tip title="Syntax tips"}
 
 -   Field names go in square brackets: `[OrderDate]`
 
@@ -309,7 +306,7 @@ Purpose: Configure a field to use a list box for data entry.
 
 When only a limited set of predefined values is allowed in a field, a list box is a useful solution. For example, the [Customers]{.varname} table has a [Region]{.varname} field that should only contain `North` or `South`. You'll change the data type to a list box.
 
-::: callout-warning
+::: {.callout-important title="List boxes and forms"}
 List boxes do not automatically update forms based on the modified table, such as the Registration form. To enable the list box in the form, open the form in Design View, delete the Region field, and add it again. This step is not included in this task.
 :::
 
@@ -399,8 +396,7 @@ Referential integrity ensures consistency between related tables. When enabled, 
 
 You can enable referential integrity via the ***Edit Relationships*** dialog box by checking the [Enforce Referential Integrity]{.uicontrol} option.
 
-::: callout-important
-**Consequences of Enforcing Referential Integrity**
+::: {.callout-important title="Consequences of Enforcing Referential Integrity"}
 
 -   You cannot enter a value in the foreign key field of the related table if that value doesn’t exist in the primary table. For example, you can’t enter an order for a customer who doesn’t exist. Create the customer first.
 
@@ -420,7 +416,7 @@ To enable referential integrity, these conditions must be met:
 -   Linked fields must have the same data type, and numeric fields must match in size.
 -   Existing data must not violate referential integrity.
 
-::: callout-important
+::: {.callout-important title="AutoNumber Fields"}
 AutoNumber fields can be linked to `Number` fields as long as their [Field Size]{.uicontrol} property is set to `Long Integer`.
 :::
 
@@ -485,7 +481,7 @@ Use the [Transport]{.varname} table created earlier. If it's not in your databas
 
 Open the [Transport]{.varname} table. Notice the transport costs are not formatted as currency. Change the [Format]{.uicontrol} property of the [TransportationCosts]{.varname} field to display currency using your local symbol. Switch to Datasheet View to observe the result.
 
-::: callout-note
+::: {.callout-note title="Currency Format"}
 The displayed currency symbol depends on your Windows regional settings.
 :::
 ::::
@@ -495,7 +491,7 @@ The displayed currency symbol depends on your Windows regional settings.
 
 In the [Transport]{.varname} table, [ID TransportCompany]{.varname} has repeated values, so it cannot serve as a primary key. Similarly, [DeliveryProvince]{.varname} is also repeated. However, the combination of both fields is unique and can be used as a composite primary key. Set this composite key in the [Transport]{.varname} table.
 
-::: callout-note
+::: {.callout-note title="Table Transport"}
 In this exercise, you need the table [Transport]{.varname} that you should have made earlier (see @sec-tables-manually). When this table is not present in your database, you have two possibilities:
 
 -   You still perform the task by creating this table.

@@ -6,9 +6,7 @@ This is the free online version of the textbook **Learn Access**. This task-orie
 There are interactive sections in the textbook to help you better understand the content. This interactive content only works if you access this material through a web browser that supports JavaScript.
 :::
 
-::: callout-important
-## Data files
-
+::: {.callout-important title="Data files"}
 Data files are included with this textbook. You need these to complete the exercises. You can download them in one zip file: [Download data files](https://learnaccess.netlify.app/files-learnaccess.zip).
 :::
 

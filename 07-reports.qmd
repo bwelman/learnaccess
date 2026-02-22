@@ -3,9 +3,7 @@
 ```{r, file = "R/webex.R", include = FALSE}
 ```
 
-::: callout
-**OBJECTIVES**
-
+::: callout-intro
 -   What reports are used for.
 -   How to create labels using the Wizard.
 -   Creating an auto-generated report with manual adjustments
@@ -46,7 +44,7 @@ This section explains how to create address labels using the Label Wizard.
 
 ![Inserting fields in the Label Wizard.](images/reports/label-wizard-fields.png){#fig-label-wizard-fields}
 
-::: callout-note
+::: {.callout-tip title="Inserting field names"}
 You can insert fields by double-clicking the field name or using the [\>]{.uicontrol} button. The field name appears in curly braces on the sample label. You can type regular text and use Enter to create line breaks.
 :::
 
@@ -90,7 +88,7 @@ You'll notice that the [Region]{.varname} field is repeated for each record and 
 
 7.  Select the [Region]{.uicontrol} field in the [Detail]{.uicontrol} section. In the [Property Sheet]{.uicontrol}, set [Hide Duplicates]{.uicontrol} to `Yes`.
 
-::: callout-note
+::: {.callout-tip title="Accessing the Property Sheet"}
 The [Property Sheet]{.uicontrol} can be made visible and invisible by clicking on button [Property Sheet]{.uicontrol} or by using hotkey [F4]{.uicontrol}.
 :::
 

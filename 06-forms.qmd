@@ -1,8 +1,6 @@
 # Forms {#sec-forms}
 
-::: callout
-**OBJECTIVES**
-
+::: callout-intro
 -   Types of forms: main form, subform and linked form.
 -   Creating forms: automatic and manual.
 -   Working with controls.
@@ -96,7 +94,7 @@ In this task, you'll create a form for a warehouse employee to update box stock 
 
 3.  Click [Create \> Form (Forms group)]{.uicontrol}. A form is created and displayed in [Layout View]{.uicontrol}.
 
-::: callout-note
+::: {.callout-note title="Subdatasheet added automatically"}
 If Access detects a one-to-many relationship between your selected table/query and another table, it adds a subdatasheet for that related table. If multiple such tables exist, no subdatasheet is added.
 
 In this case, [Boxes]{.varname} has a one-to-many relationship with [OrderDetails]{.varname}, so a subdatasheet appears showing related [OrderDetails]{.varname} records.
@@ -110,7 +108,7 @@ If you don’t want this, you can delete the subdatasheet in [Layout View]{.uico
 
 ![Stock-in-trade form in Design View.](images/forms/f-stock-in-trade-design.png){#fig-f-stock-in-trade-design}
 
-::: callout-note
+::: {.callout-note title="Stacked layout"}
 Automatically created forms include two controls per field: a [Text Box]{.uicontrol} and a linked [Label]{.uicontrol}.
 
 ![Text box control with a linked label.](images/forms/textbox-label.png){#fig-textbox-label}
@@ -120,7 +118,7 @@ By default, all controls are arranged in a stacked layout, meaning you can’t f
 
 6.  In the [Form Header]{.uicontrol}, change the label from "Boxes" to "Stock-in-trade". Set [Font Weight]{.uicontrol} to `Bold` and [Font Size]{.uicontrol} to `20 pt`.
 
-::: callout-tip
+::: {.callout-tip title="Property Sheet"}
 You can show or hide the [Property Sheet]{.uicontrol} using the \[Property Sheet\] button or the [F4]{.uicontrol} hotkey. To find properties more quickly, sort them alphabetically using the ![](images/common/button-sort-ascending.png) button in the top right.
 :::
 
@@ -128,7 +126,7 @@ You can show or hide the [Property Sheet]{.uicontrol} using the \[Property Sheet
 
 ![Setting the Width property for text boxes.](images/forms/property-textboxes-width.png){#fig-property-textboxes-width}
 
-::: callout-note
+::: {.callout-note title="Locked property"}
 The [Locked]{.uicontrol} property makes a control read-only.
 :::
 
@@ -186,7 +184,7 @@ To calculate the subtotal, you'll use a query that contains all necessary fields
 
 ![Customers and Orders form with datasheet subform.](images/forms/f-customers-orders.png){#fig-f-customers-orders-2}
 
-::: callout-note
+::: {.callout-note title="Modify form layout"}
 You can modify the layout and design of both the main form and subform as needed.
 :::
 ::::
@@ -206,7 +204,7 @@ In this task, you'll create a form for adding new customers and editing existing
 
 3.  Click [Create \> Form (Forms group)]{.uicontrol}. The form opens in [Layout View]{.uicontrol}.
 
-::: callout-note
+::: {.callout-note title="Subdatasheet added automatically"}
 Since [Customers]{.varname} has a one-to-many relationship with [Orders]{.varname}, a subdatasheet based on [Orders]{.varname} is added automatically.
 :::
 
@@ -341,7 +339,7 @@ However, the [Boxes subform]{.varname} is based on the [BoxDetails]{.varname} ta
 
 9.  Select the [Combo Box]{.uicontrol} and check the [Limit To List]{.uicontrol} property in the [Property Sheet]{.uicontrol} (tab Data). If it’s not set to `Yes`, change it.
 
-::: callout-note
+::: {.callout-note title="Limit To List property"}
 Setting “Limit To List” to `Yes` ensures that only predefined praline names can be selected, new names cannot be entered manually.
 :::
 
@@ -377,7 +375,7 @@ Then use the [Form Wizard]{.uicontrol} to create the form and subform based on t
 
 3.  Add all fields from tbothtables.
 
-::: callout-note
+::: {.callout-tip title="Adding all fields"}
 You can use `*` to add all fields from a table.
 :::
 
@@ -497,7 +495,7 @@ You will:
 
 6.  Save the query as [Sales per box per month in 2010]{.varname} and close it.
 
-::: callout-note
+::: {.callout-note title="Reformatting calculated fields"}
 After reopening the query in [Design View]{.uicontrol}, Access may reformat the \[Sales\] column to:
 
 -   Field: `Sales: Sum([Quantity]*[BoxPrice])`.
@@ -538,7 +536,7 @@ After reopening the query in [Design View]{.uicontrol}, Access may reformat the 
 
 15. Click [Next]{.uicontrol}. Set the chart title: "Sales per box per month in 2010". Disable the legend and click [Finish]{.uicontrol}.
 
-::: callout-warning
+::: {.callout-warning title="No real data in the chart"}
 In Design View, a placeholder chart appears, not live data.
 :::
 
@@ -606,7 +604,7 @@ The [CustomerOrders]{.uicontrol} main form appears. However, the command button 
 12. Save and close the form.
 :::
 
-::: callout-tip
+::: {.callout-tip title="Overlapping windows vs. tabs"}
 By default, Access opens each object (tables, queries, forms, reports) in a separate tab. However, with linked forms, this isn't ideal, you won’t see both forms at once.
 
 To show forms in overlapping windows instead of tabs:

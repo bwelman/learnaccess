@@ -1,8 +1,6 @@
 # Tools {#sec-tools}
 
-::: callout
-**OBJECTIVES**
-
+::: callout-intro
 -   Analyze tables and detect data inconsistencies\
 -   Compact and repair databases to improve performance .
 :::
@@ -54,7 +52,7 @@ In @fig-tools-table-contacts, you see an example of a table named [Contacts]{.va
 
 ![Table Analyzer Wizard – manual field selection and normalization options.](images/tools/table-analyzer-wizard.png){#fig-table-analyzer-wizard}
 
-::: callout-note
+::: {.callout-note title="New tables"}
 In this step, you can create new tables and assign fields to them.
 :::
 
@@ -64,7 +62,7 @@ In this step, you can create new tables and assign fields to them.
 
 ![New table Contactpersons created by dragging the ContactName field.](images/tools/table-generated.png){#fig-table-generated}
 
-::: callout-note
+::: {.callout-note title="Relationships"}
 -   A relationship is automatically created between the original and the new table.\
 -   You can adjust the table positions and sizes by dragging them or their borders.
 :::
@@ -81,7 +79,7 @@ In this step, you can create new tables and assign fields to them.
     -   [Contactpersons]{.varname} (new)\
     -   [Tabel1]{.varname} (new)
 
-::: callout-warning
+::: {.callout-warning title="Possible warning"}
 You may see a warning message stating that the command [TileHorizontally]{.uicontrol} is unavailable. If so, click [OK]{.uicontrol}.
 :::
 

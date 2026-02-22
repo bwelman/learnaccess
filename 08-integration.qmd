@@ -1,8 +1,6 @@
 # Integration with Office {#sec-integration}
 
-::: callout
-OBJECTIVES
-
+::: callout-intro
 -   Exchange data between Access and Excel or Word.
 -   Create a mail merge letter in Word using an Access address table.
 -   Export a table to a new RTF document.
@@ -62,7 +60,7 @@ In this task, you'll send a form letter to customers announcing a new voucher bo
 
 ![Finishing mail merge.](images/integration/mailmerge-wizard-finishing.png){#fig-mailmerge-wizard-finishing}
 
-::: callout-note
+::: {.callout-note title="Choice of output"}
 You now have two options:
 
 -   [Print]{.uicontrol} to send letters directly to the printer.
