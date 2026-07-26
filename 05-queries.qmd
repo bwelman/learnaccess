@@ -4,11 +4,11 @@
 ```
 
 ::: callout-intro
--   Understand the types of queries and their uses.
--   Create a simple select query using the wizard.
--   Apply conditions in a query.
--   Use grouping and perform calculations.
--   Work with parameter queries, update queries, make-table queries, and crosstab queries.
+- Understand the types of queries and their uses.
+- Create a simple select query using the wizard.
+- Apply conditions in a query.
+- Use grouping and perform calculations.
+- Work with parameter queries, update queries, make-table queries, and crosstab queries.
 :::
 
 Retrieving information from a database is one of the most common tasks for end users. Queries are essential for this. While end users can create simple queries, complex ones may require assistance from professionals.
@@ -79,6 +79,7 @@ In a query, you can define conditions so that only records meeting these conditi
 
 A criterion is similar to a formula. It is a string that can consist of field references, operators, and constants (values that remain the same). Query criteria are also called expressions. The formulation of a criterion depends on the data type of the field (text, numeric, date/time, yes/no).
 
+::: {#tbl-criteria-operators}
 | Category      | Operators                                         |
 |:--------------|:--------------------------------------------------|
 | Arithmetic    | `+`, `-`, `*`, `/`, `\`, `^`, `Mod`               |
@@ -87,7 +88,8 @@ A criterion is similar to a formula. It is a string that can consist of field re
 | Concatenation | `&`, `+`                                          |
 | Special       | `Is Null`, `Is Not Null`, `Like`, `Between`, `In` |
 
-: Operators in criteria {#tbl-criteria-operators}
+: Operators in criteria
+:::
 
 You can create simple or very complex criteria using these operators.
 
@@ -97,11 +99,11 @@ Date values must be enclosed in pound signs `#`. Some examples of date criteria:
 
 Wildcards are placeholders for other characters, used when you don't know the entire search pattern but only a part of it. The three most common wildcards are:
 
--   `*`: For any number of characters. Examples: `"A*"`, `"*dam"`
+- `*`: For any number of characters. Examples: `"A*"`, `"*dam"`
 
--   `?`: For any single character. Example: `"b?k"`
+- `?`: For any single character. Example: `"b?k"`
 
--   `#`: For any single digit. Example `"1#5"`
+- `#`: For any single digit. Example `"1#5"`
 
 [External article: Examples of query criteria](https://support.office.com/en-us/article/Examples-of-query-criteria-3197228c-8684-4552-ac03-aba746fb29d8)
 
@@ -115,8 +117,8 @@ To perform this task, you must have completed the steps in @sec-queries-customer
 
 **ANALYSIS**: All required information is available in the query created in @sec-queries-customername-ordercodes. However, two additional conditions (criteria) are needed:
 
--   The [Province]{.varname} field (in the [Customers]{.varname} table) should have the value "UT".
--   The [OrderDate]{.varname} field (in the [Orders]{.varname} table) should have a value between December 1, 2009, and December 31, 2009.
+- The [Province]{.varname} field (in the [Customers]{.varname} table) should have the value "UT".
+- The [OrderDate]{.varname} field (in the [Orders]{.varname} table) should have a value between December 1, 2009, and December 31, 2009.
 
 :::: {#prp-queries-utrecht-dec2009}
 [File]{.smallcaps}: `{{< var database >}}`
@@ -138,11 +140,11 @@ To perform this task, you must have completed the steps in @sec-queries-customer
 ![Query Design Grid with criteria for Province and OrderDate.](images/queries/q-utrecht-dec2009-criteria.png){#fig-q-utrecht-dec2009-criteria}
 
 ::: {.callout-note title="Explanation of criteria"}
--   For the date criteria you can use `Like "12*2009"` if you only care about the month and the year. For more precise date ranges you should need `Between #12/1/2009# And #12/31/2009#.`
+- For the date criteria you can use `Like "12*2009"` if you only care about the month and the year. For more precise date ranges you should need `Between #12/1/2009# And #12/31/2009#.`
 
--   The asterisk \* is a wildcard meaning any characters can be in its place. So, the string "12/\*/2009" would match any day in December 2009.
+- The asterisk \* is a wildcard meaning any characters can be in its place. So, the string "12/\*/2009" would match any day in December 2009.
 
--   Ensure your computer's date format settings (e.g., American: month-day-year) are consistent with how you enter dates in Access criteria. Access typically interprets dates based on regional settings but using the unambiguous #mm/dd/yyyy# format is best practice.
+- Ensure your computer's date format settings (e.g., American: month-day-year) are consistent with how you enter dates in Access criteria. Access typically interprets dates based on regional settings but using the unambiguous #mm/dd/yyyy# format is best practice.
 :::
 
 6.  Switch to [Datasheet View]{.uicontrol} and verify that all customers are from the province of Utrecht and that all order dates are in December 2009.
@@ -234,8 +236,9 @@ Calculations
 
 :   The options are: `Sum`, `Avg`, `Min`, `Max`, `Count`, `StDev`, `Var`, `First`, `Last`, `Expression`. The selected calculation is then performed for the field.
 
+::: {#tbl-grouping-options}
 | Choice in Total box | Description |
-|:-------------------------|:---------------------------------------------|
+|:---|:---|
 | `Group By` | Groups records based on the values in this field. |
 | `Sum` | Adds together the values in this field. |
 | `Avg` | Averages the values in this field. |
@@ -249,7 +252,8 @@ Calculations
 | `Expression` | Calculates a user-defined expression for this field. |
 | `Where` | Filters records based on values in this field. |
 
-: Options for Summarizing. {#tbl-grouping-options}
+: Options for Summarizing.
+:::
 
 ### Calculated Field {.unnumbered}
 
@@ -260,9 +264,9 @@ A calculated field takes data from one or more fields and performs arithmetic op
 3.  Enter the expression for the calculation.
 
 ::: {.callout-note title="Field names in expressions"}
--   You can use field names in the expression. Field names must be enclosed in square brackets (\[\]). If a field name contains no spaces, Access will add the square brackets for you after you enter the name. If a field name contains spaces, you must type the square brackets yourself.
+- You can use field names in the expression. Field names must be enclosed in square brackets (\[\]). If a field name contains no spaces, Access will add the square brackets for you after you enter the name. If a field name contains spaces, you must type the square brackets yourself.
 
--   When using one of the calculation options for summarizing, it is recommended to also provide a new name in front of the field name (e.g., `AvgCost: PralineCosts)`; otherwise, Access generates a default name for the result in Datasheet View (e.g., `AvgOfPralineCosts`). This new name must also be followed by a colon.
+- When using one of the calculation options for summarizing, it is recommended to also provide a new name in front of the field name (e.g., `AvgCost: PralineCosts)`; otherwise, Access generates a default name for the result in Datasheet View (e.g., `AvgOfPralineCosts`). This new name must also be followed by a colon.
 :::
 
 Here are some examples. Study them carefully. Create and experiment with them.
@@ -567,8 +571,8 @@ Make a backup (copy) of the table, so you can restore the original situation. An
 ![Update Query Design: Logic to increase PralineCosts by 10% for White chocolate.](images/queries/q-increase-costs-design2.png){#fig-q-increase-costs-design2}
 
 ::: {.callout-note title="Field names and text in expressions"}
--   Access will surround text criteria like "White" with double quotes if you don't type them.
--   Field names in expressions must be enclosed in square brackets (\[\]).
+- Access will surround text criteria like "White" with double quotes if you don't type them.
+- Field names in expressions must be enclosed in square brackets (\[\]).
 :::
 
 8.  Save the query by clicking the [Save]{.uicontrol} button () on the [Quick Access Toolbar]{.uicontrol} and name it "Increase costs white chocolates with 10%".
@@ -1054,8 +1058,8 @@ Due to a decline in the world market price of chocolate, the prices of all boxes
 3.  After verifying the result, you would typically keep this change. For exercise purposes, restore the original situation from your backup.
 
 ::: {.callout-important title="Make a backup before running an update query"}
--   Making a backup is crucial because you cannot easily undo the execution of an update query.
--   Be aware that every time you run this query, the prices will be reduced by an additional 15% from their current values.
+- Making a backup is crucial because you cannot easily undo the execution of an update query.
+- Be aware that every time you run this query, the prices will be reduced by an additional 15% from their current values.
 :::
 ::::
 
@@ -1083,8 +1087,8 @@ Due to an increase in the chocolate price on the world market, the prices of all
 3.  For exercise purposes, restore the original situation from your backup.
 
 ::: {.callout-important title="Make a backup before running an update query"}
--   Making a backup is important because you cannot revert the execution of an update query.
--   Be aware that each time you execute this query, the prices will be further increased by 10%.
+- Making a backup is important because you cannot revert the execution of an update query.
+- Be aware that each time you execute this query, the prices will be further increased by 10%.
 :::
 ::::
 
