@@ -19,15 +19,15 @@ The most common query type is the **select query**, which retrieves specific dat
 
 Select query
 
-:   Retrieves data from one or more tables and displays the results. It can also perform calculations (e.g., sum, average, count). This is the most widely used query type.
+: Retrieves data from one or more tables and displays the results. It can also perform calculations (e.g., sum, average, count). This is the most widely used query type.
 
 Parameter query
 
-:   Prompts the user to enter one or more values before running. For example, it can show all orders placed on a specific date.
+: Prompts the user to enter one or more values before running. For example, it can show all orders placed on a specific date.
 
 Update query
 
-:   Modifies data in one or more fields for records that meet certain conditions, e.g., applying a 10% price increase to specific products.
+: Modifies data in one or more fields for records that meet certain conditions, e.g., applying a 10% price increase to specific products.
 
 Before creating a query, clearly define your information requirements.
 
@@ -105,7 +105,7 @@ Wildcards are placeholders for other characters, used when you don't know the en
 
 - `#`: For any single digit. Example `"1#5"`
 
-[External article: Examples of query criteria](https://support.office.com/en-us/article/Examples-of-query-criteria-3197228c-8684-4552-ac03-aba746fb29d8)
+[External article: Examples of query criteria](https://support.microsoft.com/en-us/access/examples-of-query-criteria)
 
 ## Orders from Utrecht Customers {#sec-queries-utrecht-dec2009}
 
@@ -226,15 +226,15 @@ For each added field, you can choose an option from the drop-down list in the [T
 
 Grouping
 
-:   The choice is [Group By]{.uicontrol}. The field is used to create smaller groups on which you can perform calculations. This is also the default option.
+: The choice is [Group By]{.uicontrol}. The field is used to create smaller groups on which you can perform calculations. This is also the default option.
 
 Filtering
 
-:   The choice is [Where]{.uicontrol}. The checkmark in the [Show]{.uicontrol} box is also cleared and should remain so. In the [Criteria]{.uicontrol} box, you can specify the value or expression for filtering.
+: The choice is [Where]{.uicontrol}. The checkmark in the [Show]{.uicontrol} box is also cleared and should remain so. In the [Criteria]{.uicontrol} box, you can specify the value or expression for filtering.
 
 Calculations
 
-:   The options are: `Sum`, `Avg`, `Min`, `Max`, `Count`, `StDev`, `Var`, `First`, `Last`, `Expression`. The selected calculation is then performed for the field.
+: The options are: `Sum`, `Avg`, `Min`, `Max`, `Count`, `StDev`, `Var`, `First`, `Last`, `Expression`. The selected calculation is then performed for the field.
 
 ::: {#tbl-grouping-options}
 | Choice in Total box | Description |
@@ -501,19 +501,19 @@ Access has four types of action queries:
 
 Make Table
 
-:   Selects one or more records and then creates a new table for them. This new table can be placed in the current database or created as a new table in a different database. You can use a Make Table query, for example, to copy outdated data to an archive database.
+: Selects one or more records and then creates a new table for them. This new table can be placed in the current database or created as a new table in a different database. You can use a Make Table query, for example, to copy outdated data to an archive database.
 
 Append
 
-:   Selects one or more records and then adds them to another existing table. For example, suppose you acquire new customers whose information has been stored in a separate table. With an append query, you can move these records to your main customers table.
+: Selects one or more records and then adds them to another existing table. For example, suppose you acquire new customers whose information has been stored in a separate table. With an append query, you can move these records to your main customers table.
 
 Delete
 
-:   Deletes one or more records. You specify a set of filter conditions, and then Access deletes the matching records. For example, you can remove products that are discontinued.
+: Deletes one or more records. You specify a set of filter conditions, and then Access deletes the matching records. For example, you can remove products that are discontinued.
 
 Update
 
-:   Changes values in one or more records. Existing values in a field are replaced by new values, similar to a search and replace operation. You cannot undo the changes made by an update query, so it is advisable to first back up the database or the specific table before running the update query.
+: Changes values in one or more records. Existing values in a field are replaced by new values, similar to a search and replace operation. You cannot undo the changes made by an update query, so it is advisable to first back up the database or the specific table before running the update query.
 
 ::: {.callout-important title="Security risk of action queries"}
 Because these queries change data in the database, these queries could be a security risk. To provide protection, a number of checks are carried out in Access and the Trust Center. The trust center can disable the content. When opening such a database, Access displays a message with a security warning.

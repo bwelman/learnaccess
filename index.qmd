@@ -12,24 +12,8 @@ Data files are included with this textbook. You need these to complete the exerc
 
 ### Help
 
--   [Report an issue](https://github.com/bwelman/learnaccess/issues)
+- [Report an issue](https://github.com/bwelman/learnaccess/issues)
 
--   [Ask a question](https://github.com/bwelman/learnaccess/discussions)
+- [Ask a question](https://github.com/bwelman/learnaccess/discussions)
 
-### Licence {.unnumbered}
-
-[![](images/creativecommons-by-nc-sa.png)](https://creativecommons.org/licenses/by-nc-sa/4.0)
-
-This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</a>.
-
-### About the author {.unnumbered}
-
-![Ben Welman](images/benw2.png){.quarto-cover-image .image-fluid width="150"}I studied Chemical Engineering at the [University of Twente](https://www.utwente.nl/en/). After teaching chemistry and mathematics at secondary schools for a several years, I began teaching informatics and statistics at [Saxion University of Applied Sciences](https://www.saxion.edu/). From there, I transitioned internally to MeetingPoint, which focused on developing and supporting e-learning. In 1993 I founded [Softwijs](https://bwelman.github.io/softwijs/), which I closed at the end of 2018.
-
-Since my retirement, I've enjoyed my hobbies: billiards, bridge, brewing beer, baking bread, and traveling (especially with my camper and bike). In addition to creating textbooks, I also spend time exploring data analysis, particularly with [R](https://en.wikipedia.org/wiki/R_(programming_language)) and  to a lesser extent with [Python](https://www.python.org/).
-
-Ben Welman
-
-Other textbooks:
-
--   [Learn Excel](https://learnexcel.netlify.app/)
+{{< include _textbook.qmd >}}
